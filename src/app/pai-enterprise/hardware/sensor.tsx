@@ -55,7 +55,7 @@ export default function Sensor() {
             Track and transmit your power usage with precision hardware built
             for modern factories, facilities, and enterprises
           </p>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 ">
             {sensorDetails.map((det, index) => (
               <SensorCard
                 index={index + 1}

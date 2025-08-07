@@ -386,7 +386,10 @@ export const Hero = () => {
       </div>
 
       <section className="w-full">
-        <Subscribe />
+        <Subscribe
+          title=" Learn more about PowerLabs"
+          subtitle="Get the latest PowerLabs news via email."
+        />
       </section>
 
       {/* RESPONSIVE: Adjusted padding */}

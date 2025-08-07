@@ -2,7 +2,13 @@ import SubscribeForm from '@/components/subscribe';
 import React from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
-export const Subscribe = () => {
+export const Subscribe = ({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle: string;
+}) => {
   const url = process.env.MAILCHIMP_URL ?? '';
   return (
     <div
@@ -15,12 +21,8 @@ export const Subscribe = () => {
     >
       <div className="absolute translate-y-1/2 z-10 text-left text-white space-y-4">
         <div className="text-center">
-          <h2 className="md:text-[40px] font-medium metallic-text">
-            Learn more about PowerLabs
-          </h2>
-          <p className="font-normal text-base">
-            Get the latest PowerLabs news via email.
-          </p>
+          <h2 className="md:text-[40px] font-medium metallic-text">{title}</h2>
+          <p className="font-normal text-base">{subtitle}</p>
         </div>
         <div>
           {
