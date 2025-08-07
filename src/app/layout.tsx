@@ -17,6 +17,16 @@ const geistMono = Geist_Mono({
 const generalSans = localFont({
   src: [
     {
+      path: './fonts/GeneralSans-Extralight.otf',
+      weight: '300',
+      style: 'extraLight',
+    },
+    {
+      path: './fonts/GeneralSans-Light.otf',
+      weight: '300',
+      style: 'light',
+    },
+    {
       path: './fonts/GeneralSans-Regular.otf',
       weight: '400',
       style: 'normal',

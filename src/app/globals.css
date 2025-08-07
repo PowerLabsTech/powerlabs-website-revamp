@@ -26,9 +26,17 @@
   .metallic-text {
     @apply bg-gradient-to-b from-white from-40% to-gray-500 bg-clip-text text-transparent;
   }
+  .metallic-text-long {
+    @apply bg-gradient-to-b from-white from-40% to-gray-500 bg-clip-text text-transparent;
+    @apply py-2;
+  }
 
   .btn-ghost {
     @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none;
+  }
+
+  .bg-primary {
+    background-color: #161922;
   }
 }
 

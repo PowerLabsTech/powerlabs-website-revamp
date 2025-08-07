@@ -17,198 +17,136 @@ export const Hero = () => {
     () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.maximizeBox', // The element that triggers and gets pinned
-          pin: '.content-wrapper', // Pin the trigger element
-          start: 'center center', // Start when the center of the trigger hits the viewport center
-          end: '+=1200', // Pin for 500px of scrolling
-          scrub: true, // Link the timeline's progress to the scrollbar
-        },
-      });
+      // BEST PRACTICE: Use matchMedia to create animations only for desktop screens
+      // This improves mobile performance by not running complex animations.
+      const mm = gsap.matchMedia();
 
-      tl.to('.floatingText', {
-        // End state
-        y: -200,
-        opacity: 0,
-        ease: 'none', // A linear ease often feels best for scrub animations
-      });
+      // (min-width: 1024px) is for desktop
+      mm.add('(min-width: 1024px)', function () {
+        // --- ALL DESKTOP-ONLY ANIMATIONS GO HERE ---
 
-      tl.to('.maximizeBox', {
-        scale: 0,
-        opacity: 0,
-        ease: 'power2.inOut',
-      });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.maximizeBox',
+            pin: '.content-wrapper',
+            start: 'center center',
+            end: '+=1200',
+            scrub: true,
+          },
+        });
 
-      // 1. The elements that will fade IN FIRST should start invisible.
-      gsap.set('.paiInfo', { opacity: 0, y: 30 });
-      gsap.set('.paiBoard', { scale: 1 });
-
-      // 2. The elements that will fade IN LATER should also start invisible.
-      gsap.set('.paiInfo2, .paiLaptop', { opacity: 0 });
-
-      // --- CREATE ONE MASTER TIMELINE ---
-      const animationTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.animation-container',
-          start: 'top top',
-          end: '+=7000', // Make the scroll distance longer to accommodate all animations
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      // --- BUILD THE ANIMATION "STORY" ---
-
-      // Part 1: The Arrival
-      animationTl.to('.paiBoard', {
-        scale: 0.7,
-        opacity: 1,
-        duration: 2,
-        ease: 'power2.inOut',
-      });
-      animationTl.to(
-        '.paiInfo',
-        {
-          opacity: 1,
-          y: 0,
-          stagger: 0.2,
-          duration: 1.5,
-          ease: 'power2.out',
-        },
-        '-=1.5'
-      ); // Overlap this with the board animation for a smoother effect
-
-      animationTl.to('.paiBoard', {
-        opacity: 0,
-        scale: 0.5, // Scale down while fading out
-        duration: 1,
-      });
-      animationTl.to(
-        '.paiLaptop',
-        {
-          opacity: 1,
-          duration: 1,
-        },
-        '<'
-      );
-
-      // Part 2: The Cross-Fade
-      animationTl.to(
-        '.paiInfo',
-        {
+        tl.to('.floatingText', {
+          y: -200,
           opacity: 0,
-          duration: 1,
-        },
-        '>'
-      );
+          ease: 'none',
+        });
 
-      animationTl.to(
-        '.paiInfo2',
-        {
+        tl.to('.maximizeBox', {
+          scale: 0,
+          opacity: 0,
+          ease: 'power2.inOut',
+        });
+
+        // --- Animation for the PAI board and laptop section ---
+        gsap.set('.paiInfo', { opacity: 0, y: 30 });
+        gsap.set('.paiBoard', { scale: 1 });
+        gsap.set('.paiInfo2, .paiLaptop', { opacity: 0 });
+
+        const animationTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.animation-container',
+            start: 'top top',
+            end: '+=7000',
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        animationTl.to('.paiBoard', {
+          scale: 0.7,
           opacity: 1,
+          duration: 2,
+          ease: 'power2.inOut',
+        });
+        animationTl.to(
+          '.paiInfo',
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            duration: 1.5,
+            ease: 'power2.out',
+          },
+          '-=1.5'
+        );
+
+        animationTl.to('.paiBoard', {
+          opacity: 0,
+          scale: 0.5,
           duration: 1,
-        },
-        '<'
-      ); // '<' starts this at the same time as the previous animation
+        });
+        animationTl.to(
+          '.paiLaptop',
+          {
+            opacity: 1,
+            duration: 1,
+          },
+          '<'
+        );
 
-      animationTl.to('.animation-container', {
-        scale: 0.9, // Scale down slightly
-        opacity: 0,
-        duration: 1.5,
+        animationTl.to(
+          '.paiInfo',
+          {
+            opacity: 0,
+            duration: 1,
+          },
+          '>'
+        );
+
+        animationTl.to(
+          '.paiInfo2',
+          {
+            opacity: 1,
+            duration: 1,
+          },
+          '<'
+        );
+
+        animationTl.to('.animation-container', {
+          scale: 0.9,
+          opacity: 0,
+          duration: 1.5,
+        });
+
+        // --- Animation for the scrolling mission text section ---
+        const scrollMission = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.scrollOver',
+            start: 'top top',
+            end: '+=5000',
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        scrollMission.to('.scrollOver1', {
+          yPercent: -150,
+          ease: 'none',
+        });
+
+        // --- END OF DESKTOP-ONLY ANIMATIONS ---
       });
-
-      const scrollMission = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.scrollOver',
-          start: 'top top',
-          end: '+=5000',
-          scrub: true,
-          pin: true,
-        },
-      });
-
-      scrollMission.to('.scrollOver1', {
-        yPercent: -150,
-        ease: 'none',
-      });
-
-      // const pinTl = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: '.three-column-wrapper', // Trigger when the whole section enters view
-      //     pin: '.three-column-wrapper', // Pin the PARENT container
-      //     start: 'center center',
-      //     end: '+=1000', // Pin for the longest duration needed
-      //     scrub: true,
-      //     // markers: true,
-      //   },
-      // });
-
-      // // --- Add animations to the timeline ---
-
-      // // This animation will make the side info fade out after a short scroll,
-      // // creating the effect of a "shorter pin" for them.
-      // pinTl.to(
-      //   '.paiInfo', // Target BOTH side divs
-      //   {
-      //     opacity: 0,
-      //     y: -50, // Animate them up and out
-      //     stagger: 0.1,
-      //   },
-      //   '+=1' // This is the key! See explanation below.
-      // );
-
-      // pinTl.to(
-      //   '.paiBoard',
-      //   {
-      //     opacity: 0,
-      //     scale: 0.7,
-      //   },
-      //   '+=1'
-      // );
-
-      // // 2. NEW info fades in as the old info fades out (crossfade)
-      // pinTl.to(
-      //   '.paiInfo2',
-      //   {
-      //     opacity: 1,
-      //     y: 0,
-      //     stagger: 0.1,
-      //   },
-      //   '-=0.5'
-      // ); // Start this 0.5s BEFORE the previous animation completes
-
-      // pinTl.from(
-      //   '.paiLaptop',
-      //   {
-      //     y: '100vh', // Start from way below the viewport
-      //     opacity: 1, // Ensure it's visible as it slides
-      //   },
-      //   '<'
-      // ); // "<" makes it start at the same time the board starts fading out
-
-      // 3. The original .paiBoard fades out at the end
-      // Start after a 1s delay, giving time to read the new info
-
-      // 4. The .paiLaptop slides up from the bottom TO TAKE ITS PLACE
-
-      // tl.to(
-      //   '.paiBoard',
-      //   {
-      //     scale: 0.2,
-      //     ease: 'none',
-      //   },
-      //   '>'
-      // );
     },
     { scope: main }
   );
 
   return (
     <>
-      <div className="w-full space-y-40" ref={main}>
-        <div className="p-8 sm:p-20 space-y-40">
-          <section className="relative mx-auto  h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl z-10 ">
+      {/* RESPONSIVE: Reduced vertical space on mobile (space-y-20) and increased on desktop (lg:space-y-40) */}
+      <div className="w-full space-y-20 lg:space-y-40" ref={main}>
+        {/* RESPONSIVE: Adjusted padding for different screen sizes */}
+        <div className="p-4 sm:p-10 lg:p-20 space-y-20 lg:space-y-40">
+          <section className="relative mx-auto h-[80vh] lg:h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl z-10">
             {/* Video Background */}
             <div className="absolute w-full h-full z-[-1]">
               <video
@@ -216,43 +154,39 @@ export const Hero = () => {
                 loop
                 muted
                 playsInline
-                // Use the path from the public folder
-                // poster="/images/hero-poster.jpg"
-                // `object-cover` ensures the video covers the area without distortion
                 className="w-full h-full object-cover"
               >
-                {/* <source src="/videos/hero-video.webm" type="video/webm" /> */}
                 <source src="/videos/hero_video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
 
-            {/* Dark Overlay for Readability */}
-            {/* `bg-black/50` is a Tailwind shorthand for black with 50% opacity */}
+            {/* Dark Overlay */}
             <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 
             {/* Hero Content */}
-            {/* `relative` and `z-10` ensure this content sits on top of the overlay and video */}
             <div className="relative z-10 text-center text-white px-4 content-wrapper">
               <div className="floatingText">
-                <h1 className="text-[80px] md:text-[80px] font-semibold leading-[1.3] ">
+                {/* RESPONSIVE: Adjusted font size for mobile, tablet, and desktop */}
+                <h1 className="text-5xl md:text-7xl lg:text-[80px] font-semibold leading-tight">
                   Minimize Cost.
                 </h1>
               </div>
               <div className="maximizeBox">
-                <h1 className="text-[80px] md:text-[80px] font-semibold leading-[1.3] mb-4 metallic-text">
+                <h1 className="text-5xl md:text-7xl lg:text-[80px] font-semibold leading-tight mb-6 metallic-text">
                   Maximize Uptime.
                 </h1>
-                <div className="flex gap-5 justify-center">
+                {/* RESPONSIVE: Buttons stack on mobile and are side-by-side on larger screens */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link
                     href="/get-started"
-                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+                    className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
                   >
                     Book a Demo
                   </Link>
                   <Link
                     href="/get-started"
-                    className="inline-flex items-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors"
+                    className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
                   >
                     Get Started
                     <span className="font-bold text-xl">&rarr;</span>
@@ -262,31 +196,20 @@ export const Hero = () => {
             </div>
           </section>
 
-          <div
-            className=" animation-container relative z-20"
-            style={{ height: '120vh' }}
-          >
-            {/* This is the element you want to position.
-    - top-1/2: Puts the top of this element at the parent's vertical midpoint.
-    - -translate-y-1/2: Shifts the element UP by 50% of its OWN height.
-    This combination perfectly centers it.
-  */}
-            <div
-              className="centered absolute top-1/4 left-0 w-full h-screen -translate-y-1/4 z-40"
-              style={{ height: '100vh' }}
-            >
-              {/* Note: The height determines how long you scroll while pinned */}
-              <section className="first-section absolute top-1/2  -translate-y-1/2 left-0 w-full h-screen">
-                <div className="three-column-wrapper flex justify-between items-center h-full px-8">
-                  {/* Add the "paiInfo" class to the left-side container */}
-                  <div className="paiInfo w-1/4">
-                    {/* ... your left side content ... */}
-                    <div className="space-y-50">
+          {/* RESPONSIVE: Height is auto on mobile (no pinning) and fixed on desktop for the animation */}
+          <div className="animation-container relative z-20 h-auto lg:h-[120vh]">
+            <div className="centered-content-for-desktop-animation relative lg:absolute top-1/4 left-0 w-full lg:h-screen lg:-translate-y-1/4 z-40">
+              {/* Section 1 */}
+              <section className="first-section relative lg:absolute top-1/2 lg:-translate-y-1/2 left-0 w-full py-16 lg:py-0">
+                {/* RESPONSIVE: Stacks vertically on mobile, row on desktop. Added gap for spacing. */}
+                <div className="three-column-wrapper flex flex-col lg:flex-row justify-between items-center h-full px-4 sm:px-8 gap-12 lg:gap-4">
+                  <div className="paiInfo w-full lg:w-1/4 text-center lg:text-left">
+                    <div className="space-y-8">
                       <div className="space-y-3">
-                        <h2 className="md:text-[40px] metallic-text">
+                        <h2 className="text-3xl lg:text-[40px] metallic-text">
                           Pai Enterprise Sensor
                         </h2>
-                        <p className="text-[16px] font-normal">
+                        <p className="text-base font-normal">
                           All your power sources. One smart Sensor
                         </p>
                         <button className="btn-ghost">Learn More</button>
@@ -297,45 +220,49 @@ export const Hero = () => {
                           alt="factories"
                           width={250}
                           height={250}
+                          className="mx-auto lg:mx-0"
                         />
                         <p className="mt-2">For Factories</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="paiBoard w-1/2 flex items-center justify-center">
+                  <div className="paiBoard w-full lg:w-1/2 flex items-center justify-center">
                     <Image
                       src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/pai_board.png"
                       width={420}
                       height={270}
                       alt="pai_board"
+                      className="w-full max-w-md"
                     />
                   </div>
 
-                  <div className="paiInfo w-1/4">
+                  <div className="paiInfo w-full lg:w-1/4 text-center lg:text-left">
                     <div>
                       <Image
                         src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/hospitals.png"
                         alt="hospitals"
                         width={350}
                         height={200}
+                        className="mx-auto lg:mx-0"
                       />
                       <p className="mt-2">For Hospitals</p>
                     </div>
                   </div>
                 </div>
               </section>
-              {/* This is the second section that will fade in */}
-              <section className="second-section absolute top-1/2  -translate-y-1/2 left-0 w-full h-screen">
+
+              {/* Section 2 */}
+              {/* RESPONSIVE: Hidden on mobile since it's part of a desktop-only animation */}
+              <section className="second-section hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 w-full h-screen">
                 <div className="three-column-wrapper2 flex justify-between items-center h-full px-8">
                   <div className="paiInfo2 w-1/3">
-                    {/* ... your new left side content ... */}
-                    <div className="space-y-50">
+                    <div className="space-y-12">
                       <div className="space-y-3">
-                        <h2 className="md:text-[40px] metallic-text">
+                        <h2 className="text-[40px] metallic-text">
                           Pai Enterprise Dashboard
                         </h2>
-                        <p className="text-[16px] font-normal">
+                        <p className="text-base font-normal">
                           All energy insights, one view.
                         </p>
                         <button className="btn-ghost">Learn More</button>
@@ -361,13 +288,14 @@ export const Hero = () => {
                     />
                   </div>
 
-                  <div className="paiInfo2 w-1/3">
+                  <div className="paiInfo2 w-1/3 text-center">
                     <div>
                       <Image
                         src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/gym.png"
                         alt="gym"
                         width={350}
                         height={200}
+                        className="mx-auto"
                       />
                       <p className="mt-2">For Gyms</p>
                     </div>
@@ -378,9 +306,10 @@ export const Hero = () => {
           </div>
         </div>
 
-        <section className="scrollOver h-[100vh] relative overflow-hidden">
+        {/* RESPONSIVE: This section is now naturally responsive without animations on mobile */}
+        <section className="scrollOver h-auto lg:h-[100vh] relative overflow-hidden">
           <div
-            className="scrollOver1 absolute top-0 w-full bg-no-repeat bg-center flex  justify-start z-20 "
+            className="scrollOver1 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
             style={{
               backgroundImage:
                 "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/missionImage1.jpg')",
@@ -389,45 +318,38 @@ export const Hero = () => {
               alignItems: 'flex-end',
             }}
           >
-            {/* This is the black overlay for contrast */}
             <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-
-            {/* This container is aligned by its parent's flex properties.
-    - We add padding (p-8) to give the content space from the edges.
-    - The `relative` class isn't needed for positioning here, so it can be removed.
-  */}
-            <div className=" z-10 text-left text-white p-[148px] md:p-[148px]">
-              <div className="mb-[16px]">
-                <h2 className="md:text-[40px] font-medium">
+            {/* RESPONSIVE: Drastically reduced padding on mobile */}
+            <div className="relative z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
+              <div className="mb-4">
+                {/* RESPONSIVE: Adjusted font size */}
+                <h2 className="text-3xl md:text-[40px] font-medium">
                   Unlocking Limitless
                 </h2>
-                <h2 className="md:text-[40px] font-medium">
+                <h2 className="text-3xl md:text-[40px] font-medium">
                   Human Productivity
                 </h2>
               </div>
               <Link
                 href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border-1 hover:bg-blue-700 text-white font-bold  p-[8px] rounded-lg text-lg transition-colors"
+                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>
               </Link>
             </div>
-
-            <div className="absolute bottom-10 z-10 text-center translate-x-1/2 w-full">
-              <div>
-                <Image
-                  src={chevronDown}
-                  alt="Chevron down"
-                  width={50}
-                  height={50}
-                />
-              </div>
+            <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full">
+              <Image
+                src={chevronDown}
+                alt="Chevron down"
+                width={50}
+                height={50}
+              />
             </div>
           </div>
 
           <div
-            className="scrollOver2 absolute top-0 w-full bg-no-repeat bg-center flex  justify-start z-10"
+            className="scrollOver2 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-10"
             style={{
               backgroundImage:
                 "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/missionImageChip.jpg')",
@@ -436,64 +358,39 @@ export const Hero = () => {
             }}
           >
             <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-
-            <div className="absolute bottom-0 z-10 text-left text-white p-[148px] md:p-[148px]">
-              <div className="mb-[16px]">
-                <h2 className="md:text-[40px] font-medium">Through</h2>
-                <h2 className="md:text-[40px] font-medium">
+            <div className="absolute bottom-0 z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
+              <div className="mb-4">
+                <h2 className="text-3xl md:text-[40px] font-medium">Through</h2>
+                <h2 className="text-3xl md:text-[40px] font-medium">
                   Intelligent Energy
                 </h2>
               </div>
               <Link
                 href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border-1 hover:bg-blue-700 text-white font-bold  p-[8px] rounded-lg text-lg transition-colors"
+                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>
               </Link>
             </div>
-
-            <div className="absolute bottom-10 z-10 text-center translate-x-1/2 w-full">
-              <div>
-                <Image
-                  src={chevronDown}
-                  alt="Chevron down"
-                  width={50}
-                  height={50}
-                />
-              </div>
+            <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full">
+              <Image
+                src={chevronDown}
+                alt="Chevron down"
+                width={50}
+                height={50}
+              />
             </div>
           </div>
         </section>
-
-        {/* Todo: What are customers saying */}
-
-        {/* <section>
-        <div
-          className="relative bg-contain bg-no-repeat bg-center h-[751px] flex items-center justify-center"
-          style={{
-            backgroundImage:
-              "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/missionImage1.jpg')",
-            height: '751px',
-          }}
-        >
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-
-          <div className="relative z-10 text-center text-white">
-            <h1 className="text-5xl font-bold">Your Title Here</h1>
-            <p className="mt-4 text-lg">
-              This text is readable on top of the dark overlay.
-            </p>
-          </div>
-        </div>
-      </section> */}
       </div>
-      {/*  learn more about powerlabs*/}
+
       <section className="w-full">
         <Subscribe />
       </section>
-      {/* footer */}
-      <div className="w-full p-8 sm:p-20">
+
+      {/* RESPONSIVE: Adjusted padding */}
+      <div className="w-full p-8 sm:p-10 lg:p-20">
         <Footer />
       </div>
     </>
