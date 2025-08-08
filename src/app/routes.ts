@@ -4,9 +4,19 @@ export const paths = [
     name: 'Pai Enterprise',
     path: '/pai-enterprise',
     dropdown: [
-      { name: 'Business Types', path: '/pai-enterprise/business-types' },
-      { name: 'Hardware', path: '/pai-enterprise/hardware' },
-      { name: 'Software', path: '/pai-enterprise/software' },
+      {
+        category: 'Business Types',
+        subLinks: [
+          {
+            name: 'Hospitals',
+            path: '/pai-enterprise/business-types/hospitals',
+          },
+          { name: 'Factories', path: '/pai-enterprise/switch' },
+          { name: 'Gyms', path: '/pai-enterprise/switch' },
+        ],
+      },
+      { category: 'Hardware', path: '/pai-enterprise/hardware' },
+      { category: 'Software', path: '/pai-enterprise/software' },
     ],
   },
   { name: 'Company', path: '/company' },
@@ -15,11 +25,11 @@ export const paths = [
     path: '/resources',
     // This item will have a dropdown menu
     dropdown: [
-      { name: 'The Outlet', path: '/resources/outlet' },
-      { name: 'Lab Notes', path: '/resources/lab-notes' },
-      { name: 'Webinars', path: '/resources/webinars' },
-      { name: 'Case Studies', path: '/resources/case-studies' },
-      { name: 'White Papers', path: '/resources/white-papers' },
+      { category: 'The Outlet', path: '/resources/outlet' },
+      { category: 'Lab Notes', path: '/resources/lab-notes' },
+      { category: 'Webinars', path: '/resources/webinars' },
+      { category: 'Case Studies', path: '/resources/case-studies' },
+      { category: 'White Papers', path: '/resources/white-papers' },
     ],
   },
   { name: 'Careers', path: '/careers' },
