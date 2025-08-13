@@ -46,7 +46,7 @@ export function Navigation() {
         {/* Logo */}
         <Link href="/">
           <Image
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/PowerLogo.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/PowerLogo.png"
             width={115}
             height={26}
             alt="Powerlabs_logo"

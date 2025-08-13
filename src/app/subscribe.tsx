@@ -15,7 +15,7 @@ export const Subscribe = ({
       className="scrollOver2 relative  w-full bg-no-repeat bg-center flex h-[370px]  justify-center"
       style={{
         backgroundImage:
-          "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/spiral.png')",
+          "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/spiral.png')",
         backgroundSize: 'cover',
       }}
     >

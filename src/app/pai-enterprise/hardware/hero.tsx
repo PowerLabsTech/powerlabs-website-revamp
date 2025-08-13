@@ -3,7 +3,13 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <>
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center space-y-10">
+        <div className="text-center">
+          <p className="text-xl text-[#E6F0FF] text-shadow-[0_5px_20px_#E6F0FF]">
+            Introducing
+          </p>
+          <h3 className="font-semibold text-6xl">Pai Enterprise Sensor</h3>
+        </div>
         <Image
           src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/pai_board.png"
           width={420}

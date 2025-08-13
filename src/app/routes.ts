@@ -11,8 +11,11 @@ export const paths = [
             name: 'Hospitals',
             path: '/pai-enterprise/business-types/hospitals',
           },
-          { name: 'Factories', path: '/pai-enterprise/switch' },
-          { name: 'Gyms', path: '/pai-enterprise/switch' },
+          {
+            name: 'Factories',
+            path: '/pai-enterprise/business-types/factories',
+          },
+          { name: 'Gyms', path: '/pai-enterprise/business-types/gyms' },
         ],
       },
       { category: 'Hardware', path: '/pai-enterprise/hardware' },

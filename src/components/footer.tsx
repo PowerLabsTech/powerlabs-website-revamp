@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="lg:flex mt-12 gap-[5rem] justify-between">
         <div>
           <img
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/logoIcon.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/logoIcon.png"
             alt="Powerlab logo"
           />
         </div>

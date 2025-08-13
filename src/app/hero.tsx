@@ -216,7 +216,7 @@ export const Hero = () => {
                       </div>
                       <div>
                         <Image
-                          src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/factories.png"
+                          src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg"
                           alt="factories"
                           width={250}
                           height={250}
