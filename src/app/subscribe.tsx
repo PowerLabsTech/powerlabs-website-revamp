@@ -1,4 +1,4 @@
-import SubscribeForm from '@/components/subscribe';
+import SubscribeForm, { SubscribeBlog } from '@/components/subscribe';
 import React from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
@@ -48,6 +48,28 @@ export const Subscribe = ({
             .
           </p>
         </div>
+      </div>
+    </div>
+  );
+};
+
+export const SubscribeFormBlog = () => {
+  const url = process.env.MAILCHIMP_URL ?? '';
+  return (
+    <div className="  z-10 text-left text-white ">
+      <div>
+        {
+          <MailchimpSubscribe
+            url={url}
+            render={({ subscribe, status, message }) => (
+              <SubscribeBlog
+                status={status}
+                message={message}
+                onValidated={(formData) => subscribe(formData)}
+              />
+            )}
+          />
+        }
       </div>
     </div>
   );
