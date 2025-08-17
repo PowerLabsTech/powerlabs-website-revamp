@@ -32,7 +32,7 @@ export default function HeroSoftware() {
 
         <div className="relative w-[1300px] h-[900px]">
           <Image
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/dashboardImage.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/dashboardImage.png"
             layout="fill"
             objectFit="contain"
             alt="pai-dashboard"

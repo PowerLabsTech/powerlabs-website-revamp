@@ -11,7 +11,7 @@ export default function Hero() {
           <h3 className="font-semibold text-6xl">Pai Enterprise Sensor</h3>
         </div>
         <Image
-          src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/pai_board.png"
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pai_board.png"
           width={420}
           height={270}
           alt="pai_board"

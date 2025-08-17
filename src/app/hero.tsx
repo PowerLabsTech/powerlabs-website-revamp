@@ -216,7 +216,7 @@ export const Hero = () => {
                       </div>
                       <div>
                         <Image
-                          src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg"
+                          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg"
                           alt="factories"
                           width={250}
                           height={250}
@@ -229,7 +229,7 @@ export const Hero = () => {
 
                   <div className="paiBoard w-full lg:w-1/2 flex items-center justify-center">
                     <Image
-                      src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/pai_board.png"
+                      src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pai_board.png"
                       width={420}
                       height={270}
                       alt="pai_board"
@@ -240,7 +240,7 @@ export const Hero = () => {
                   <div className="paiInfo w-full lg:w-1/4 text-center lg:text-left">
                     <div>
                       <Image
-                        src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/hospitals.png"
+                        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/hospitals.png"
                         alt="hospitals"
                         width={350}
                         height={200}
@@ -269,7 +269,7 @@ export const Hero = () => {
                       </div>
                       <div>
                         <Image
-                          src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/factories2.png"
+                          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factories2.png"
                           alt="factories2"
                           width={250}
                           height={250}
@@ -281,7 +281,7 @@ export const Hero = () => {
 
                   <div className="paiLaptop w-1/3 flex items-center justify-center">
                     <Image
-                      src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/paiLaptop.png"
+                      src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/paiLaptop.png"
                       width={420}
                       height={270}
                       alt="pai_laptop"
@@ -291,7 +291,7 @@ export const Hero = () => {
                   <div className="paiInfo2 w-1/3 text-center">
                     <div>
                       <Image
-                        src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/gym.png"
+                        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/gym.png"
                         alt="gym"
                         width={350}
                         height={200}
@@ -312,7 +312,7 @@ export const Hero = () => {
             className="scrollOver1 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
             style={{
               backgroundImage:
-                "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/missionImage1.jpg')",
+                "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImage1.jpg')",
               height: '100vh',
               backgroundSize: 'cover',
               alignItems: 'flex-end',
@@ -352,7 +352,7 @@ export const Hero = () => {
             className="scrollOver2 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-10"
             style={{
               backgroundImage:
-                "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/missionImageChip.jpg')",
+                "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImageChip.jpg')",
               height: '100vh',
               backgroundSize: 'cover',
             }}

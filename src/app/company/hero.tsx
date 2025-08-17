@@ -6,7 +6,7 @@ export default function HeroCompany() {
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}
       <Image
-        src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/officeSpace.jpg"
+        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/officeSpace.jpg"
         layout="fill"
         objectFit="cover"
         alt="office space"
@@ -21,7 +21,7 @@ export default function HeroCompany() {
       <div className="relative z-20 h-full flex items-center px-8 md:px-16 lg:px-24">
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
           <Image
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/scrollDown.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/scrollDown.png"
             width={20}
             height={24}
             alt="Scroll down icon"

@@ -18,7 +18,7 @@ export default function Analytics() {
         </div>
         <div className="relative w-full flex items-center w-full h-[900px]">
           <Image
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/dataImage.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/dataImage.png"
             layout="fill"
             objectFit="contain"
             alt="pai-data-dashboard"

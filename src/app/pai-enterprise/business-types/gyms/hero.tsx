@@ -6,7 +6,7 @@ export default function HeroGyms() {
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}
       <Image
-        src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/gymHeroImage.jpg"
+        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/gymHeroImage.jpg"
         layout="fill"
         objectFit="cover"
         alt="gym background"

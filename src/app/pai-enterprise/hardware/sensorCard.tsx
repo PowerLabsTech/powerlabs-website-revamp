@@ -10,7 +10,7 @@ export default function SensorCard({
   subtext: string;
 }) {
   const imageUrl =
-    'https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/pai_board.png';
+    'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pai_board.png';
   const isEven = index % 2 === 0;
 
   return (

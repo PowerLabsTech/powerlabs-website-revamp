@@ -8,7 +8,7 @@ export default function BuildTogether() {
           className="relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
           style={{
             backgroundImage:
-              "url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/buildTogether.png')",
+              "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/buildTogether.png')",
             height: '100vh',
             backgroundSize: 'cover',
             alignItems: 'flex-end',

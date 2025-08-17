@@ -19,7 +19,7 @@ export default function Optimization() {
         </div>
         <div className="relative w-full flex items-center w-full h-[500px]">
           <Image
-            src="https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/optimizationCards.png"
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optimizationCards.png"
             layout="fill"
             objectFit="contain"
             alt="pai-data-dashboard"
