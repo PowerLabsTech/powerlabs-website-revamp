@@ -64,6 +64,11 @@ export function Navigation() {
               >
                 <Link
                   href={path.path}
+                  onClick={(e) => {
+                    if (path.dropdown && path.dropdown.length > 0) {
+                      e.preventDefault();
+                    }
+                  }}
                   className={`p-2 hover:bg-white/10 hover:rounded-md transition-colors ${
                     (pathname.startsWith(path.path) && path.path !== '/') ||
                     pathname === path.path

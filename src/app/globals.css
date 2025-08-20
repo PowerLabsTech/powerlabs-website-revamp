@@ -42,8 +42,8 @@
 
 body {
   background: var(--background);
-  background-image: url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/gradient-radial.png'),
-    url('https://ews-app-landing-page.s3.us-east-1.amazonaws.com/website/grid-blocks.png');
+  background-image: url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/gradient-radial.png'),
+    url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/grid-blocks.png');
   background-repeat: no-repeat;
   background-position: top center;
   background-size: contain;

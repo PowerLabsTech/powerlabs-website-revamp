@@ -33,8 +33,18 @@ export const paths = [
       { category: 'Webinars', path: '/resources/webinars' },
       { category: 'Case Studies', path: '/resources/case-studies' },
       { category: 'White Papers', path: '/resources/white-papers' },
+      { category: 'Partner Hub', path: '/resources/partner-hub' },
     ],
   },
   { name: 'Careers', path: '/careers' },
-  { name: 'Community', path: '/community' },
+  {
+    name: 'Community',
+    path: '/community',
+    dropdown: [
+      { category: 'Podcast', path: '/community/podcast' },
+      { category: 'Shop', path: '/community/shop' },
+      { category: 'Events', path: '/community/events' },
+      { category: 'Ambassadors', path: '/community/ambassadors' },
+    ],
+  },
 ];

@@ -38,7 +38,7 @@ export const Subscribe = ({
             />
           }
         </div>
-        <div>
+        <div className="w-full flex justify-center">
           <p className="text-xs ">
             *This information may be transcribed, used, and stored by third
             parties in accordance with our{' '}
