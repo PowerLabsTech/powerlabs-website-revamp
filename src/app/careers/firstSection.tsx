@@ -11,32 +11,38 @@ export default function FirstSection() {
         }}
       >
         <div
-          className="bg-[#0F1114] w-full h-[462px] p-10 flex"
+          className="bg-[#0F1114] w-full p-6 md:p-10 flex flex-col lg:flex-row"
           style={{
             border: 'none',
-
             borderRadius: '4px',
           }}
         >
-          <div className="w-full h-full flex items-center justify-center ">
-            <div className="w-2/3">
-              <h3 className="text-4xl metallic-text mb-2">
+          <div className="w-full lg:w-1/2 flex items-center justify-center mb-8 lg:mb-0 lg:pr-8">
+            <div className="w-full">
+              <h3 className="text-3xl md:text-4xl metallic-text mb-4">
                 This is not a safe job.
               </h3>
-              <p className="font-extralight">
-                It’s not a place to hide, coast, or clock in. <br />
-                <br /> At PowerLabs, we build with urgency, think with clarity,
-                and demand excellence, from ourselves and each other. <br />
-                <br /> We hire people who take ownership, obsess over
-                excellence, and bring their full weight to the work. We move
-                fast, we hold the bar high, and we don't apologise for expecting
-                your best, every time. If you're looking for comfort, look
-                elsewhere. Still reading? Good. <br /> <br /> Maybe you’re one
-                of us. BREAK THINGS. RESPONSIBLY.
+
+              <p className="font-extralight space-y-4">
+                <span>It’s not a place to hide, coast, or clock in.</span>
+                <span>
+                  At PowerLabs, we build with urgency, think with clarity, and
+                  demand excellence, from ourselves and each other.
+                </span>
+                <span>
+                  We hire people who take ownership, obsess over excellence, and
+                  bring their full weight to the work. We move fast, we hold the
+                  bar high, and we don't apologise for expecting your best,
+                  every time. If you're looking for comfort, look elsewhere.
+                  Still reading? Good.
+                </span>
+                <span>Maybe you’re one of us. BREAK THINGS. RESPONSIBLY.</span>
               </p>
             </div>
           </div>
-          <div className="w-full h-full relative">
+
+          {/* Increased the height on small and medium screens */}
+          <div className="w-full lg:w-1/2 relative h-80 md:h-96 rounded-lg overflow-hidden">
             <Image
               src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/studioRoom.png"
               alt="Studio room"

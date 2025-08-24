@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/all';
-import chevronDown from '../../public/svgs/chevronDown.svg';
 import { Subscribe } from './subscribe';
 import Footer from '@/components/footer';
 
@@ -100,7 +99,7 @@ export const Hero = () => {
             opacity: 0,
             duration: 1,
           },
-          '>'
+          '<'
         );
 
         animationTl.to(
@@ -145,7 +144,7 @@ export const Hero = () => {
       {/* RESPONSIVE: Reduced vertical space on mobile (space-y-20) and increased on desktop (lg:space-y-40) */}
       <div className="w-full space-y-20 lg:space-y-40" ref={main}>
         {/* RESPONSIVE: Adjusted padding for different screen sizes */}
-        <div className="p-4 sm:p-10 lg:p-20 space-y-20 lg:space-y-40">
+        <div className=" space-y-20 lg:space-y-40">
           <section className="relative mx-auto h-[80vh] lg:h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl z-10">
             {/* Video Background */}
             <div className="absolute w-full h-full z-[-1]">
@@ -305,96 +304,6 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-
-        {/* RESPONSIVE: This section is now naturally responsive without animations on mobile */}
-        <section className="scrollOver h-auto lg:h-[100vh] relative overflow-hidden">
-          <div
-            className="scrollOver1 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
-            style={{
-              backgroundImage:
-                "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImage1.jpg')",
-              height: '100vh',
-              backgroundSize: 'cover',
-              alignItems: 'flex-end',
-            }}
-          >
-            <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-            {/* RESPONSIVE: Drastically reduced padding on mobile */}
-            <div className="relative z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
-              <div className="mb-4">
-                {/* RESPONSIVE: Adjusted font size */}
-                <h2 className="text-3xl md:text-[40px] font-medium">
-                  Unlocking Limitless
-                </h2>
-                <h2 className="text-3xl md:text-[40px] font-medium">
-                  Human Productivity
-                </h2>
-              </div>
-              <Link
-                href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
-              >
-                Learn More
-                <span className="font-bold text-xl">&rarr;</span>
-              </Link>
-            </div>
-            <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full">
-              <Image
-                src={chevronDown}
-                alt="Chevron down"
-                width={50}
-                height={50}
-              />
-            </div>
-          </div>
-
-          <div
-            className="scrollOver2 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-10"
-            style={{
-              backgroundImage:
-                "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImageChip.jpg')",
-              height: '100vh',
-              backgroundSize: 'cover',
-            }}
-          >
-            <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-            <div className="absolute bottom-0 z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
-              <div className="mb-4">
-                <h2 className="text-3xl md:text-[40px] font-medium">Through</h2>
-                <h2 className="text-3xl md:text-[40px] font-medium">
-                  Intelligent Energy
-                </h2>
-              </div>
-              <Link
-                href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
-              >
-                Learn More
-                <span className="font-bold text-xl">&rarr;</span>
-              </Link>
-            </div>
-            <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full">
-              <Image
-                src={chevronDown}
-                alt="Chevron down"
-                width={50}
-                height={50}
-              />
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <section className="w-full">
-        <Subscribe
-          title=" Learn more about PowerLabs"
-          subtitle="Get the latest PowerLabs news via email."
-        />
-      </section>
-
-      {/* RESPONSIVE: Adjusted padding */}
-      <div className="w-full p-8 sm:p-10 lg:p-20">
-        <Footer />
       </div>
     </>
   );

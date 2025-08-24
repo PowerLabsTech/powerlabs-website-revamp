@@ -14,17 +14,20 @@ export default function SensorCard({
   const isEven = index % 2 === 0;
 
   return (
-    <div className="relative w-[626px] h-[578px] bg-[#0F1114] rounded-2xl overflow-hidden p-8 text-white">
-      <div className="relative z-10 max-w-lg">
-        <p className="text-blue-500 font-bold text-lg mb-4">{index}</p>
-        <h2 className="text-2xl font-semibold mb-4">{title}</h2>
-        <p className="text-gray-400 text-lg">{subtext}</p>
+    <div className="relative w-full min-h-[450px] md:min-h-[500px] bg-[#0F1114] rounded-2xl overflow-hidden p-6 md:p-8 text-white">
+      <div className="relative z-10 max-w-md">
+        <p className="text-blue-500 font-bold text-base md:text-lg mb-4">
+          {index}
+        </p>
+        <h2 className="text-xl md:text-2xl font-semibold mb-4">{title}</h2>
+        <p className="text-gray-400 text-base md:text-lg">{subtext}</p>
       </div>
 
       <div
         className={`
-          absolute w-[550px] h-[550px] 
-          -bottom-[275px] -right-[100px] 
+          absolute 
+          w-[350px] h-[350px] -bottom-[175px] -right-[80px]
+          md:w-[550px] md:h-[550px] md:-bottom-[275px] md:-right-[100px]
           transition-transform duration-500 ease-in-out
           ${isEven ? 'rotate-180' : ''}
         `}

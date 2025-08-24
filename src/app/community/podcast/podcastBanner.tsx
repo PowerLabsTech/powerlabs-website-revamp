@@ -4,49 +4,52 @@ export default function PodcastBanner() {
   return (
     <>
       <div
-        className="scrollOver2 relative  w-full bg-no-repeat bg-center flex h-[370px]  justify-center text-center"
+        className="relative w-full bg-no-repeat bg-center flex items-center justify-center px-4 py-20 text-center"
         style={{
           backgroundImage:
             "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/spiral.png')",
           backgroundSize: 'cover',
         }}
       >
-        <div className="absolute translate-y-1/2 z-10 text-left text-white space-y-4">
-          <div className="text-center">
-            <h2 className="md:text-[40px] font-medium metallic-text">
+        <div className="w-full max-w-2xl text-white space-y-6 md:space-y-8">
+          <div>
+            <h2 className="text-3xl md:text-[40px] font-medium metallic-text">
               Catch up on all episodes of The Blue Couch Podcast
             </h2>
           </div>
-          <div className="flex  items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 md:gap-6">
             <Image
               src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/spotifyIcon.png"
-              width={100}
-              height={100}
-              alt="amazon icon"
-              className="z-0 cursor-pointer"
+              width={80}
+              height={80}
+              alt="Spotify icon"
+              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
             />
             <Image
               src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/amazonIcon.png"
-              width={100}
-              height={100}
-              alt="amazon icon"
-              className="z-0 cursor-pointer"
+              width={80}
+              height={80}
+              alt="Amazon Music icon"
+              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
             />
             <Image
               src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/audiomackIcon.png"
-              width={100}
-              height={100}
-              alt="amazon icon"
-              className="z-0 cursor-pointer"
+              width={80}
+              height={80}
+              alt="Audiomack icon"
+              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
             />
           </div>
-          <div className="w-full flex items-center text-center justify-center">
-            <p className="text-xs ">
+          <div className="w-full flex justify-center">
+            <p className="text-xs max-w-md">
               *This information may be transcribed, used, and stored by third
               parties in accordance with our{' '}
-              <span className="underline decoration-solid text-blue-500 decoration-blue-500 italic">
+              <a
+                href="/privacy"
+                className="underline decoration-solid text-blue-500 decoration-blue-500 italic"
+              >
                 privacy policy
-              </span>
+              </a>
               .
             </p>
           </div>

@@ -77,12 +77,12 @@ export default function FaqAmbassadorAccordion() {
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
   return (
-    <div className="w-full px-[120px] py-[64px] bg-primary text-white rounded-lg">
+    <div className="w-full p-8 md:p-16 lg:p-20 bg-primary text-white rounded-lg">
       <h3 className="font-semibold text-lg mb-2 text-amber-600">FAQs</h3>
-      <h3 className="font-medium mb-8 text-5xl metallic-text">
+      <h3 className="font-medium mb-4 text-3xl md:text-5xl metallic-text">
         Still have questions?
       </h3>
-      <h4 className="font-medium mb-8 text-2xl metallic-text">
+      <h4 className="font-medium mb-8 text-lg md:text-2xl metallic-text">
         Send us an email: hello@powerlabstech.com
       </h4>
 
@@ -107,17 +107,9 @@ export default function FaqAmbassadorAccordion() {
             onPointerEnterCapture={undefined}
             onPointerLeaveCapture={undefined}
           >
-            <Typography
-              color="white"
-              className="mr-auto font-medium text-xl"
-              placeholder={undefined}
-              onResize={undefined}
-              onResizeCapture={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
-            >
+            <h3 className="mr-auto font-medium text-lg md:text-xl text-white">
               {question}
-            </Typography>
+            </h3>
           </AccordionHeader>
           <AccordionBody className="pt-0 text-base font-normal text-gray-400">
             {answer}

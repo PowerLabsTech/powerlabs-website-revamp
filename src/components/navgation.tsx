@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { paths } from '../app/routes';
 import { useState } from 'react';
+import { ChevronDownIcon } from './ui';
 
 export function Navigation() {
   const pathname = usePathname();
@@ -13,6 +14,9 @@ export function Navigation() {
   // State to track the hovered category within the dropdown (e.g., "Food & Beverage")
   const [activeCategory, setActiveCategory] = useState<string | null>(
     paths.find((p) => p.dropdown)?.dropdown?.[0]?.category || null
+  );
+  const [openMobileSubMenu, setOpenMobileSubMenu] = useState<string | null>(
+    null
   );
 
   const handleMouseEnter = (pathName: string) => {
@@ -36,6 +40,10 @@ export function Navigation() {
   const activeCategoryData = activeDropdownData?.find(
     (cat) => cat.category === activeCategory
   );
+
+  const toggleMobileSubMenu = (name: string) => {
+    setOpenMobileSubMenu((prev) => (prev === name ? null : name));
+  };
 
   return (
     <div
@@ -192,44 +200,78 @@ export function Navigation() {
                       </Link>
                     </li>
                   ))}
-                  {/* {activeCategoryData.discover?.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          href={link.path}
-                          className="flex items-center gap-3 text-white hover:underline"
-                        >
-                          {link.icon}
-                          <span>{link.name}</span>
-                        </Link>
-                      </li>
-                    ))} */}
                 </ul>
               </div>
-              {/* <div className="col-span-3">
-                  <h4 className="text-sm font-semibold text-gray-400 uppercase mb-4">
-                    Capabilities
-                  </h4>
-                  <ul className="space-y-3">
-                    {activeCategoryData.capabilities?.map((link) => (
-                      <li key={link.name}>
-                        <Link
-                          href={link.path}
-                          className="text-white hover:underline"
-                        >
-                          {link.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div> */}
             </>
           )}
         </div>
       </div>
       {/* --- MOBILE MENU --- */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-[#0F1114] px-6 pb-6">
-          {/* Mobile menu implementation remains the same */}
+        <div
+          className={`lg:hidden bg-[#0F1114] text-white absolute top-full left-0 w-full z-50 transition-all duration-300 ease-in-out overflow-hidden ${
+            isMobileMenuOpen ? 'max-h-screen' : 'max-h-0'
+          }`}
+        >
+          <div className="px-6 py-4">
+            <ul className="flex flex-col space-y-2">
+              {paths.map((path) => (
+                <li key={path.name}>
+                  {path.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => toggleMobileSubMenu(path.name)}
+                        className="w-full flex justify-between items-center py-2 text-lg"
+                      >
+                        <span>{path.name}</span>
+                        <ChevronDownIcon
+                          className={
+                            openMobileSubMenu === path.name ? 'rotate-180' : ''
+                          }
+                        />
+                      </button>
+                      <div
+                        className={`pl-4 overflow-hidden transition-all duration-300 ease-in-out ${
+                          openMobileSubMenu === path.name
+                            ? 'max-h-96'
+                            : 'max-h-0'
+                        }`}
+                      >
+                        <ul className="pt-2 space-y-2">
+                          {path.dropdown.map((category) => (
+                            <li key={category.category}>
+                              <Link
+                                href={category.path ?? ''}
+                                className="font-semibold text-gray-400 pt-2"
+                              >
+                                {category.category}
+                              </Link>
+                              <ul className="pl-2 pt-2 space-y-2">
+                                {category?.subLinks?.map((subLink) => (
+                                  <li key={subLink.name}>
+                                    <Link
+                                      href={subLink.path}
+                                      className="block py-1 text-gray-300 hover:text-white"
+                                    >
+                                      {subLink.name}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ) : (
+                    <Link href={path.path} className="block py-2 text-lg">
+                      {path.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>

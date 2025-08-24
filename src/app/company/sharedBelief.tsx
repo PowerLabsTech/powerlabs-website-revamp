@@ -41,54 +41,44 @@ What is our shared responsibility as a collective?`,
 
 export default function SharedBelief() {
   return (
-    <>
-      <div className="space-y-10">
-        <div className="text-center">
-          <h2 className="metallic-text-long text-5xl">Our shared beliefs</h2>
-          <p className="font-extralight">
-            At PowerLabs, our shared beliefs represent the foundation that
-            brings our diverse team of <br /> experts together on a single
-            mission.
-          </p>
-        </div>
-        <div className="relative w-full flex flex-col items-center justify-center  border-t border-t-[#4C4C4C] ">
-          {beliefs.map((b, index) => (
-            <BeliefCards
-              title={b.title}
-              subText={b.text}
-              lastIndex={index + 1 === beliefs.length}
-              key={index}
-            />
-          ))}
-        </div>
+    <div className="space-y-8 md:space-y-12 p-4">
+      <div className="text-center">
+        <h2 className="metallic-text-long text-3xl md:text-5xl">
+          Our shared beliefs
+        </h2>
+
+        <p className="font-extralight max-w-3xl mx-auto mt-2">
+          At PowerLabs, our shared beliefs represent the foundation that brings
+          our diverse team of experts together on a single mission.
+        </p>
       </div>
-    </>
+      <div className="relative w-full flex flex-col items-center justify-center border-t border-t-[#4C4C4C]">
+        {beliefs.map((b, index) => (
+          <BeliefCards title={b.title} subText={b.text} key={index} />
+        ))}
+      </div>
+    </div>
   );
 }
 
-function BeliefCards({
-  title,
-  subText,
-  lastIndex,
-}: {
-  title: string;
-  subText: string;
-  lastIndex: boolean;
-}) {
+function BeliefCards({ title, subText }: { title: string; subText: string }) {
   return (
-    <>
-      <div
-        className={`${
-          lastIndex ? 'min-h-[400px]' : ''
-        } min-h-[291px]  flex items-center justify-center w-full border-b border-b-[#4C4C4C]`}
-      >
-        <div className="w-full h-full flex items-center justify-center">
-          <p className="text-5xl metallic-text-long">{title}</p>
-        </div>
-        <div className="w-full h-full flex items-center justify-center">
-          <p className="font-extralight whitespace-pre-line">{subText}</p>
-        </div>
+    <div
+      className={`
+        flex flex-col lg:flex-row items-center justify-center w-full 
+        border-b border-b-[#4C4C4C] p-8 md:p-12
+      `}
+    >
+      <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start mb-6 lg:mb-0">
+        <p className="text-3xl md:text-5xl metallic-text-long text-center lg:text-left">
+          {title}
+        </p>
       </div>
-    </>
+      <div className="w-full lg:w-1/2 flex items-center justify-center lg:justify-start">
+        <p className="font-extralight whitespace-pre-line text-center lg:text-left">
+          {subText}
+        </p>
+      </div>
+    </div>
   );
 }

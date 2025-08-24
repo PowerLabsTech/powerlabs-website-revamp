@@ -30,15 +30,17 @@ const internshipInfos = [
 export default function FirstSection() {
   return (
     <>
-      <div className="w-full bg-[#161922] p-20 space-y-20">
-        <div className="w-full flex items-center justify-center">
-          <h3 className="metallic-text text-4xl">What’s In It For You?</h3>
+      <div className="w-full bg-[#161922] p-8 md:p-16 lg:p-20 space-y-12 md:space-y-20">
+        <div className="w-full flex items-center justify-center text-center">
+          <h3 className="metallic-text text-3xl md:text-4xl">
+            What’s In It For You?
+          </h3>
         </div>
 
         <div className="w-full flex justify-center">
-          <div className="grid grid-cols-3 gap-20">
-            {internshipInfos.map((info) => (
-              <div className="w-96 space-y-5 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16">
+            {internshipInfos.map((info, index) => (
+              <div key={index} className="w-full max-w-sm space-y-5">
                 <Image
                   src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/intershipIcon.png"
                   alt="internshipIcon"
@@ -46,7 +48,7 @@ export default function FirstSection() {
                   height={70}
                 />
                 <h3 className="font-semibold text-2xl">{info.title}</h3>
-                <div className="border border-[0.5px] bg-gray-200 w-96 opacity-35"></div>
+                <div className="border border-[0.5px] bg-gray-200 w-full opacity-35"></div>
                 <p className="text-[#FAFAFAB2]">{info.text}</p>
               </div>
             ))}

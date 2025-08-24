@@ -4,7 +4,6 @@ import {
   Accordion,
   AccordionHeader,
   AccordionBody,
-  Typography,
 } from '@material-tailwind/react';
 
 const faqData = [
@@ -80,29 +79,13 @@ export default function FaqAccordion() {
   const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
   return (
-    <div className="w-full px-[120px] py-[64px] bg-primary text-white rounded-lg">
-      <Typography
-        color="blue"
-        className="font-semibold text-lg mb-2"
-        placeholder={undefined}
-        onResize={undefined}
-        onResizeCapture={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      >
+    <div className="w-full px-6 py-12 md:px-16 lg:px-20 bg-primary text-white rounded-lg">
+      <h3 className="font-semibold text-base md:text-lg mb-2 text-blue-600">
         FAQs
-      </Typography>
-      <Typography
-        variant="h2"
-        className="font-medium mb-8 text-5xl metallic-text"
-        placeholder={undefined}
-        onResize={undefined}
-        onResizeCapture={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
-      >
+      </h3>
+      <h3 className="font-medium mb-6 md:mb-8 text-3xl md:text-5xl metallic-text">
         Still have questions?
-      </Typography>
+      </h3>
 
       {faqData.map(({ question, answer }, index) => (
         <Accordion
@@ -118,26 +101,21 @@ export default function FaqAccordion() {
         >
           <AccordionHeader
             onClick={() => handleOpen(index + 1)}
-            className="border-b-0 text-white hover:text-gray-300 py-6"
+            className="border-b-0 text-white hover:text-gray-300 py-5 md:py-6"
             placeholder={undefined}
             onResize={undefined}
             onResizeCapture={undefined}
             onPointerEnterCapture={undefined}
             onPointerLeaveCapture={undefined}
           >
-            <Typography
+            <h3
               color="white"
-              className="mr-auto font-medium text-xl"
-              placeholder={undefined}
-              onResize={undefined}
-              onResizeCapture={undefined}
-              onPointerEnterCapture={undefined}
-              onPointerLeaveCapture={undefined}
+              className="mr-auto font-medium text-lg md:text-xl"
             >
               {question}
-            </Typography>
+            </h3>
           </AccordionHeader>
-          <AccordionBody className="pt-0 text-base font-normal text-gray-400">
+          <AccordionBody className="pt-0 pb-4 text-base font-normal text-gray-400">
             {answer}
           </AccordionBody>
         </Accordion>

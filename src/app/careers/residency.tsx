@@ -3,25 +3,25 @@ import Link from 'next/link';
 export default function ResidensidencyProgram() {
   return (
     <>
-      <section className=" h-auto lg:h-[100vh] relative overflow-hidden">
+      <section className="relative w-full">
         <div
-          className="relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
+          className="relative w-full bg-no-repeat bg-center bg-cover 
+                   flex flex-col justify-center items-center lg:justify-end lg:items-start 
+                   h-[70vh] lg:h-screen 
+                   text-center lg:text-left"
           style={{
             backgroundImage:
               "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/residencyImage.jpg')",
-            height: '100vh',
-            backgroundSize: 'cover',
-            alignItems: 'flex-end',
           }}
         >
-          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
-          {/* RESPONSIVE: Drastically reduced padding on mobile */}
-          <div className="relative z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
+          {/* Gradient Overlay */}
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent z-10"></div>
+
+          {/* Content */}
+          <div className="relative z-20 text-white p-8 md:p-16 lg:p-24 max-w-3xl">
             <div className="mb-4">
-              {/* RESPONSIVE: Adjusted font size */}
               <h2 className="text-3xl md:text-[40px] font-medium">
-                Register For Our 6-Months <br />
-                Residency Program
+                Register For Our 6-Months Residency Program
               </h2>
             </div>
             <Link

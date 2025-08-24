@@ -118,18 +118,20 @@ export default function LatestPost() {
   return (
     <>
       <div className="space-y-10">
-        <div className="flex w-full justify-between items-center">
-          <p className="metallic-text font-medium text-[32px]">Latest Posts</p>
+        <div className="flex w-full flex-col md:flex-row justify-between items-center gap-4">
+          <p className="metallic-text font-medium text-2xl md:text-[32px]">
+            Latest Posts
+          </p>
 
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center w-full md:w-auto">
             <input
               type="text"
               placeholder="Search by Keywords"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-[#161B22] border border-gray-700 rounded-md py-2 pl-4 pr-10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-grow bg-[#161B22] border border-gray-700 rounded-md py-2 pl-4 pr-10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-            <button className="border-[0.5px] border-[#007AFF] w-[80px] h-[40px] p-[8px] rounded">
+            <button className="border-[0.5px] border-[#007AFF] w-[80px] h-[40px] p-[8px] rounded flex-shrink-0">
               Search
             </button>
           </div>

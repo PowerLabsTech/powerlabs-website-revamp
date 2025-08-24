@@ -18,28 +18,29 @@ Together, we redefine the relationship between individuals and energy, unlocking
 
 export default function Mission() {
   return (
-    <>
-      <div className="space-y-10">
-        <div className="text-center">
-          <h2 className="metallic-text-long text-5xl">Our Mission</h2>
-          <p className="font-extralight">
-            At PowerLabs, we're on a mission to create a planet with limitless
-            human productivity through <br /> intelligent energy. To achieve
-            this, we strive to:
-          </p>
-        </div>
-        <div className="relative w-full flex items-center justify-center ">
-          {missionStatements.map((statement, index) => (
-            <Card
-              title={statement.title}
-              subText={statement.text}
-              index={index}
-              key={index}
-            />
-          ))}
-        </div>
+    <div className="space-y-8 md:space-y-12 p-4">
+      <div className="text-center">
+        <h2 className="metallic-text-long text-3xl md:text-5xl">Our Mission</h2>
+
+        <p className="font-extralight max-w-3xl mx-auto mt-2">
+          At PowerLabs, we're on a mission to create a planet with limitless
+          human productivity through intelligent energy. To achieve this, we
+          strive to:
+        </p>
       </div>
-    </>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3">
+        {missionStatements.map((statement, index) => (
+          <Card
+            title={statement.title}
+            subText={statement.text}
+            index={index}
+            key={index}
+            totalItems={missionStatements.length}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -47,21 +48,27 @@ function Card({
   title,
   subText,
   index,
+  totalItems,
 }: {
   title: string;
   subText: string;
   index: number;
+  totalItems: number;
 }) {
   return (
-    <>
-      <div
-        className={`w-[425px] h-[481px] flex flex-col item-center justify-center py-[76px] px-[30px] border-[0.5px] border-[#4C4C4C] ${
-          index === 2 ? 'border-r-0' : ''
-        }`}
-      >
-        <h2 className="font-semiBold text-3xl mb-[40px]">{title}</h2>
-        <p className="text-base text-gray-400">{subText}</p>
-      </div>
-    </>
+    <div
+      className={`
+        w-full flex flex-col item-center justify-center 
+        p-8 md:p-10
+        border-b border-[#4C4C4C] 
+        lg:border-b-0 lg:border-r
+        ${index === totalItems - 1 ? 'lg:border-r-0 border-b-0' : ''}
+      `}
+    >
+      <h2 className="font-semiBold text-2xl md:text-3xl mb-6 md:mb-10">
+        {title}
+      </h2>
+      <p className="text-base text-gray-400">{subText}</p>
+    </div>
   );
 }

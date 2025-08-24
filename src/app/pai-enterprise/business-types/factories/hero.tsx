@@ -18,12 +18,12 @@ export default function HeroFactories() {
 
       {/* Content Container */}
 
-      <div className="relative z-20 h-full flex items-center px-8 md:px-16 lg:px-24">
-        <div className="max-w-4xl space-y-8">
+      <div className="relative z-20 h-full flex flex-col justify-center items-center lg:items-start p-6 sm:p-8 md:px-16 lg:px-24">
+        <div className="max-w-4xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
             <h2 className="font-medium metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
-              You handle workload. <br /> We handle wattload.
+              You handle workload. We handle wattload.
             </h2>
             <p className="text-base md:text-lg font-light text-gray-200">
               You control production. Pai controls what powers it. Together, you
@@ -32,7 +32,7 @@ export default function HeroFactories() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link
               href="/get-started"
               className="inline-block bg-white hover:bg-blue-700 text-[#1570EF] hover:text-white font-bold py-3 px-8 rounded-lg text-base lg:text-lg transition-colors text-center"

@@ -1,14 +1,13 @@
-import { Button } from '@material-tailwind/react';
-
 export default function HeroAmbassadors() {
   return (
-    <div className="w-full flex flex-col items-center justify-center space-y-10">
-      <div>
-        <h3 className="metallic-text text-6xl font-semibold">
+    <div className="w-full flex flex-col items-center justify-center space-y-8 md:space-y-12 p-4">
+      <div className="text-center">
+        <h3 className="metallic-text text-4xl md:text-6xl font-semibold">
           Be the spark on your campus.
         </h3>
       </div>
-      <div className="w-1/2">
+
+      <div className="w-full max-w-3xl">
         <p className="text-center">
           The PowerLabs Campus Ambassadors Program is for students who want to
           lead real change — not just hold a title. You’ll drive on-campus
@@ -22,13 +21,12 @@ export default function HeroAmbassadors() {
           Apply Now
         </button>
       </div>
-      <div className="relative w-1/2 " style={{ paddingTop: '48.26%' }}>
-        {/* The iframe is positioned absolutely within the container */}
+
+      <div className="relative w-full max-w-4xl mx-auto aspect-video">
         <iframe
-          className="absolute top-10 left-0 w-full h-[500px] rounded-lg"
+          className="absolute top-0 left-0 w-full h-full rounded-lg"
           src={`https://www.youtube.com/embed/SKzuF__cEpQ`}
-          //   src={undefined}
-          title={'Pai for hospitals'}
+          title={'Campus Ambassadors Program'}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>

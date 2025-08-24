@@ -7,21 +7,17 @@ import Link from 'next/link';
 
 export default function UseCases() {
   return (
-    <>
-      <div className="space-y-10">
-        <div className="text-left">
-          <h3 className="text-[#1570EF] font-semibold text-lg mb-2">
-            Use Cases
-          </h3>
-          <h2 className="metallic-text-long text-5xl">
-            How Pai helps businesses stay productive
-          </h2>
-        </div>
-        <div>
-          <UseCaseCarousel />
-        </div>
+    <div className="space-y-8 md:space-y-10 p-4">
+      <div className="text-left">
+        <h3 className="text-[#1570EF] font-semibold text-lg mb-2">Use Cases</h3>
+        <h2 className="metallic-text-long text-3xl md:text-5xl">
+          How Pai helps businesses stay productive
+        </h2>
       </div>
-    </>
+      <div>
+        <UseCaseCarousel />
+      </div>
+    </div>
   );
 }
 
@@ -56,72 +52,62 @@ const carouselData = [
 // --- The Main Carousel Component ---
 function UseCaseCarousel() {
   return (
-    <div className="w-full py-12 ">
+    <div className="w-full overflow-hidden">
       <Carousel
         className="rounded-xl"
-        // Custom navigation arrows
+        // Custom navigation arrows re-enabled
         prevArrow={({ handlePrev }) => (
-          <></>
-          //   <IconButton
-          //     variant="text"
-          //     color="white"
-          //     size="lg"
-          //     onClick={handlePrev}
-          //     className="!absolute top-2/4 left-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
-          //     placeholder={undefined}
-          //     onResize={undefined}
-          //     onResizeCapture={undefined}
-          //   >
-          //     <svg
-          //       xmlns="http://www.w3.org/2000/svg"
-          //       fill="none"
-          //       viewBox="0 0 24 24"
-          //       strokeWidth={2}
-          //       stroke="currentColor"
-          //       className="h-6 w-6"
-          //     >
-          //       <path
-          //         strokeLinecap="round"
-          //         strokeLinejoin="round"
-          //         d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-          //       />
-          //     </svg>
-          //   </IconButton>
+          <IconButton
+            variant="text"
+            color="white"
+            size="lg"
+            onClick={handlePrev}
+            className="!absolute top-2/4 left-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+          </IconButton>
         )}
         nextArrow={({ handleNext }) => (
-          <></>
-          //   <IconButton
-          //     variant="text"
-          //     color="white"
-          //     size="lg"
-          //     onClick={handleNext}
-          //     className="!absolute top-2/4 !right-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
-          //     placeholder={undefined}
-          //     onResize={undefined}
-          //     onResizeCapture={undefined}
-          //     onPointerEnterCapture={undefined}
-          //     onPointerLeaveCapture={undefined}
-          //   >
-          //     <svg
-          //       xmlns="http://www.w3.org/2000/svg"
-          //       fill="none"
-          //       viewBox="0 0 24 24"
-          //       strokeWidth={2}
-          //       stroke="currentColor"
-          //       className="h-6 w-6"
-          //     >
-          //       <path
-          //         strokeLinecap="round"
-          //         strokeLinejoin="round"
-          //         d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-          //       />
-          //     </svg>
-          //   </IconButton>
+          <IconButton
+            variant="text"
+            color="white"
+            size="lg"
+            onClick={handleNext}
+            className="!absolute top-2/4 !right-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </IconButton>
         )}
-        // Custom navigation dots
+        // Custom navigation dots re-enabled
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-            {/* {new Array(length).fill('').map((_, i) => (
+            {new Array(length).fill('').map((_, i) => (
               <span
                 key={i}
                 className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
@@ -129,21 +115,15 @@ function UseCaseCarousel() {
                 }`}
                 onClick={() => setActiveIndex(i)}
               />
-            ))} */}
+            ))}
           </div>
         )}
-        placeholder={undefined}
-        onResize={undefined}
-        onResizeCapture={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
       >
         {carouselData.map((item, index) => (
           <div
             key={index}
-            className="relative h-[600px] w-[500px] rounded-xl overflow-hidden"
+            className="relative h-[550px] md:h-[600px] w-full flex-shrink-0 rounded-xl overflow-hidden"
           >
-            {/* Background Image */}
             <Image
               src={item.image}
               alt={item.title}
@@ -152,17 +132,14 @@ function UseCaseCarousel() {
               className="h-full w-full"
             />
             <div className="absolute inset-0 h-full w-full bg-black/40"></div>
-            <div className="absolute inset-x-0 bottom-0 grid h-1/2 w-full items-end bg-white/10">
-              <div className="w-full  p-8 md:p-12 h-80 flex flex-col ">
-                <div className="flex-grow">
-                  <h3 className="text-2xl font-semibold text-white mb-4 h-8">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-xl text-white opacity-80 mb-8 h-28">
-                    {item.description}
-                  </p>
-                </div>
+            <div className="absolute inset-0 flex flex-col justify-end">
+              <div className="w-full p-6 md:p-12 bg-gradient-to-t from-black/60 to-transparent">
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-base md:text-lg text-white opacity-80 mb-8">
+                  {item.description}
+                </p>
                 <Link
                   href={item.link}
                   className="inline-flex items-center gap-2 text-white hover:text-[#1570EF] font-bold"

@@ -26,9 +26,9 @@ export default function Sensor() {
 
   return (
     <>
-      <div className="grid gap-3">
+      <div className="grid gap-6 p-4">
         <div
-          className="p-1 w-[200px]"
+          className="p-1 w-full max-w-xs"
           style={{
             background: 'linear-gradient(to right, #031936, #1570EF)',
             borderRadius: '8px',
@@ -38,7 +38,6 @@ export default function Sensor() {
             className="bg-[#0F1114] w-full h-full p-3"
             style={{
               border: 'none',
-
               borderRadius: '4px',
             }}
           >
@@ -46,16 +45,15 @@ export default function Sensor() {
           </div>
         </div>
 
-        {/*  */}
-        <div className="grid gap-3">
-          <h2 className="metallic-text-long text-5xl">
+        <div className="grid gap-4">
+          <h2 className="metallic-text-long text-3xl md:text-5xl">
             Precision you can install. Intelligence you can trust
           </h2>
-          <p className="font-extralight">
+          <p className="font-extralight text-gray-300">
             Track and transmit your power usage with precision hardware built
             for modern factories, facilities, and enterprises
           </p>
-          <div className="grid grid-cols-2 gap-4 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {sensorDetails.map((det, index) => (
               <SensorCard
                 index={index + 1}
