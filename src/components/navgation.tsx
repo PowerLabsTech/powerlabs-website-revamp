@@ -4,14 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { paths } from '../app/routes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronDownIcon } from './ui';
 
 export function Navigation() {
   const pathname = usePathname();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  // State to track the hovered category within the dropdown (e.g., "Food & Beverage")
   const [activeCategory, setActiveCategory] = useState<string | null>(
     paths.find((p) => p.dropdown)?.dropdown?.[0]?.category || null
   );
@@ -19,11 +18,15 @@ export function Navigation() {
     null
   );
 
+  useEffect(() => {
+    setOpenDropdown(null);
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   const handleMouseEnter = (pathName: string) => {
     const path = paths.find((p) => p.name === pathName);
     if (path && path.dropdown) {
       setOpenDropdown(pathName);
-      // Set the default active category when dropdown opens
       setActiveCategory(path.dropdown[0]?.category || null);
     } else {
       setOpenDropdown(null);

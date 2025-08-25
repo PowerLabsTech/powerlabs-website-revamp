@@ -38,7 +38,7 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
               key={tab.id}
               className={
                 activeTabId === tab.id
-                  ? 'bg-gray-800/50 p-6 rounded-lg w-3/4 transition-all duration-300'
+                  ? 'bg-gray-800/50 p-6 rounded-lg w-full md:w-3/4 transition-all duration-300'
                   : ''
               }
             >
@@ -55,7 +55,9 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
               {/* Active Tab Description */}
               <div
                 className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                  activeTabId === tab.id ? 'max-h-96 mt-4 w-3/4' : 'max-h-0'
+                  activeTabId === tab.id
+                    ? 'max-h-96 mt-4 w-full md:w-3/4'
+                    : 'max-h-0'
                 }`}
               >
                 <div>
