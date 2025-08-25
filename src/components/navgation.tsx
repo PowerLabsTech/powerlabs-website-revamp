@@ -41,6 +41,20 @@ export function Navigation() {
     (cat) => cat.category === activeCategory
   );
 
+  const isAmbassadorPath = pathname.startsWith('/community/ambassadors');
+
+  const handleNavPathColor = (path: string) => {
+    if (path === '/community' && isAmbassadorPath) {
+      return 'border-b-2 border-b-amber-600';
+    } else if (
+      pathname === path ||
+      (pathname.startsWith(path) && path !== '/')
+    ) {
+      return 'border-b-2 border-b-blue-500';
+    }
+    return '';
+  };
+
   const toggleMobileSubMenu = (name: string) => {
     setOpenMobileSubMenu((prev) => (prev === name ? null : name));
   };
@@ -77,12 +91,9 @@ export function Navigation() {
                       e.preventDefault();
                     }
                   }}
-                  className={`p-2 hover:bg-white/10 hover:rounded-md transition-colors ${
-                    (pathname.startsWith(path.path) && path.path !== '/') ||
-                    pathname === path.path
-                      ? 'border-b-2 border-b-blue-500'
-                      : ''
-                  }`}
+                  className={`p-2 hover:bg-white/10 hover:rounded-md transition-colors ${handleNavPathColor(
+                    path.path
+                  )}`}
                 >
                   {path.name}
                 </Link>
@@ -93,7 +104,13 @@ export function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <button className="py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded text-sm font-semibold transition-colors">
+          <button
+            className={`py-2 px-4 ${
+              isAmbassadorPath
+                ? 'bg-amber-600 hover:bg-amber-700'
+                : 'bg-blue-500 hover:bg-blue-600'
+            }   rounded text-sm font-semibold transition-colors`}
+          >
             Book a Demo
           </button>
         </div>

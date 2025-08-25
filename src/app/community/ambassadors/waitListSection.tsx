@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 
 const WaitlistSection: NextPage = () => {
@@ -32,11 +31,9 @@ const WaitlistSection: NextPage = () => {
 
           {/* Right Column: Image */}
           <div className="hidden lg:block relative">
-            <Image
+            <img
               src="https://placehold.co/800x800/1A202C/FFFFFF?text=Merch+Image"
               alt="Model wearing Raindrop merchandise"
-              layout="fill"
-              objectFit="cover"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>
