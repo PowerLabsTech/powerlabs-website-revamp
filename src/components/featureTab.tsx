@@ -44,7 +44,7 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
             >
               <button
                 onClick={() => handleTabClick(tab.id)}
-                className={`w-full text-left text-2xl md:text-3xl font-semibold transition-colors duration-200 ${
+                className={`w-full text-left text-base font-semibold transition-colors duration-200 ${
                   activeTabId === tab.id
                     ? 'text-blue-500'
                     : 'text-gray-600 hover:text-gray-400'

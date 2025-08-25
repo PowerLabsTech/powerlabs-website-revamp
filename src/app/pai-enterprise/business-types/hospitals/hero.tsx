@@ -23,7 +23,7 @@ export default function HeroHospitals() {
         <div className="max-w-4xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
-            <h2 className="font-medium metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
+            <h2 className=" metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
               Smarter Energy for Hospitals
             </h2>
             <p className="text-base md:text-lg font-light text-gray-200">

@@ -14,8 +14,6 @@ export const Hero = () => {
     () => {
       gsap.registerPlugin(ScrollTrigger);
 
-      // BEST PRACTICE: Use matchMedia to create animations only for desktop screens
-      // This improves mobile performance by not running complex animations.
       const mm = gsap.matchMedia();
 
       // (min-width: 1024px) is for desktop
