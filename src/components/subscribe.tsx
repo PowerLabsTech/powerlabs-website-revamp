@@ -79,7 +79,6 @@ export function SubscribeBlog({
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formData);
     onValidated(formData);
   }
 

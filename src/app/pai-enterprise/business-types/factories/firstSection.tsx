@@ -3,25 +3,25 @@ import FeatureTabs, { TabData } from '@/components/featureTab';
 const tabsData: TabData[] = [
   {
     id: 1,
-    title: 'Grid? Generator? Solar? You Know.',
+    title: 'Know Where Every Kilowatt Goes',
     description:
-      'No guessing where the power’s coming from—or going. Pai tracks it all, so you control the costs, not the electric company.',
+      'From the welding bay to the final packing zone, you will see exactly what’s using energy, how much, and when. Grid, gen, solar—nothing slips by.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energySourceContribution.png',
   },
   {
     id: 2,
-    title: 'Catch What Doesn’t Add Up.',
+    title: 'Stop guessing. Spot the problem.',
     description:
-      'Why power cardio zones when they’re empty at 2AM? Pai shows where energy’s wasted—so you only spend where it counts.',
+      'Idle machines pulling phantom power? Pai catches them all and turns silent energy drains into real savings you can reinvest in your factory.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerDeliverySource.png',
   },
   {
     id: 3,
-    title: 'Right-Sized. Right-Priced.',
+    title: 'Energy Mix, Made Personal',
     description:
-      'Overpaying for backup generators you don’t need—or risking downtime when you do? Pai sizes your backup perfectly, no sweat.',
+      'Whether it’s grid supply, solar, batteries, or generators, Pai measures your real energy needs and recommends the perfect mix and size.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/sourceCards.png',
   },
@@ -32,13 +32,12 @@ export default function FirstSection() {
     <div className="space-y-8 md:space-y-12 p-4">
       <div className="text-center">
         <h2 className="metallic-text-long text-3xl md:text-5xl">
-          Your Members Can&apos;t Flex if the Power Flops.
+          When the Line Moves, Everything Wins.
         </h2>
         <p className="font-extralight max-w-4xl mx-auto mt-2">
-          From running treadmills to blasting beats, your gym runs on serious
-          energy. Pai shows you where you&apos;re burning power, where
-          you&apos;re wasting it, and how to keep your space lean, and
-          always-on—without draining your wallet.
+          In a factory, energy is the heartbeat of the floor. Pai Enterprise
+          helps you spot trouble before it happens, cut hidden waste, and keep
+          your machines running from the first shift to the last.
         </p>
       </div>
       <FeatureTabs tabsData={tabsData} />

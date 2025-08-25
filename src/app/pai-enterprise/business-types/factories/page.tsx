@@ -3,7 +3,7 @@ import Container from '@/components/container';
 // import VideoSection from './videoSection';
 import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';
-// import FirstSection from './firstSection';
+import FirstSection from './firstSection';
 // import VideoSection from './videoSection';
 import HeroFactories from './hero';
 
@@ -12,7 +12,7 @@ export default function Hospitals() {
     <>
       <Container>
         <HeroFactories />
-        {/* <FirstSection /> */}
+        <FirstSection />
       </Container>
       {/* <VideoSection /> */}
       <Container>
