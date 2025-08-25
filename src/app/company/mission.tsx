@@ -23,9 +23,9 @@ export default function Mission() {
         <h2 className="metallic-text-long text-3xl md:text-5xl">Our Mission</h2>
 
         <p className="font-extralight max-w-3xl mx-auto mt-2">
-          At PowerLabs, we're on a mission to create a planet with limitless
-          human productivity through intelligent energy. To achieve this, we
-          strive to:
+          At PowerLabs, we&apos;re on a mission to create a planet with
+          limitless human productivity through intelligent energy. To achieve
+          this, we strive to:
         </p>
       </div>
 

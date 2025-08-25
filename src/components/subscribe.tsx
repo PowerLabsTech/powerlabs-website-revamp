@@ -51,6 +51,8 @@ export default function SubscribeForm({
             onResize={undefined}
             onResizeCapture={undefined}
             crossOrigin={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
           />
         </div>
         <div>
@@ -110,6 +112,8 @@ export function SubscribeBlog({
             onResize={undefined}
             onResizeCapture={undefined}
             crossOrigin={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
           />
         </div>
         <div>

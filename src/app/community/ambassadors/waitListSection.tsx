@@ -1,23 +1,6 @@
 import type { NextPage } from 'next';
+import Image from 'next/image';
 import React from 'react';
-
-// A simple Mail icon component for the input field
-const MailIcon = () => (
-  <svg
-    className="w-5 h-5 text-gray-400"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-    />
-  </svg>
-);
 
 const WaitlistSection: NextPage = () => {
   return (
@@ -49,9 +32,11 @@ const WaitlistSection: NextPage = () => {
 
           {/* Right Column: Image */}
           <div className="hidden lg:block relative">
-            <img
+            <Image
               src="https://placehold.co/800x800/1A202C/FFFFFF?text=Merch+Image"
               alt="Model wearing Raindrop merchandise"
+              layout="fill"
+              objectFit="cover"
               className="absolute inset-0 w-full h-full object-cover"
             />
           </div>

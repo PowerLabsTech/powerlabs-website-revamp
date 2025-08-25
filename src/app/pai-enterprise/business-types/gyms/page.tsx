@@ -1,6 +1,5 @@
 'use client';
 import Container from '@/components/container';
-import HeroHopsitals from './hero';
 // import VideoSection from './videoSection';
 import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';

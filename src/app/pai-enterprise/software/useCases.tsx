@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Carousel, IconButton, Typography } from '@material-tailwind/react';
+import { Carousel, IconButton } from '@material-tailwind/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -63,6 +63,11 @@ function UseCaseCarousel() {
             size="lg"
             onClick={handlePrev}
             className="!absolute top-2/4 left-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
+            placeholder={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -87,6 +92,11 @@ function UseCaseCarousel() {
             size="lg"
             onClick={handleNext}
             className="!absolute top-2/4 !right-4 -translate-y-2/4 bg-black/50 hover:bg-black/75 rounded-full"
+            placeholder={undefined}
+            onResize={undefined}
+            onResizeCapture={undefined}
+            onPointerEnterCapture={undefined}
+            onPointerLeaveCapture={undefined}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +128,11 @@ function UseCaseCarousel() {
             ))}
           </div>
         )}
+        placeholder={undefined}
+        onResize={undefined}
+        onResizeCapture={undefined}
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
       >
         {carouselData.map((item, index) => (
           <div

@@ -6,8 +6,6 @@ import Link from 'next/link';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/all';
-import { Subscribe } from './subscribe';
-import Footer from '@/components/footer';
 
 export const Hero = () => {
   const main = useRef(null);
