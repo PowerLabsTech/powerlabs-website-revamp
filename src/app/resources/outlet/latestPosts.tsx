@@ -3,95 +3,9 @@
 import { ArrowDownIcon } from '@/components/ui';
 import { useState } from 'react';
 import Image from 'next/image';
-
-interface Post {
-  id: number;
-  title: string;
-  author: string;
-  category: string;
-  date: string;
-  readTime: number;
-  imageUrl: string;
-}
-
-interface BlogCardProps {
-  post: Post;
-}
-
-const mockPosts: Post[] = [
-  {
-    id: 1,
-    title: 'Open House Event Report - Harmattan Drop',
-    author: 'Powerlabs Team',
-    category: 'Inside PowerLabs',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/000000/FFFFFF?text=Open+House',
-  },
-  {
-    id: 2,
-    title: 'Sizing Optimisation: What’s New?',
-    author: 'Precious Omoogun',
-    category: 'Product Updates',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/1a202c/FFFFFF?text=Sizing',
-  },
-  {
-    id: 3,
-    title: 'PowerLabs Unveils New Partnership',
-    author: 'Oluwadamilola Nwadibia',
-    category: 'PowerLabs In The News',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/2d3748/FFFFFF?text=Partnership',
-  },
-  {
-    id: 4,
-    title: 'S01 E01 - NBDA',
-    author: 'Marketing and Communications',
-    category: 'Business Spotlight',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/4a5568/FFFFFF?text=NBDA',
-  },
-  {
-    id: 5,
-    title: 'Safety 101: How To Prevent Accidents',
-    author: 'Tina Nnaji',
-    category: 'Employee Experience',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/718096/FFFFFF?text=Safety',
-  },
-  {
-    id: 6,
-    title: 'PowerLabs Unveils New Partnership',
-    author: 'Oluwadamilola Nwadibia',
-    category: 'PowerLabs In The News',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/2d3748/FFFFFF?text=Partnership',
-  },
-  {
-    id: 7,
-    title: 'S01 E01 - NBDA',
-    author: 'Marketing and Communications',
-    category: 'Business Spotlight',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/4a5568/FFFFFF?text=NBDA',
-  },
-  {
-    id: 8,
-    title: 'Safety 101: How To Prevent Accidents',
-    author: 'Tina Nnaji',
-    category: 'Employee Experience',
-    date: 'Mar 22, 2024',
-    readTime: 5,
-    imageUrl: 'https://placehold.co/600x400/718096/FFFFFF?text=Safety',
-  },
-];
+import { IArticleData } from '@/interfaces';
+import { useRouter } from 'next/navigation';
+import { createRouteFromTitle } from '@/utils/stringUtils';
 
 const categories = [
   'All',
@@ -102,14 +16,22 @@ const categories = [
   'Employee Experience',
 ];
 
-export default function LatestPost() {
+export default function LatestPost({
+  articles,
+  handleLoadMore,
+  loading,
+}: {
+  articles: IArticleData[];
+  handleLoadMore: () => void;
+  loading: boolean;
+}) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredPosts = mockPosts.filter((post) => {
+  const filteredPosts = articles?.filter((post) => {
     const matchesCategory =
-      activeCategory === 'All' || post.category === activeCategory;
-    const matchesSearch = post.title
+      activeCategory === 'All' || post.attributes.tag === activeCategory;
+    const matchesSearch = post.attributes.title
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -162,13 +84,22 @@ export default function LatestPost() {
           {/* Blog Grid */}
           <main className="lg:col-span-3">
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              {filteredPosts.map((post) => (
+              {filteredPosts?.map((post) => (
                 <BlogCard key={post.id} post={post} />
               ))}
             </div>
+            {loading && (
+              <div className="w-full flex items-center justify-center">
+                Loading...
+              </div>
+            )}
             {/* Load More Button */}
             <div className="text-center mt-12">
-              <button className="bg-[#161B22] border border-gray-700 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center mx-auto">
+              <button
+                onClick={handleLoadMore}
+                className="bg-[#161B22] border border-gray-700 text-white font-semibold py-2 px-6 rounded-md hover:bg-gray-700 transition-colors duration-300 flex items-center justify-center mx-auto"
+                disabled={loading}
+              >
                 Load more
                 <ArrowDownIcon className="w-4 h-4 ml-2" />
               </button>
@@ -180,13 +111,23 @@ export default function LatestPost() {
   );
 }
 
-const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
+const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
+  const router = useRouter();
+  const navigateToPost = (title: string, postId: number) => {
+    router.push(
+      `outlet/blog/posts/${createRouteFromTitle(title)}?id=${postId}`
+    );
+  };
+
   return (
-    <div className="bg-[#0D1117] text-white rounded-lg overflow-hidden group">
+    <div
+      className="bg-[#0D1117] text-white rounded-lg overflow-hidden group cursor-pointer"
+      onClick={() => navigateToPost(post.attributes.title, post.id)}
+    >
       <div className="relative w-full h-48 overflow-hidden">
         <img
-          src={post.imageUrl}
-          alt={post.title}
+          src={post.attributes.coverImage.data.attributes.url ?? ''}
+          alt={post.attributes.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           // In a real Next.js app, you'd use the Image component:
           // import Image from 'next/image';
@@ -194,8 +135,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
         />
       </div>
       <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2 h-14">{post.title}</h3>
-        <p className="text-sm text-gray-400 mb-4">{post.author}</p>
+        <h3 className="text-lg font-semibold mb-2 h-14">
+          {post.attributes.title}
+        </h3>
+        <p className="text-sm text-gray-400 mb-4">
+          {post.attributes.author ?? 'John Doe'}
+        </p>
         <div className="border-[0.5px] border-[#FAFAFA1F] mb-2"></div>
         <div className="flex items-center gap-4">
           <div>
@@ -209,12 +154,12 @@ const BlogCard: React.FC<BlogCardProps> = ({ post }) => {
 
           <div className="flex flex-col  text-xs text-gray-400">
             <div>
-              <span>{post.category}</span>
+              <span className="text-blue-500">{post.attributes.tag}</span>
             </div>
             <div>
-              <span>{post.date}</span>
+              <span>{post.attributes.createdAt.split('T')[0]}</span>
               <span className="mx-2">•</span>
-              <span>{post.readTime} mins read</span>
+              <span>{post.attributes.readingTime ?? ''} mins read</span>
             </div>
           </div>
         </div>

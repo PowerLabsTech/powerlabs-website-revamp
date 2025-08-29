@@ -11,6 +11,13 @@ const nextConfig: NextConfig = {
         pathname: '/website/**',
         search: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'ews-blog-s3.s3.us-east-1.amazonaws.com',
+        port: '',
+        pathname: '/**',
+        search: '',
+      },
     ],
   },
 };

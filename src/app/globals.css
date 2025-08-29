@@ -40,6 +40,15 @@
   }
 }
 
+.cms-content :not(pre, pre *) {
+  color: #e5e7eb !important;
+}
+
+.cms-content pre {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 body {
   background: var(--background);
   background-image: url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/gradient-radial.png'),
@@ -49,4 +58,31 @@ body {
   background-size: contain;
   color: var(--foreground);
   font-family: var(--font-general-sans), Arial, Helvetica, sans-serif;
+}
+
+/* --- WebKit Scrollbar Styling (Chrome, Safari, Edge) --- */
+
+/* This targets the whole scrollbar area of the code block */
+.cms-content pre::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+/* This targets the "track" or the background of the scrollbar */
+.cms-content pre::-webkit-scrollbar-track {
+  background: transparent; /* Make the track background transparent */
+}
+
+/* This targets the draggable "thumb" or knob */
+.cms-content pre::-webkit-scrollbar-thumb {
+  background-color: #3b82f6; /* Your desired blue color */
+  border-radius: 5px; /* Give the knob rounded corners */
+  border: 2px solid transparent; /* Creates padding around the thumb */
+  background-clip: content-box;
+}
+
+/* --- Firefox Scrollbar Styling --- */
+
+.cms-content pre {
+  scrollbar-width: thin; /* Or 'auto' or 'none' */
+  scrollbar-color: #3b82f6 transparent; /* thumb color and track color */
 }

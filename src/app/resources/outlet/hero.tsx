@@ -1,8 +1,11 @@
 'use client';
 import { SubscribeFormBlog } from '@/app/subscribe';
+import { IArticleData } from '@/interfaces';
+import { createRouteFromTitle } from '@/utils/stringUtils';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-export default function HeroOutlet() {
+export default function HeroOutlet({ article }: { article?: IArticleData }) {
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">
@@ -12,17 +15,26 @@ export default function HeroOutlet() {
         <p className="text-base font-light">Not the science. Just the story.</p>
       </div>
       <SubscribeFormBlog />
-      <FeaturedCard />
+      <FeaturedCard article={article} />
     </div>
   );
 }
 
-function FeaturedCard() {
-  return (
-    <div className="bg-[#1570EF14] w-full lg:w-7xl  mx-auto p-6 md:p-10 flex flex-col lg:flex-row rounded-lg items-center gap-8">
+function FeaturedCard({ article }: { article?: IArticleData }) {
+  const router = useRouter();
+  const navigateToPost = (title: string, postId: number) => {
+    router.push(
+      `outlet/blog/posts/${createRouteFromTitle(title)}?id=${postId}`
+    );
+  };
+  return !!article?.attributes ? (
+    <div
+      className="bg-[#1570EF14] w-full lg:w-7xl  mx-auto p-6 md:p-10 flex flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+      onClick={() => navigateToPost(article.attributes.title, article.id)}
+    >
       <div className="w-full lg:w-1/2 h-64 md:h-80 lg:h-full relative rounded-lg overflow-hidden">
         <Image
-          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/studioRoom.png"
+          src={article?.attributes.coverImage.data.attributes.url}
           alt="Studio room"
           layout="fill"
           objectFit="cover"
@@ -32,14 +44,14 @@ function FeaturedCard() {
       <div className="w-full lg:w-1/2 flex items-center justify-center">
         <div className="w-full space-y-6">
           <h3 className="text-[#1570EF]">Featured Blog</h3>
-
           <h3 className="text-white font-semiBold text-2xl md:text-4xl">
-            Inside PowerLabs: The Intern
+            {article?.attributes.title}
           </h3>
-          <p className="font-extralight">Tawhid Aderinto</p>
-
+          <p className="font-extralight">
+            {article?.attributes.author ?? 'Tawhid Aderinto'}
+          </p>
+          {/* handle dynamic author */}
           <div className="border-[0.5px] border-[#FAFAFA1F]"></div>
-
           <div className="flex gap-5 items-center">
             <div>
               <Image
@@ -50,16 +62,22 @@ function FeaturedCard() {
               />
             </div>
             <div>
-              <p className="font-extralight">Inside PowerLabs</p>
+              <p className="font-extralight">{article.attributes.tag}</p>
               <div className="flex flex-wrap gap-x-2 items-center">
-                <p className="font-extralight">Mar 22,2024</p>
+                <p className="font-extralight">
+                  {article.attributes.createdAt.split('T')[0]}
+                </p>
                 <div className="rounded-full h-1.5 bg-white w-1.5"></div>
-                <p className="font-extralight">5 mins read</p>
+                <p className="font-extralight">
+                  {article.attributes.readingTime ?? ''} mins read
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  ) : (
+    <div>No article found</div>
   );
 }
