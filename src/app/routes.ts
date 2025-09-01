@@ -29,10 +29,10 @@ export const paths = [
     // This item will have a dropdown menu
     dropdown: [
       { category: 'The Outlet', path: '/resources/outlet' },
-      { category: 'Lab Notes', path: '/resources/lab-notes' },
-      { category: 'Webinars', path: '/resources/webinars' },
-      { category: 'Case Studies', path: '/resources/case-studies' },
-      { category: 'White Papers', path: '/resources/white-papers' },
+      // { category: 'Lab Notes', path: '/resources/lab-notes' },
+      // { category: 'Webinars', path: '/resources/webinars' },
+      // { category: 'Case Studies', path: '/resources/case-studies' },
+      // { category: 'White Papers', path: '/resources/white-papers' },
       { category: 'Partner Hub', path: '/resources/partner-hub' },
     ],
   },
