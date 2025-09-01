@@ -10,27 +10,26 @@ const faqData = [
   {
     question: 'Is it open to all courses?',
     answer:
-      'The Pai Hardware Device is a smart sensor that connects to all your power sources (Grid, Solar, Generator, etc.). It tracks key power data—including voltage, current, energy use, and power factor—with industry-grade accuracy. This gives you trusted insights to manage your energy smarter and minimize costs.',
+      ' Yes. Whether you’re in Engineering, Law, Media or Agriculture, you are more than welcome to apply.',
   },
   {
     question: 'I’m a freshman. Can I apply?',
     answer:
-      'No, installation is designed to be straightforward. The device is installed by a certified technician at your main distribution board. The process is quick, non-intrusive, and typically takes less than an hour to complete without any significant downtime.',
+      'Yes. Absolutely! The PowerLabs Campus Ambassadors program is open to students at all stages of their academic journey, including freshmen.',
   },
   {
     question: 'Do I need to be an engineering student?',
     answer:
-      'Yes, absolutely. The Pai device has its own internal power backup that allows it to continue monitoring and recording data even when all primary power sources are down. You will never lose visibility of your energy consumption.',
+      'Not at all. The program is open to all fields of study. We are building a community of students with diverse backgrounds and varying interests.',
   },
   {
     question: 'Is there a selection process?',
     answer:
-      'Yes, data security is our top priority. All data transmitted from the device is encrypted, and our cloud platform uses industry-standard security protocols to ensure your energy data is kept private, secure, and accessible only to you.',
+      'Yes. We review every application and send a mail to shortlisted candidates',
   },
   {
     question: 'How long is the program?',
-    answer:
-      'Yes. The Pai Enterprise solution is built to be versatile and is suitable for a wide range of environments, including factories, hospitals, offices, residential estates, and commercial buildings. It scales to meet the needs of any operation.',
+    answer: '6 months.',
   },
 ];
 

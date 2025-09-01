@@ -23,7 +23,7 @@ export default function HeroFactories() {
           {/* Text Content */}
           <div>
             <h2 className="font-medium metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
-              You handle workload. We handle wattload.
+              Always On. <br /> Always Aware.
             </h2>
             <p className="text-base md:text-lg font-light text-gray-200">
               You control production. Pai controls what powers it. Together, you

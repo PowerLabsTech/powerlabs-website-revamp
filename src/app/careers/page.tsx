@@ -1,5 +1,5 @@
 'use client';
-import Container from '@/components/container';
+import Container, { HeroContainer } from '@/components/container';
 import Hero from './hero';
 import FirstSection from './firstSection';
 import ResidensidencyProgram from './residency';
@@ -9,8 +9,10 @@ import Footer from '@/components/footer';
 export default function Careers() {
   return (
     <>
-      <Container>
+      <HeroContainer>
         <Hero />
+      </HeroContainer>
+      <Container>
         <FirstSection />
       </Container>
       <ResidensidencyProgram />

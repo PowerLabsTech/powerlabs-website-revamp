@@ -9,7 +9,7 @@ const ambassadorQualifications = [
 export default function BecomeAmbassador() {
   return (
     <>
-      <div className="w-full bg-[#161922] p-8 md:p-16 lg:p-20 flex justify-center">
+      <div className="w-full  p-8 md:p-16 lg:p-20 flex justify-center">
         <div className="w-full max-w-3xl space-y-10">
           <div className="text-center lg:text-left">
             <h3 className="metallic-text text-3xl md:text-4xl">

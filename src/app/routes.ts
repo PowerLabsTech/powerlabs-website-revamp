@@ -1,3 +1,20 @@
+export const pathsRoute = {
+  home: '/',
+  hospital: '/pai-enterprise/business-types/hospitals',
+  factory: '/pai-enterprise/business-types/factories',
+  gym: '/pai-enterprise/business-types/gyms',
+  hardware: '/pai-enterprise/hardware',
+  software: '/pai-enterprise/software',
+  outlet: '/resources/outlet',
+  partnerHub: '/resources/partner-hub',
+  careers: '/careers',
+  podcast: '/community/podcast',
+  shop: '/community/shop',
+  events: '/community/events',
+  ambassadors: '/community/ambassadors',
+  company: '/company',
+};
+
 export const paths = [
   { name: 'Home', path: '/' },
   {

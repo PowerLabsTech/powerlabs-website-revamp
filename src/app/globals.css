@@ -32,7 +32,11 @@
   }
 
   .btn-ghost {
-    @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none;
+    @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
+  }
+
+  .btn {
+    @apply cursor-pointer hover:bg-white hover:text-black transition-all;
   }
 
   .bg-primary {

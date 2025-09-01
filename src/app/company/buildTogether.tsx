@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { pathsRoute } from '../routes';
 
 export default function BuildTogether() {
   return (
@@ -22,8 +23,8 @@ export default function BuildTogether() {
               </h2>
             </div>
             <Link
-              href="/careers"
-              className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
+              href={pathsRoute.careers}
+              className="mt-4 inline-flex items-center btn btn-ghost"
             >
               View Careers
               <span className="font-bold text-xl">&rarr;</span>

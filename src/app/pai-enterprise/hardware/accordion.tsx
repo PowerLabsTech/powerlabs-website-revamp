@@ -10,28 +10,28 @@ const faqData = [
   {
     question: 'What does the Pai Hardware Device actually do?',
     answer:
-      'The Pai Hardware Device is a smart sensor that connects to all your power sources (Grid, Solar, Generator, etc.). It tracks key power data—including voltage, current, energy use, and power factor—with industry-grade accuracy. This gives you trusted insights to manage your energy smarter and minimize costs.',
+      'It helps you see how much energy your business is using in real time, so you can cut waste, save money, and make smarter energy choices.',
   },
   {
     question: 'Is it hard to install?',
     answer:
-      'No, installation is designed to be straightforward. The device is installed by a certified technician at your main distribution board. The process is quick, non-intrusive, and typically takes less than an hour to complete without any significant downtime.',
+      'No. The device is not bulky and is designed to be easy to set up in most commercial or industrial spaces.',
   },
   {
     question: 'Will the device keep working during power cuts?',
     answer:
-      'Yes, absolutely. The Pai device has its own internal power backup that allows it to continue monitoring and recording data even when all primary power sources are down. You will never lose visibility of your energy consumption.',
+      'Yes. It has backup power that can keep it running for up to 24 hours.',
   },
   {
     question: 'Is my energy data safe?',
     answer:
-      'Yes, data security is our top priority. All data transmitted from the device is encrypted, and our cloud platform uses industry-standard security protocols to ensure your energy data is kept private, secure, and accessible only to you.',
+      'Absolutely. All data is securely encrypted to protect your business information.',
   },
   {
     question:
       'Can I use it in different environments like factories or offices?',
     answer:
-      'Yes. The Pai Enterprise solution is built to be versatile and is suitable for a wide range of environments, including factories, hospitals, offices, residential estates, and commercial buildings. It scales to meet the needs of any operation.',
+      'Yes. The device is designed to work well in both commercial and industrial spaces.',
   },
 ];
 

@@ -1,5 +1,5 @@
 'use client';
-import Container from '@/components/container';
+import Container, { HeroContainer } from '@/components/container';
 // import VideoSection from './videoSection';
 import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';
@@ -10,8 +10,10 @@ import HeroFactories from './hero';
 export default function Hospitals() {
   return (
     <>
-      <Container>
+      <HeroContainer>
         <HeroFactories />
+      </HeroContainer>
+      <Container>
         <FirstSection />
       </Container>
       {/* <VideoSection /> */}

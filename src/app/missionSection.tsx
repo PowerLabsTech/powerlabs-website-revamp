@@ -7,9 +7,12 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import { pathsRoute } from './routes';
+import { useRouter } from 'next/navigation';
 
 export default function MissionSection() {
   const scrollSection = useRef(null);
+  const router = useRouter();
 
   useGSAP(
     () => {
@@ -72,13 +75,13 @@ export default function MissionSection() {
                   Human Productivity
                 </h2>
               </div>
-              <Link
-                href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
+              <button
+                className="btn-ghost  cursor-pointer hover:bg-white hover:text-black transition-all inline-flex items-center"
+                onClick={() => router.push(pathsRoute.company)}
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>
-              </Link>
+              </button>
             </div>
             <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full">
               <Image
@@ -107,13 +110,13 @@ export default function MissionSection() {
                   Intelligent Energy
                 </h2>
               </div>
-              <Link
-                href="/get-started"
-                className="mt-4 inline-flex items-center gap-2 border-white border hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-base transition-colors"
+              <button
+                className="btn-ghost  cursor-pointer hover:bg-white hover:text-black transition-all inline-flex items-center"
+                onClick={() => router.push(pathsRoute.company)}
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>
-              </Link>
+              </button>
             </div>
             <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full">
               <Image

@@ -1,6 +1,7 @@
 import Button from '@/components/button';
 import Image from 'next/image';
 import Categories from './categories';
+import Container from '@/components/container';
 
 export default function HeroShop() {
   return (
@@ -38,7 +39,9 @@ export default function HeroShop() {
           </div>
         </div>
       </div>
-      <Categories />
+      <Container>
+        <Categories />
+      </Container>
     </>
   );
 }

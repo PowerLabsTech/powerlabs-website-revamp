@@ -16,7 +16,7 @@ export default function Ambassadors() {
         <ApplyAmbassador />
         <BecomeAmbassador />
         <FaqAmbassadorAccordion />
-        <WaitlistSection />
+        {/* <WaitlistSection /> */}
         <Footer />
       </Container>
     </>

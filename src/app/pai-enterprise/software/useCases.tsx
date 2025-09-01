@@ -53,14 +53,6 @@ const carouselData = [
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
     link: '/use-cases/factories',
   },
-  {
-    title: 'Pai for Factories',
-    description:
-      'Maximize productivity and minimize operational costs in your manufacturing facility. Pai provides the insights to optimize heavy machinery usage and prevent costly downtime from power irregularities.',
-    image:
-      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
-    link: '/use-cases/factories',
-  },
 ];
 
 export function MultiItemCarousel() {

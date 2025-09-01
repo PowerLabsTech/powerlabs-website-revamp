@@ -1,5 +1,5 @@
 'use client';
-import Container from '@/components/container';
+import Container, { HeroContainer } from '@/components/container';
 import HeroCompany from './hero';
 import Mission from './mission';
 import SharedBelief from './sharedBelief';
@@ -10,8 +10,10 @@ import Footer from '@/components/footer';
 export default function CompanyPage() {
   return (
     <>
-      <Container>
+      <HeroContainer>
         <HeroCompany />
+      </HeroContainer>
+      <Container>
         <Mission />
         <SharedBelief />
       </Container>

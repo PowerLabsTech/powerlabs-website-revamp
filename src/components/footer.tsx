@@ -1,3 +1,4 @@
+import { pathsRoute } from '@/app/routes';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -33,21 +34,34 @@ export default function Footer() {
                 COMPANY
               </p>
               <ul className="text-white text-[1rem] font-normal mt-4 flex flex-col gap-2">
-                <Link href="">
-                  <li>Who we are</li>
-                </Link>
-                <Link href="">
-                  <li>Our mission</li>
+                <Link href={pathsRoute.company}>
+                  <li>Our Mission</li>
                 </Link>
 
-                <Link href="">
-                  <li>Blog</li>
+                <Link href={pathsRoute.outlet}>
+                  <li>The Outlet</li>
                 </Link>
-                <Link href="">
+                <Link href={pathsRoute.careers}>
                   <li>Careers</li>
                 </Link>
-                <Link href="">
+                <Link href={pathsRoute.ambassadors}>
                   <li>Community</li>
+                </Link>
+              </ul>
+            </div>
+          </div>
+          <div className="grow">
+            <div>
+              <p className="text-[#FFFFFFA3] text-[0.875rem] font-semibold">
+                PAI ENTERPRISE
+              </p>
+              <ul className="text-white text-[1rem] font-normal mt-4 flex flex-col gap-2">
+                <Link href={pathsRoute.hardware}>
+                  <li>Hardware</li>
+                </Link>
+
+                <Link href={pathsRoute.software}>
+                  <li>Software</li>
                 </Link>
               </ul>
             </div>
@@ -66,6 +80,9 @@ export default function Footer() {
 
               <Link href="https://www.linkedin.com/company/powerlabstech/">
                 <li>Linkedin</li>
+              </Link>
+              <Link href="https://www.youtube.com/@PowerLabsTech">
+                <li>Youtube</li>
               </Link>
             </ul>
           </div>

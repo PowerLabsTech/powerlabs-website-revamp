@@ -8,9 +8,7 @@ import Footer from '@/components/footer';
 export default function Home() {
   return (
     <>
-      <Container>
-        <Hero />
-      </Container>
+      <Hero />
       <MissionSection />
       <Container>
         <Subscribe
