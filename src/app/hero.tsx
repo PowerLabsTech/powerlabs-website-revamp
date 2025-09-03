@@ -49,7 +49,13 @@ export const Hero = () => {
         // --- Animation for the PAI board and laptop section ---
         gsap.set('.paiInfo', { opacity: 0, y: 30 });
         gsap.set('.paiBoard', { scale: 1 });
-        gsap.set('.paiInfo2, .paiLaptop', { opacity: 0 });
+        gsap.set('.paiInfo2', { autoAlpha: 0 });
+        gsap.set('.paiLaptop', { autoAlpha: 0 });
+
+        gsap.set('.second-section', { pointerEvents: 'none' });
+
+        // Ensure the first section is interactive
+        gsap.set('.first-section', { pointerEvents: 'auto' });
 
         const animationTl = gsap.timeline({
           scrollTrigger: {
@@ -70,11 +76,12 @@ export const Hero = () => {
         animationTl.to(
           '.paiInfo',
           {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             stagger: 0.2,
             duration: 1.5,
             ease: 'power2.out',
+            pointerEvents: 'auto',
           },
           '-=1.5'
         );
@@ -94,19 +101,38 @@ export const Hero = () => {
         );
 
         animationTl.to(
+          '.first-section',
+          {
+            pointerEvents: 'none',
+
+            duration: 1,
+          },
+          '<'
+        );
+        animationTl.to(
           '.paiInfo',
           {
-            opacity: 0,
+            autoAlpha: 0,
             duration: 1,
+            pointerEvents: 'none',
           },
           '<'
         );
 
         animationTl.to(
+          '.second-section',
+          {
+            pointerEvents: 'auto',
+            duration: 1,
+          },
+          '<'
+        );
+        animationTl.to(
           '.paiInfo2',
           {
-            opacity: 1,
+            autoAlpha: 1,
             duration: 1,
+            pointerEvents: 'auto',
           },
           '<'
         );
@@ -180,13 +206,13 @@ export const Hero = () => {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Link
                       href="/get-started"
-                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
+                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
                     >
                       Book a Demo
                     </Link>
                     <Link
                       href="/get-started"
-                      className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
+                      className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
                     >
                       Get Started
                       <span className="font-bold text-xl">&rarr;</span>
@@ -205,32 +231,36 @@ export const Hero = () => {
                 <section className="first-section relative lg:absolute top-1/2 lg:-translate-y-1/2 left-0 w-full py-16 lg:py-0">
                   {/* RESPONSIVE: Stacks vertically on mobile, row on desktop. Added gap for spacing. */}
                   <div className="three-column-wrapper flex flex-col lg:flex-row justify-between items-center h-full px-4 sm:px-8 gap-12 lg:gap-4">
-                    <div className="paiInfo w-full lg:w-1/4 text-center lg:text-left">
-                      <div className="space-y-8">
-                        <div className="space-y-3">
-                          <h2 className="text-3xl lg:text-[40px] metallic-text">
-                            Pai Enterprise Sensor
-                          </h2>
-                          <p className="text-base font-normal">
-                            All your power sources. One smart Sensor
-                          </p>
-                          <button
-                            className="btn-ghost cursor-pointer hover:bg-white hover:text-black transition-all"
-                            onClick={() => router.push(pathsRoute.hardware)}
-                          >
-                            Learn More
-                          </button>
-                        </div>
-                        <div>
+                    {/*  */}
+                    <div className="w-full lg:w-1/3 p-4 flex flex-col text-center lg:text-left paiInfo">
+                      {/* This top section will grow to fill any extra vertical space */}
+                      <div className="flex-grow space-y-3">
+                        <h2 className="text-2xl lg:text-3xl metallic-text">
+                          Pai Enterprise Sensor
+                        </h2>
+                        <p className="text-base font-normal">
+                          All your power sources. One smart Sensor
+                        </p>
+                        <button
+                          className="btn-ghost cursor-pointer hover:bg-white hover:text-black transition-all"
+                          onClick={() => router.push(pathsRoute.hardware)}
+                        >
+                          Learn More
+                        </button>
+                      </div>
+
+                      {/* This bottom section will be pushed down, aligning with card */}
+                      <div className="mt-12">
+                        <div className="relative w-[250px] h-[250px] mx-auto lg:mx-0 overflow-hidden rounded-md">
                           <Image
                             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg"
                             alt="factories"
-                            width={250}
-                            height={250}
+                            objectFit="cover"
+                            layout="fill"
                             className="mx-auto lg:mx-0"
                           />
-                          <p className="mt-2">For Factories</p>
                         </div>
+                        <p className="mt-2">For Factories</p>
                       </div>
                     </div>
 
@@ -263,31 +293,36 @@ export const Hero = () => {
                 {/* RESPONSIVE: Hidden on mobile since it's part of a desktop-only animation */}
                 <section className="second-section hidden lg:block absolute top-1/2 -translate-y-1/2 left-0 w-full h-screen">
                   <div className="three-column-wrapper2 flex justify-between items-center h-full px-8">
-                    <div className="paiInfo2 w-1/3">
-                      <div className="space-y-12">
-                        <div className="space-y-3">
-                          <h2 className="text-[40px] metallic-text">
-                            Pai Enterprise Dashboard
-                          </h2>
-                          <p className="text-base font-normal">
-                            All energy insights, one view.
-                          </p>
-                          <button
-                            className="btn-ghost  cursor-pointer hover:bg-white hover:text-black transition-all"
-                            onClick={() => router.push(pathsRoute.software)}
-                          >
-                            Learn More
-                          </button>
-                        </div>
-                        <div>
+                    {/*  */}
+                    <div className="w-full lg:w-1/3 p-4 flex flex-col text-center lg:text-left paiInfo2">
+                      {/* This top section will grow to fill any extra vertical space */}
+                      <div className="flex-grow space-y-3">
+                        <h2 className="text-2xl lg:text-3xl metallic-text">
+                          Pai Enterprise Dashboard
+                        </h2>
+                        <p className="text-base font-normal">
+                          All energy insights, one view.
+                        </p>
+                        <button
+                          className="btn-ghost cursor-pointer hover:bg-white hover:text-black transition-all"
+                          onClick={() => router.push(pathsRoute.software)}
+                        >
+                          Learn More
+                        </button>
+                      </div>
+
+                      {/* This bottom section will be pushed down, aligning with card */}
+                      <div className="mt-12">
+                        <div className="relative w-[250px] h-[250px] mx-auto lg:mx-0 overflow-hidden rounded-md">
                           <Image
                             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factories2.png"
                             alt="factories2"
-                            width={250}
-                            height={250}
+                            objectFit="cover"
+                            layout="fill"
+                            className="mx-auto lg:mx-0"
                           />
-                          <p className="mt-2">For Factories</p>
                         </div>
+                        <p className="mt-2">For Factories</p>
                       </div>
                     </div>
 

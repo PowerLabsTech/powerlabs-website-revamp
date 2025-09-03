@@ -22,7 +22,7 @@ const generalSans = localFont({
     },
     {
       path: './fonts/GeneralSans-Medium.otf',
-      weight: '400',
+      weight: '500',
       style: 'normal',
     },
     {

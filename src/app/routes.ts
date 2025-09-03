@@ -13,6 +13,8 @@ export const pathsRoute = {
   events: '/community/events',
   ambassadors: '/community/ambassadors',
   company: '/company',
+  terms: '/terms',
+  privacyPolicy: '/privacy-policy',
 };
 
 export const paths = [

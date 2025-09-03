@@ -91,7 +91,12 @@ export default function Footer() {
               SUPPORT
             </p>
             <>
-              <p className="text-white text-[1rem] font-normal mt-4">Contact</p>
+              <Link
+                href="mailto:hello@powerlabstech.com"
+                className="text-white text-[1rem] font-normal mt-4"
+              >
+                Contact
+              </Link>
             </>
           </div>
         </div>
@@ -104,14 +109,11 @@ export default function Footer() {
           </p>
         </div>
         <div className="flex gap-4 mt-[3rem]">
-          <Link href="">
+          <Link href={pathsRoute.terms}>
             <p>Terms</p>
           </Link>
-          <Link href="">
+          <Link href={pathsRoute.privacyPolicy}>
             <p>Privacy</p>
-          </Link>
-          <Link href="">
-            <p>Cookies</p>
           </Link>
         </div>
       </div>

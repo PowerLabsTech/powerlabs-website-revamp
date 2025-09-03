@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 :root {
   --background: #ffffff;
@@ -37,6 +38,10 @@
 
   .btn {
     @apply cursor-pointer hover:bg-white hover:text-black transition-all;
+  }
+
+  .btn-primary {
+    @apply items-center bg-blue-500  text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
   }
 
   .bg-primary {
