@@ -29,7 +29,7 @@ export const Hero = () => {
             trigger: '.maximizeBox',
             pin: '.content-wrapper',
             start: 'center center',
-            end: '+=1200',
+            end: '+=1400',
             scrub: true,
           },
         });
@@ -94,6 +94,7 @@ export const Hero = () => {
         animationTl.to(
           '.paiLaptop',
           {
+            autoAlpha: 1,
             opacity: 1,
             duration: 1,
           },
