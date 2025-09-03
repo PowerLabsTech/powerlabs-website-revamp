@@ -13,7 +13,7 @@ function getPageContent() {
 }
 
 export default function Terms() {
-  const { data, content } = getPageContent();
+  const { content } = getPageContent();
   return (
     <>
       <div className="max-w-4xl mx-auto px-4 mt-8 space-y-6  ">

@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { pathsRoute } from '@/app/routes';
 
 export default function UseCases() {
   return (
@@ -34,7 +35,7 @@ const carouselData = [
       'Pai Enterprise keeps your gym powered, optimized, and cost-efficient—so the lights stay on, the AC stays cool, and no treadmill ever stops mid-sprint.',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/gymBackground.png',
-    link: '/use-cases/gyms',
+    link: `${pathsRoute.gym}`,
   },
   {
     title: 'Pai for Hospitals',
@@ -42,7 +43,7 @@ const carouselData = [
       'In healthcare, uninterrupted power is critical. Pai ensures that essential medical equipment, lighting, and climate control systems are always running reliably and efficiently, safeguarding patient care.',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/hospitalsBackground.png',
-    link: '/use-cases/hospitals',
+    link: `${pathsRoute.hospital}`,
   },
 
   {
@@ -51,7 +52,7 @@ const carouselData = [
       'Maximize productivity and minimize operational costs in your manufacturing facility. Pai provides the insights to optimize heavy machinery usage and prevent costly downtime from power irregularities.',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
-    link: '/use-cases/factories',
+    link: `${pathsRoute.factory}`,
   },
 ];
 

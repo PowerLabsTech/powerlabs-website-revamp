@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import chevronDown from '../../public/svgs/chevronDown.svg';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';

@@ -1,5 +1,5 @@
 export const JoinBlueList = () => {
-  const url = process.env.MAILCHIMP_URL ?? '';
+  //   const url = process.env.MAILCHIMP_URL ?? '';
   return (
     <div
       className="scrollOver2 relative w-full bg-no-repeat bg-center flex items-center justify-center px-4 py-20"
