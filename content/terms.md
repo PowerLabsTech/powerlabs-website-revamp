@@ -1,96 +1,89 @@
-### **Gap Analysis & Proposed Updates for Terms and Conditions**
+Powerstart Integrated Technologies Limited (RC 2021832), hereinafter referred to as "PowerLabs," ("We," "Us," "Our") operates this Website (`https://powerlabstech.com/`) and provides a range of innovative energy management and optimization solutions to our Customers (collectively referred to as the "Services").
 
-**1\. Explicitly Define Roles (Data Controller & Data Processor)**
+These Terms and Conditions ("Terms") govern your use of our Website. By accessing or using this Website, you agree to comply with and be bound by these Terms. If you do not agree with these Terms, please do not use our Website.
 
-- **Current T\&Cs:** Implied through "We" (PowerLabs) and "You" (Customer), but not explicitly stated in NDPR terms.
-- **NDPR Info:** Your registration clearly defines PowerLabs as both Data Processor and Data Controller.
-- **Recommendation:**
-  - **Add a new subsection, possibly under "1. Acceptance of Terms" or a new "Data Protection & Privacy" section.**
-  - **Content:** Clearly state PowerLabs' role as a Data Controller and, where applicable, a Data Processor, outlining what these roles entail in relation to the customer's data.
-  - **Example Wording:** "For the purposes of the Nigeria Data Protection Act (NDPA) and its subsidiary legislations, PowerLabs acts as a Data Controller concerning your personal data and, in certain instances, as a Data Processor regarding the operational data collected from your premises on your behalf."
+## **1\. Purpose of These Terms**
 
-**2\. Detailed Purpose of Data Processing (More Granular than current Section 2\)**
+The purpose of these Terms is to define the rights, responsibilities, and limitations that apply to your use of our Website. These Terms supplement our Privacy Policy, which explains how we collect and use your personal data.
 
-- **Current T\&Cs (Section 2):** Covers reading and transmitting real-time data for electricity, management, and optimization.
-- **NDPR Info (Point 10):** "To deliver comprehensive energy monitoring, management, and optimization services through our products, analyzing energy data for insights on cost reduction, efficiency, and seamless user and device management."
-- **Recommendation:**
-  - **Update "2. Purpose of Device Installation" to "2. Purpose of Data Collection and Processing."**
-  - **Content:** Expand this section to include the explicit purposes from your NDPR form:
-    - Real-time energy monitoring (already partially there).
-    - Proactive energy management and anomaly detection.
-    - Driving energy optimization and cost reduction.
-    - Enhancing operational efficiency and uptime.
-    - Providing actionable insights and reporting.
-    - Managing user accounts and access.
-    - Improving product and user experience.
-  - **Example Addition:** "The Platform is designed to collect, process, and analyze real-time and historical data to enable comprehensive energy monitoring, facilitate proactive management by identifying anomalies and deviations, drive optimization for cost reduction, enhance operational efficiency and uptime, provide actionable insights through reports, and manage user accounts for seamless service delivery."
+## **2\. Eligibility and Access**
 
-**3\. Specific Categories of Personal Data Processed**
+The Website is intended for lawful use only. By using this Website, you confirm that you are at least 18 years old or accessing it under the supervision of a parent or guardian. We reserve the right to suspend or restrict access to the Website without notice if we believe there has been a breach of these Terms.
 
-- **Current T\&Cs (Section 10):** General "personal information" and "data collected or processed by the device."
-- **NDPR Info (Point 11):** Explicitly lists:
-  - User Data: Name, email, phone number, user role, assigned locations.
-  - Interaction Data: Platform usage, feedback.
-  - Operational Data: Energy, device, environmental, cost data linked to locations (with privacy measures).
-- **Recommendation:**
-  - **Create a new subsection within a dedicated "Data Protection & Privacy" section, or expand Section 10 "Confidentiality" to "Data Privacy and Confidentiality."**
-  - **Content:** Clearly enumerate the categories of personal data collected and processed.
-  - **Example Wording:** "PowerLabs collects and processes certain personal data necessary to provide its Services. This includes: (i) **User Identification & Contact Data** such as your name, email address, phone number, user role, and assigned locations; (ii) **System Interaction Data** including platform usage and feedback for service improvement; and (iii) **Operational Data** related to energy consumption, device performance, environmental conditions, and costs linked to your locations, which may indirectly relate to an identifiable person."
+## **3\. Use of Website Content**
 
-**4\. Comprehensive Security Measures**
+All text, images, blog articles, research reports, podcasts, and other materials published on this Website are owned or licensed by PowerLabs. You may use content for personal, non-commercial purposes only. You must not reproduce, distribute, modify, or exploit any content without our prior written consent. Trademarks, logos, and service marks displayed on this Website remain the exclusive property of PowerLabs.
 
-- **Current T\&Cs (Section 10):** "We further agree to implement appropriate measures to protect each other's personal information from unauthorized access, use, or disclosure." (Very general).
-- **NDPR Info (Point 7 & 14):** Lists extensive technical, organizational, and physical measures (encryption, access controls, network security, DPO, training, incident response, data retention, etc.).
-- **Recommendation:**
-  - **Significantly expand Section 10 (or a new "Data Protection & Privacy" section) with a subsection on "Data Security."**
-  - **Content:** Detail the specific measures:
-    - Data Encryption (at rest and in transit).
-    - Role-based Access Controls.
-    - Network Security (firewalls, intrusion detection).
-    - Secure Development Lifecycle practices.
-    - Data Backup & Recovery.
-    - Anonymization/Pseudonymization (where applicable).
-    - Designation of a Data Protection Officer (DPO).
-    - Employee Data Protection Training.
-    - Incident Response Plan.
-    - Data Processing Agreements with third parties.
-    - Data Retention Policies.
-    - Leveraging Cloud Provider Physical Security.
-  - **Example Addition:** "PowerLabs implements comprehensive security, technical, and organizational measures to protect your personal data against unauthorized access, alteration, disclosure, or destruction. These measures include, but are not limited to, data encryption (at rest and in transit), strict role-based access controls, robust network security, a secure development lifecycle, regular data backups, and a defined incident response plan. We also leverage the advanced physical security of our cloud infrastructure providers."
+## **4\. Forms and Submissions**
 
-**5\. Publicity of Data Subject Rights**
+Our Website provides various forms through which you may interact with us, including but not limited to:
 
-- **Current T\&Cs:** Mentions including "our Privacy Policy" in Section 1 (Acceptance).
-- **NDPR Info (Point 15):** Explicitly lists "Publicity of Data Subject Rights" and "Privacy Policy" as implemented.
-- **Recommendation:**
-  - **Ensure the Privacy Policy link is prominent and that the Privacy Policy itself comprehensively outlines all Data Subject Rights (Access, Rectification, Erasure, etc.).**
-  - **Add a clause to the T\&Cs (e.g., in a new "Data Protection & Privacy" section) that explicitly states commitment to Data Subject Rights.**
-  - **Example Wording:** "Your rights as a data subject, including the right to access, rectify, or erase your personal data, are fully respected by PowerLabs. Comprehensive details on how to exercise these rights are provided in our Privacy Policy, which forms an integral part of this Agreement."
+- Careers applications (for job openings or internships);
+- Sales inquiries or “Contact Us” forms (for requesting demos, product details, or general business inquiries);
+- Newsletter subscriptions (for receiving research updates, blog digests, or product announcements).
 
-**6\. Data Retention Policy & Risk Level**
+By submitting information through any of these forms, you agree that:
 
-- **Current T\&Cs:** No explicit mention of data retention policies or data processing risk level.
-- **NDPR Info (Point 15 & 13):** States "Data Retention Policies" are in place and "Medium Risk" level.
-- **Recommendation:**
-  - **Add a clause on Data Retention.**
-  - **Content:** State that data is retained only as long as necessary.
-  - **Example Wording:** "Personal data will be retained only for the period necessary to fulfill the purposes for which it was collected, or as required by law, in accordance with PowerLabs' Data Retention Policy."
-  - **Consider if the "Medium Risk" needs to be mentioned directly in the T\&Cs or if it's more for internal/regulatory filing. Generally, the _measures_ to mitigate risk are more relevant for the user-facing T\&Cs.**
+- The information you provide is accurate, complete, and up to date.
+- You are solely responsible for the content of your submissions.
+- We may use and process your information in accordance with our Privacy Policy and applicable data protection laws.
 
-**7\. Cookie Consent Mechanism**
+Submitting a form does not in itself create any contractual relationship with PowerLabs (e.g., a sales inquiry does not constitute a binding agreement until a contract is executed). Similarly, submission of a job application does not guarantee employment.
 
-- **Current T\&Cs:** No explicit mention.
-- **NDPR Info (Point 15):** "Cookie Consent Mechanism" is implemented.
-- **Recommendation:**
-  - **Add a specific clause on Cookie Usage.**
-  - **Content:** State that cookies are used and how consent is obtained (e.g., through a banner).
-  - **Example Wording:** "The Platform utilizes cookies and similar technologies to enhance user experience and analyze platform usage. By using our Platform, you consent to the use of cookies in accordance with our Cookie Policy." (Ensure you also _have_ a Cookie Policy).
+## **5\. Blogs, Research, and Podcasts**
 
-**8\. Incident Response and Grievance Redress Mechanism**
+Content published on the Blog, Research, and Podcasts pages is for general informational and educational purposes only. Opinions expressed in articles, op-eds, or podcast episodes are those of the authors and may not represent the official views of PowerLabs. We make no warranty as to the accuracy, completeness, or timeliness of this content. Links to third-party websites or content do not constitute endorsement, and we are not responsible for their accuracy or practices.
 
-- **Current T\&Cs (Section 11):** Mentions indemnification related to user use of the site.
-- **NDPR Info (Point 15):** Lists "Remediation and Incidence Response Systems" and "Active Grievance Redress Mechanism."
-- **Recommendation:**
-  - **Strengthen your "Contact Us" or support sections to explicitly outline the grievance redress mechanism.**
-  - **Consider adding a brief statement on incident response, perhaps linked to a full policy.**
-  - **Example Addition (in a relevant section):** "In the event of any data breach, PowerLabs has a defined Incident Response Plan to promptly address and mitigate the impact, and will notify affected parties and relevant authorities as required by law. For any privacy-related concerns or to exercise your data subject rights, please contact our Data Protection Officer at \[DPO Email/Contact Method\]."
+## **6\. User Conduct**
+
+You agree not to:
+
+- Interfere with or disrupt the Website or servers connected to it.
+- Upload or transmit viruses, malware, or harmful code.
+- Use the Website for fraudulent, unlawful, or unauthorized purposes.
+
+## **7\. Intellectual Property Rights**
+
+All intellectual property rights in the Website and its content are reserved by PowerLabs. This includes, but is not limited to, text, graphics, audio, video, podcasts, research materials, and any proprietary technology.
+
+Trademarks, logos, and service marks displayed on this Website are the property of PowerLabs or are used under license or with permission from our partners, customers, academic collaborators, or other third parties. Nothing on this Website should be construed as granting any license or right to use any trademarks or logos without prior written consent from the respective rights holder.
+
+You may not copy, reproduce, republish, upload, transmit, or distribute these logos or trademarks in any form without such express permission. Display of a third-party logo or trademark on our Website does not imply endorsement, sponsorship, or affiliation unless explicitly stated.
+
+## **8\. Disclaimers**
+
+This Website and its content are provided on an "as is" and "as available" basis without warranties of any kind. PowerLabs does not warrant that the Website will be uninterrupted, secure, or error-free. Nothing on this Website constitutes legal, financial, or technical advice.
+
+## **9\. Limitation of Liability**
+
+To the fullest extent permitted by law, PowerLabs shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of or reliance on the Website. This limitation applies even if we were advised of the possibility of such damages.
+
+## **10\. Indemnification**
+
+You agree to indemnify and hold harmless PowerLabs, its affiliates, and employees against any claims, damages, or expenses resulting from your misuse of the Website or breach of these Terms.
+
+## **11\. Third-Party Links**
+
+Our Website may contain links to third-party websites, including job portals, podcast platforms, and research repositories. We are not responsible for the content, terms, or privacy practices of these third parties.
+
+## **12\. Privacy**
+
+Your use of the Website is also governed by our Privacy Policy. Please review it to understand how we process your personal data in accordance with the Nigeria Data Protection Act (NDPA), the Nigeria Data Protection Regulation (NDPR), as well as international data protection frameworks including the General Data Protection Regulation (GDPR) of the European Union, the California Consumer Privacy Act (CCPA) in the United States, and other applicable laws in jurisdictions where our users are located.
+
+## **13\. Governing Law and Jurisdiction**
+
+These Terms are governed by the laws of the Federal Republic of Nigeria. Any disputes arising in connection with these Terms shall be subject to the exclusive jurisdiction of the Nigerian courts.. Where applicable, international data protection standards and relevant foreign regulations may also apply, if you are accessing the Website from outside Nigeria, and nothing in these Terms shall limit your rights under applicable mandatory local laws.
+
+## **14\. Changes to These Terms**
+
+We may revise these Terms from time to time. Updated versions will be posted on this Website and will take effect immediately upon publication. Please review these Terms periodically.
+
+## **15\. Contact Details**
+
+If you have questions about these Terms, please contact us using the details below:
+
+**Full name of legal entity:** Powerstart Integrated Technologies Limited  
+**General Email Address:** hello@powerlabstech.com  
+**Data Protection Email:** dataprotection@powerlabstech.com
+
+**_Last updated on the 3rd of September, 2025_**
