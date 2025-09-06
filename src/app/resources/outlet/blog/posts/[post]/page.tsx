@@ -7,6 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { useEffect } from 'react';
 import CodeBlock from './codeBlock';
+import { displayFriendlyDate } from '@/utils/stringUtils';
 
 export default function BlogPostPage() {
   const [article, setArticle] = React.useState<IArticleData>();
@@ -38,28 +39,30 @@ export default function BlogPostPage() {
 
         {/* Header Section */}
         <div className="max-w-4xl mx-auto px-4">
-          <p className="text-gray-400 text-sm">Mar 22, 2024</p>
+          <p className="text-gray-400 text-sm">
+            {displayFriendlyDate(article.attributes.publishedAt)}
+          </p>
           <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
             <Image
-              src="" // Replace with the actual image path
+              src={
+                article.attributes.avatar ??
+                article.attributes.coverImage.data.attributes.url
+              }
               alt="User avatar"
               width={24}
               height={24}
               className="rounded-full object-cover w-6 h-6"
             />
-            <span>Marketing & Communications</span>
+            <span>{article?.attributes.author ?? 'PowerLabs Team'}</span>
             <span>|</span>
-            <span>7 mins</span>
+            <span>{article?.attributes.readingTime ?? ''} mins</span>
           </div>
 
           <h1 className="text-2xl sm:text-3xl font-semibold mt-4">
             {article?.attributes.title}
           </h1>
           <p className="text-gray-300 mt-2 italic">
-            In this week’s Business Spotlight, Ben talks us through his journey
-            with NBDA, challenges he has faced around energy optimisation, and
-            how Pai Enterprise has provided optimal solutions to these
-            challenges.
+            {article.attributes.summary}
           </p>
         </div>
 

@@ -15,6 +15,7 @@ export const pathsRoute = {
   company: '/company',
   terms: '/terms',
   privacyPolicy: '/privacy-policy',
+  cookies: '/cookies',
 };
 
 export const paths = [

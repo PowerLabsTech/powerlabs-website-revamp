@@ -48,7 +48,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
             {article?.attributes.title}
           </h3>
           <p className="font-extralight">
-            {article?.attributes.author ?? 'Tawhid Aderinto'}
+            {article?.attributes.author ?? 'PowerLabs Team'}
           </p>
           {/* handle dynamic author */}
           <div className="border-[0.5px] border-[#FAFAFA1F]"></div>

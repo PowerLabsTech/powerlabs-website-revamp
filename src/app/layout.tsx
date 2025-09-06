@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Navigation } from '../components/navgation';
+import Script from 'next/script';
 
 const generalSans = localFont({
   src: [
@@ -65,6 +66,23 @@ export default function RootLayout({
       <body className={`${generalSans.variable}  antialiased `}>
         <Navigation />
         {children}
+
+        {/* Google tag (gtag.js */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0VTEGBRBTZ"
+          strategy="afterInteractive"
+        />
+
+        {/* Init Google Analytics */}
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+           window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-0VTEGBRBTZ');
+          `}
+        </Script>
       </body>
     </html>
   );
