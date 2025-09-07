@@ -2,19 +2,29 @@ import Button from '@/components/button';
 import Image from 'next/image';
 import Categories from './categories';
 import Container from '@/components/container';
-import { IShop } from '@/interfaces';
+import { IShop, IShopCategory } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import { createRouteFromTitle } from '@/utils/stringUtils';
 
-export default function HeroShop({ props }: { props: IShop[] }) {
-  const recentCollection = props[0];
+export default function HeroShop({
+  props,
+}: {
+  props: { shops: IShop[]; shopCategories: IShopCategory[] };
+}) {
+  const recentCollection = props.shops[0];
+  const restCollections = props.shops.filter(
+    (shop) => shop.id !== recentCollection.id
+  );
   return (
     <>
       {/* main hero section */}
       <CollectionDisplay prop={recentCollection} />
       <Container>
-        <Categories />
+        <Categories shopCategories={props.shopCategories} />
       </Container>
+      {restCollections.map((shop) => (
+        <CollectionDisplay key={shop.id} prop={shop} />
+      ))}
     </>
   );
 }

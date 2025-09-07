@@ -1,41 +1,23 @@
+import Button from '@/components/button';
+import { IShopCategory } from '@/interfaces';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const categoriesItem = [
-  {
-    title: 'Clothing',
-    description: 'Description for category 1',
-    image:
-      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg',
-    link: 'https://via.placehold.co/600x800/808080/FFFFFF?text=Clothing',
-  },
-  {
-    title: 'Plug Bags',
-    description: 'Description for category 2',
-    image:
-      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg',
-    link: 'https://placehold.co/600x800/808080/FFFFFF?text=Clothing',
-  },
-  {
-    title: 'Accessories',
-    description: 'Description for category 3',
-    image:
-      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg',
-    link: 'https://via.placehold.co/600x800/808080/FFFFFF?text=Clothing',
-  },
-];
-
-export default function Categories() {
+export default function Categories({
+  shopCategories,
+}: {
+  shopCategories: IShopCategory[];
+}) {
   return (
     <section className="py-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {categoriesItem.map((item, index) => (
+        {shopCategories.map((item, index) => (
           <CategoryCard
             key={index}
-            title={item.title}
-            imageUrl={item.image}
-            // linkHref={item.link}
-            altText={item.title}
+            title={item.attributes.title}
+            imageUrl={item.attributes.coverImage.data.attributes.url}
+            linkHref={item.attributes.link}
+            altText={item.attributes.title}
           />
         ))}
       </div>
@@ -46,17 +28,17 @@ export default function Categories() {
 export function CategoryCard({
   title,
   imageUrl,
-  //   linkHref,
+  linkHref,
   altText,
 }: {
   title: string;
   imageUrl: string;
-  //   linkHref: string;
+  linkHref: string;
   altText: string;
 }) {
   return (
     <Link
-      href={'/community/shop/clothing'}
+      href={linkHref}
       className="relative block h-[500px] md:h-[600px] overflow-hidden group"
     >
       {/* Image */}

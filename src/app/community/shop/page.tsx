@@ -2,24 +2,36 @@
 
 import React, { useEffect } from 'react';
 import HeroShop from './hero';
-import { IShop } from '@/interfaces';
-import { fetchShops } from '@/utils/api';
+import { IShop, IShopCategory } from '@/interfaces';
+import { fetchShopCategories, fetchShops } from '@/utils/api';
 import Footer from '@/components/footer';
 import Container from '@/components/container';
 
 export default function ShopPage() {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [shops, setShops] = React.useState<IShop[]>([]);
+  const [shopsCategories, setShopsCategories] = React.useState<IShopCategory[]>(
+    []
+  );
 
   const init = async () => {
     try {
       setIsLoading(true);
 
-      const response = await fetchShops();
+      const [shopsRes, categoriesRes] = await Promise.all([
+        fetchShops(),
+        fetchShopCategories(),
+      ]);
 
-      if (!!response && response.data.length > 0) {
-        setShops(response.data);
+      if (shopsRes?.data?.length) {
+        setShops(shopsRes.data);
       }
+
+      if (categoriesRes?.data?.length) {
+        setShopsCategories(categoriesRes.data);
+      }
+    } catch (error) {
+      console.error('Failed to load data:', error);
     } finally {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setIsLoading(false);
@@ -32,7 +44,7 @@ export default function ShopPage() {
 
   return (
     <>
-      <HeroShop props={shops} />
+      <HeroShop props={{ shops, shopCategories: shopsCategories }} />
       <Container>
         <Footer />
       </Container>

@@ -72,3 +72,42 @@ export interface IShop {
     };
   };
 }
+
+export interface IShopCategory {
+  id: number;
+  attributes: {
+    title: string;
+    createdAt: string;
+    link: string;
+    description: string;
+    updatedAt: string;
+    publishedAt: string;
+    coverImage: {
+      data: {
+        id: number;
+        attributes: {
+          url: string;
+        };
+      };
+    };
+  };
+}
+export interface IEvents {
+  id: number;
+  attributes: {
+    title: string;
+    createdAt: string;
+    post: string;
+    summary: string;
+    updatedAt: string;
+    publishedAt: string;
+    coverImage: {
+      data: {
+        id: number;
+        attributes: {
+          url: string;
+        };
+      };
+    };
+  };
+}
