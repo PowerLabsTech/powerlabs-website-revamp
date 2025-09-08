@@ -8,7 +8,7 @@ import Footer from '@/components/footer';
 import Container from '@/components/container';
 
 export default function ShopPage() {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [, setIsLoading] = React.useState<boolean>(false);
   const [shops, setShops] = React.useState<IShop[]>([]);
   const [shopsCategories, setShopsCategories] = React.useState<IShopCategory[]>(
     []

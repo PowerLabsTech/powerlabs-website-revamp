@@ -6,7 +6,7 @@ import React from 'react';
 import { useEffect } from 'react';
 
 export default function HeroPodcast() {
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [, setIsLoading] = React.useState<boolean>(false);
   const [pods, setPods] = React.useState<IPod[]>([]);
 
   const fetchPods = async () => {
@@ -28,8 +28,8 @@ export default function HeroPodcast() {
   }, []);
   return (
     <>
-      {pods.map((pod) => (
-        <PodCards prop={pod} />
+      {pods.map((pod, index) => (
+        <PodCards key={index} prop={pod} />
       ))}
     </>
   );
