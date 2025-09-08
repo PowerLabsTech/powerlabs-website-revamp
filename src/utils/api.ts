@@ -1,4 +1,10 @@
-import { IArticleData, IArticles, IEvents, IShop } from '@/interfaces';
+import {
+  IArticleData,
+  IArticles,
+  ICareers,
+  IEvents,
+  IShop,
+} from '@/interfaces';
 import axios from 'axios';
 
 export const articleUrl = 'https://powerlabstech.com/blogger/api/publications';
@@ -7,9 +13,10 @@ export const shopsUrl = 'https://powerlabstech.com/blogger/api/shops';
 export const shopCategoriesUrl =
   'https://powerlabstech.com/blogger/api/shop-categories';
 export const eventsUrl = 'https://powerlabstech.com/blogger/api/events';
+export const careersUrl = 'https://powerlabstech.com/blogger/api/careers';
 
 export async function fetchArticles(page: number) {
-  const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;
+  const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&fields[4]=date&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;
   try {
     const response = await fetch(url, {
       next: {
@@ -150,6 +157,18 @@ export async function fetchEventsById(id: string) {
   try {
     const response = await axios.get(url);
     return response.data as { data: IEvents };
+  } catch (err) {
+    console.error('Error fetching data:', err);
+    throw err;
+  }
+}
+
+//fetch careers
+export async function fetchCareers() {
+  const url = `${careersUrl}?populate=*`;
+  try {
+    const response = await axios.get(url);
+    return response.data as { data: ICareers[] };
   } catch (err) {
     console.error('Error fetching data:', err);
     throw err;

@@ -10,6 +10,7 @@ export interface IArticleData {
     readingTime: number;
     summary: string;
     avatar: string;
+    date: string;
     tag: string;
     coverImage: {
       data: {
@@ -109,5 +110,17 @@ export interface IEvents {
         };
       };
     };
+  };
+}
+
+export interface ICareers {
+  id: number;
+  attributes: {
+    role: string;
+    department: string;
+    location: string;
+    type: string;
+    link: string;
+    publishedAt: string;
   };
 }

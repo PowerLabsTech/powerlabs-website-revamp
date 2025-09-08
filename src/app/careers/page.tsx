@@ -5,6 +5,7 @@ import FirstSection from './firstSection';
 import ResidensidencyProgram from './residency';
 import Footer from '@/components/footer';
 import { JoinBlueList } from './joinBlueList';
+import OpenRoles from './openRoles';
 
 export default function Careers() {
   return (
@@ -14,6 +15,7 @@ export default function Careers() {
       </HeroContainer>
       <Container>
         <FirstSection />
+        <OpenRoles />
       </Container>
       <ResidensidencyProgram />
       <JoinBlueList />

@@ -40,7 +40,7 @@ export default function BlogPostPage() {
         {/* Header Section */}
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-gray-400 text-sm">
-            {displayFriendlyDate(article.attributes.publishedAt)}
+            {displayFriendlyDate(article.attributes.date)}
           </p>
           <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
             <Image
