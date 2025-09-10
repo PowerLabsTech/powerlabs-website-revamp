@@ -28,9 +28,10 @@ env: # All variables used in the action
     AWS_ECR_REPO: ${{ secrets.ENTERPRISE_ECR_REPO_DEV }}
     AWS_ECR_REGISTRY: ${{ secrets.ENTERPRISE_ECR_REGISTRY_DEV }}
     AWS_EC2_KEY: ${{ secrets.ENTERPRISE_EC2_KEY_DEV }}
-    ANSIBLE_INVENTORY: ${{ secrets.ENTERPRISE_ANSIBLE_INVENTORY_DEV }}
+    ANSIBLE_INVENTORY: ${{ secrets.ENTERPRISE_ANSIBLE_INVENTORY_WEBSITE_DEV }}
     AWS_EC2_USERNAME: ${{ secrets.ENTERPRISE_EC2_USERNAME_DEV }}
     ENV_VARS: ${{ secrets.ENV_VARS_DEV }}
+    ENV_LOCAL_VARS: ${{ secrets.ENV_VARS_LOCAL_DEV }}
     ENVIRONMENT: development
 
 jobs:
@@ -77,6 +78,11 @@ jobs:
       env:
         ENV_VARS: ${{ env.ENV_VARS }}
       run: echo "$ENV_VARS" > .env
+    
+    - name: Create .env.local file
+      env:
+        ENV_VARS: ${{ env.ENV_LOCAL_VARS }}
+      run: echo "$ENV_VARS" > .env.local
 
     - name: Build & Push Docker App server Image to ECR
       id: image
