@@ -1,5 +1,4 @@
 import React from 'react';
-import { Input } from '@material-tailwind/react';
 import { NEWS_LETTERS_TYPE } from '@/enums';
 import { subscribe } from '@/services/mailchimp';
 

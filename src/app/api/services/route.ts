@@ -52,9 +52,7 @@ export async function POST(req: Request) {
       categoryId
     )) as Iinterests[];
 
-    const groupId = interests.find(
-      (interest) => interest.name === newsLetterType
-    )?.id;
+    const groupId = interests.find((interest) => interest.name === type)?.id;
 
     if (!groupId) {
       return NextResponse.json(
