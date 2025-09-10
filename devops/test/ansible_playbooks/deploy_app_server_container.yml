@@ -1,0 +1,47 @@
+- name: Ensure Docker is installed and deploy Docker Container
+  hosts: all
+  vars:
+    ecr_registry: "{{ lookup('env', 'AWS_ECR_REGISTRY') }}" 
+    ecr_repository: "{{ lookup('env', 'AWS_ECR_REPO') }}" 
+    image_tag: "{{ lookup('env', 'ENTERPRISE_ECR_TAG') }}" 
+    region: "{{ lookup('env', 'AWS_EC2_REGION') }}" 
+    aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}" 
+    aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}" 
+    container_name: "{{ lookup('env', 'CONTAINER_NAME') }}" 
+    aws_ec2_port: "{{ lookup('env', 'EC2_OPEN_PORT_APP') }}" 
+    container_port: "{{ lookup('env', 'CONTAINER_OPEN_PORT_APP') }}" 
+  
+  tasks:
+    - name: Log in to Amazon ECR
+      shell: "aws ecr get-login-password --region {{ region }} | docker login --username AWS --password-stdin {{ ecr_registry }}"
+      environment:
+        AWS_ACCESS_KEY_ID: "{{ aws_access_key }}"
+        AWS_SECRET_ACCESS_KEY: "{{ aws_secret_key }}"
+      args:
+        executable: /bin/bash
+
+    - name: Stop the existing Docker container (if running)
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ ecr_registry }}/{{ ecr_repository }}:{{ image_tag }}"
+        state: stopped
+      ignore_errors: yes
+    
+    - name: Remove existing Docker container image (if exists)
+      docker_image:
+        name: "{{ ecr_registry }}/{{ ecr_repository }}"
+        tag: "{{ image_tag }}"
+        state: absent
+        force_absent: true
+      ignore_errors: yes
+
+    - name: Run the Docker container
+      docker_container:
+        name: "{{ container_name }}"
+        image: "{{ ecr_registry }}/{{ ecr_repository }}:{{ image_tag }}"
+        state: started
+        network_mode: host
+        restart_policy: unless-stopped
+        pull: always
+        ports:
+          - "{{aws_ec2_port}}:{{container_port}}"

@@ -1,0 +1,175 @@
+#currently using same compute instance for both development and test
+
+name: Website CI/CD Pipeline development
+
+on:
+  push:
+    branches:
+      - test
+
+env: # All variables used in the action
+    ECR_IMAGE_TAG_PREFIX: "websiteapp"
+    ECR_IMAGE_TAG: "websiteapp-latest_test"
+    ECR_IMAGE_TAG_PREFIX_WEB_SERVER: "websiteweb"
+    ECR_IMAGE_TAG_WEB_SERVER: "websiteweb-latest"
+    ANSIBLE_INVENTORY_FILE: "inventory.ini"
+    SLACK_CHANNEL: "apps-ci-cd-notification"
+    CONTAINER_NAME: "enterprise_website_app_server_test"
+    CONTAINER_NAME_WEB_SERVER: "enterprise_website_web_server"
+    DOCKERFILE_PATH: "./devops/test/dockerfile.app"
+    DOCKERFILE_PATH_WEB_SERVER: "./devops/test/dockerfile.nginx"
+    PLAYBOOKS_PATH: './devops/test/ansible_playbooks/install_packages.yml  ./devops/test/ansible_playbooks/deploy_app_server_container.yml ./devops/test/ansible_playbooks/deploy_web_server_container.yml'
+    EC2_OPEN_PORT_APP: 8091
+    CONTAINER_OPEN_PORT_APP: 3000
+    EC2_OPEN_PORT_WEB_SERVER: 80
+    CONTAINER_OPEN_PORT_WEB_SERVER: 80
+    SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
+    AWS_ACCESS_KEY: ${{ secrets.ENTERPRISE_ACCESS_KEY_DEV }}
+    AWS_SECRET_KEY: ${{ secrets.ENTERPRISE_SECRET_KEY_DEV }}
+    AWS_EC2_REGION: ${{ secrets.ENTERPRISE_EC2_REGION_DEV }}
+    AWS_ECR_REPO: ${{ secrets.ENTERPRISE_ECR_REPO_DEV }}
+    AWS_ECR_REGISTRY: ${{ secrets.ENTERPRISE_ECR_REGISTRY_DEV }}
+    AWS_EC2_KEY: ${{ secrets.ENTERPRISE_EC2_KEY_DEV }}
+    ANSIBLE_INVENTORY: ${{ secrets.ENTERPRISE_ANSIBLE_INVENTORY_DEV }}
+    AWS_EC2_USERNAME: ${{ secrets.ENTERPRISE_EC2_USERNAME_DEV }}
+    ENV_VARS: ${{ secrets.ENV_VARS_DEV }}
+    ENVIRONMENT: test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Post to a Slack channel
+      id: build-start
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        channel-id:  '${{ env.SLACK_CHANNEL }}'
+        slack-message: "Build job started\nRun ID: ${{ github.run_id }}\nRepo: ${{ github.event.repository.name }}\nEnvironment: ${{ env.ENVIRONMENT }}\n"
+      env:
+        SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_KEY }}
+          aws-region: ${{ env.AWS_EC2_REGION }}
+
+    - name: Retag old ${{ env.ECR_IMAGE_TAG }} tag
+      uses: abronin/ecr-retag-action@v1
+      with:
+            repository: ${{ env.AWS_ECR_REPO }}
+            tag: ${{ env.ECR_IMAGE_TAG }}
+            new-tags: ${{env.ECR_IMAGE_TAG_PREFIX}}-${{ github.run_id }}
+      continue-on-error: true
+
+    - name: Retag old ${{ env.ECR_IMAGE_TAG_WEB_SERVER }} tag
+      uses: abronin/ecr-retag-action@v1
+      with:
+            repository: ${{ env.AWS_ECR_REPO }}
+            tag: ${{ env.ECR_IMAGE_TAG_WEB_SERVER }}
+            new-tags: ${{env.ECR_IMAGE_TAG_WEB_SERVER}}-${{ github.run_id }}
+      continue-on-error: true
+    
+    - name: Create .env file
+      env:
+        ENV_VARS: ${{ env.ENV_VARS }}
+      run: echo "$ENV_VARS" > .env
+
+    - name: Build & Push Docker App server Image to ECR
+      id: image
+      uses: smu-chile/aws-ecr-policy-action@master
+      with:
+        access_key_id: ${{ env.AWS_ACCESS_KEY }}
+        secret_access_key: ${{ env.AWS_SECRET_KEY }}
+        ecr_registry: ${{ env.AWS_ECR_REGISTRY }}
+        region: ${{ env.AWS_EC2_REGION }}
+        create_repo: false
+        create_policy: false
+        scan_images: false
+        dockerfile: ${{env.DOCKERFILE_PATH}}
+        repo: ${{ env.AWS_ECR_REPO }}
+        tags: ${{ env.ECR_IMAGE_TAG }}
+
+    - name: Build & Push Docker Web server Image to ECR
+      id: image-web-server
+      uses: smu-chile/aws-ecr-policy-action@master
+      with:
+        access_key_id: ${{ env.AWS_ACCESS_KEY }}
+        secret_access_key: ${{ env.AWS_SECRET_KEY }}
+        ecr_registry: ${{ env.AWS_ECR_REGISTRY }}
+        region: ${{ env.AWS_EC2_REGION }}
+        create_repo: false
+        create_policy: false
+        scan_images: false
+        dockerfile: ${{env.DOCKERFILE_PATH_WEB_SERVER}}
+        repo: ${{ env.AWS_ECR_REPO }}
+        tags: ${{ env.ECR_IMAGE_TAG_WEB_SERVER }}
+
+    - name: Post to a Slack channel
+      id: build-end
+      uses: slackapi/slack-github-action@v1.26.0
+      if: always()
+      with:
+        channel-id:  '${{ env.SLACK_CHANNEL }}'
+        slack-message: "Build result: ${{ job.status }}\nRun ID: ${{ github.run_id }}\nRepo: ${{ github.event.repository.name }}\nEnvironment: ${{ env.ENVIRONMENT }}\n"
+      env:
+        SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v2
+
+      - name: Post to a Slack channel
+        id: deploy-start
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+            channel-id:  '${{ env.SLACK_CHANNEL }}'
+            slack-message: "Deploy job started\nRun ID: ${{ github.run_id }}\nRepo: ${{ github.event.repository.name }}\nEnvironment: ${{ env.ENVIRONMENT }}\n"
+        env:
+            SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
+
+      - name: Create Ansible Inventory File
+        run: echo "${{ env.ANSIBLE_INVENTORY }}" | base64 --decode > ${{env.ANSIBLE_INVENTORY_FILE}}
+
+      - name: Perform Ansible Playbook Deployment
+        uses: alex-oleshkevich/ansible-playbook@v1.0.0  
+        with:
+          playbook-file: ${{ env.PLAYBOOKS_PATH  }}
+          inventory-file: ${{ env.ANSIBLE_INVENTORY_FILE }}
+          private-key: ${{ env.AWS_EC2_KEY }}
+          user: ${{ env.AWS_EC2_USERNAME }}
+
+        env:
+          ANSIBLE_HOST_KEY_CHECKING: 'false'
+          AWS_ECR_REPO: ${{ env.AWS_ECR_REPO }}
+          AWS_ECR_REGISTRY: ${{ env.AWS_ECR_REGISTRY }}
+          ENTERPRISE_ECR_TAG: ${{ env.ECR_IMAGE_TAG }}
+          ENTERPRISE_ECR_WEB_SERVER_TAG: ${{ env.ECR_IMAGE_TAG_WEB_SERVER }}
+          AWS_EC2_REGION: ${{env.AWS_EC2_REGION}}
+          AWS_ACCESS_KEY: ${{env.AWS_ACCESS_KEY}}
+          AWS_SECRET_KEY: ${{env.AWS_SECRET_KEY}}
+          CONTAINER_NAME: ${{env.CONTAINER_NAME}}
+          CONTAINER_NAME_WEB_SERVER: ${{env.CONTAINER_NAME_WEB_SERVER}}
+          EC2_OPEN_PORT_APP: ${{env.EC2_OPEN_PORT_APP}}
+          EC2_OPEN_PORT_WEB_SERVER: ${{env.EC2_OPEN_PORT_WEB_SERVER}}
+          CONTAINER_OPEN_PORT_APP: ${{env.CONTAINER_OPEN_PORT_APP}}
+          CONTAINER_OPEN_PORT_WEB_SERVER: ${{env.CONTAINER_OPEN_PORT_WEB_SERVER}}
+          EC2_USER: ${{env.AWS_EC2_USERNAME}}
+
+      - name: Post to a Slack channel
+        id: deploy-end
+        uses: slackapi/slack-github-action@v1.26.0
+        if: always()
+        with:
+            channel-id:  '${{ env.SLACK_CHANNEL }}'
+            slack-message: "Deploy result: ${{ job.status }}\nRun ID: ${{ github.run_id }}\nRepo: ${{github.event.repository.name}}\nEnvironment: ${{ env.ENVIRONMENT }}\n"
+        env:
+            SLACK_BOT_TOKEN: ${{ env.SLACK_BOT_TOKEN }}
