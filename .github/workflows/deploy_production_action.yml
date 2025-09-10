@@ -3,7 +3,7 @@ name: Website CI/CD Pipeline production
 on:
   push:
     branches:
-      - devops
+      - main
 
 env: # All variables used in the action
     ECR_IMAGE_TAG_PREFIX: "websiteapp"
