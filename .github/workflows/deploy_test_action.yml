@@ -19,10 +19,6 @@ env: # All variables used in the action
     DOCKERFILE_PATH: "./devops/test/dockerfile.app"
     DOCKERFILE_PATH_WEB_SERVER: "./devops/test/dockerfile.nginx"
     PLAYBOOKS_PATH: './devops/test/ansible_playbooks/install_packages.yml  ./devops/test/ansible_playbooks/deploy_app_server_container.yml ./devops/test/ansible_playbooks/deploy_web_server_container.yml'
-    EC2_OPEN_PORT_APP: 8091
-    CONTAINER_OPEN_PORT_APP: 3000
-    EC2_OPEN_PORT_WEB_SERVER: 80
-    CONTAINER_OPEN_PORT_WEB_SERVER: 80
     SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
     AWS_ACCESS_KEY: ${{ secrets.ENTERPRISE_ACCESS_KEY_DEV }}
     AWS_SECRET_KEY: ${{ secrets.ENTERPRISE_SECRET_KEY_DEV }}
@@ -164,10 +160,6 @@ jobs:
           AWS_SECRET_KEY: ${{env.AWS_SECRET_KEY}}
           CONTAINER_NAME: ${{env.CONTAINER_NAME}}
           CONTAINER_NAME_WEB_SERVER: ${{env.CONTAINER_NAME_WEB_SERVER}}
-          EC2_OPEN_PORT_APP: ${{env.EC2_OPEN_PORT_APP}}
-          EC2_OPEN_PORT_WEB_SERVER: ${{env.EC2_OPEN_PORT_WEB_SERVER}}
-          CONTAINER_OPEN_PORT_APP: ${{env.CONTAINER_OPEN_PORT_APP}}
-          CONTAINER_OPEN_PORT_WEB_SERVER: ${{env.CONTAINER_OPEN_PORT_WEB_SERVER}}
           EC2_USER: ${{env.AWS_EC2_USERNAME}}
 
       - name: Post to a Slack channel

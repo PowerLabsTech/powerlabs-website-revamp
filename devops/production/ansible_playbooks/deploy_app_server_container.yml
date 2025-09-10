@@ -8,8 +8,6 @@
     aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}" 
     aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}" 
     container_name: "{{ lookup('env', 'CONTAINER_NAME') }}" 
-    aws_ec2_port: "{{ lookup('env', 'EC2_OPEN_PORT_APP') }}" 
-    container_port: "{{ lookup('env', 'CONTAINER_OPEN_PORT_APP') }}" 
   
   tasks:
     - name: Log in to Amazon ECR
@@ -43,5 +41,3 @@
         network_mode: host
         restart_policy: unless-stopped
         pull: always
-        ports:
-          - "{{aws_ec2_port}}:{{container_port}}"
