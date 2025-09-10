@@ -1,15 +1,34 @@
 'use client';
 import { ArrowLeft } from 'lucide-react';
-import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
+import React, { useEffect } from 'react';
+import { IShop } from '@/interfaces';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { fetchShopsById } from '@/services/cms';
+import { displayFriendlyDate } from '@/utils/stringUtils';
+import ReactMarkdown from 'react-markdown';
 
 export default function Shop() {
+  const [article, setArticle] = React.useState<IShop>();
+
+  const param = useSearchParams();
   const router = useRouter();
   const params = useParams();
 
+  const fetchPostData = async () => {
+    const id = param.get('id');
+    if (!!id) {
+      const response = await fetchShopsById(id);
+      setArticle(response.data as IShop);
+    }
+  };
+
+  useEffect(() => {
+    fetchPostData();
+  }, []);
+
   return (
     <>
-      (
       <div className="w-full p-10">
         <div className="min-h-screen  text-white">
           {/* Back Button */}
@@ -30,22 +49,24 @@ export default function Shop() {
                 width={50}
                 height={50}
               />
-              <p className="text-gray-400 text-sm">Mar 22, 2024</p>
+              <p className="text-gray-400 text-sm">
+                {displayFriendlyDate(article?.attributes.publishedAt ?? '') ??
+                  ''}
+              </p>
             </div>
 
             <div>
               <h3 className="text-3xl font-semibold metallic-text">
-                {params.slug?.toString().replace('_', ' ')}
+                {params.slug?.toString().replace('-', ' ')}
               </h3>
             </div>
+            {/* content*/}
+            <article className="prose prose-invert lg:prose-xl mx-auto">
+              <ReactMarkdown>{article?.attributes.post}</ReactMarkdown>
+            </article>
           </div>
-
-          {/* content*/}
-
-          {/* <CodeBlock htmlContent={article.attributes.text} /> */}
         </div>
       </div>
-      )
     </>
   );
 }

@@ -1,15 +1,18 @@
 import SubscribeForm, { SubscribeBlog } from '@/components/subscribe';
+import { NEWS_LETTERS_TYPE } from '@/enums';
 import React from 'react';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 export const Subscribe = ({
   title,
   subtitle,
+  newsLetterType = NEWS_LETTERS_TYPE.GENERAL,
+  buttonText = 'Subscribe',
 }: {
   title: string;
   subtitle: string;
+  newsLetterType?: NEWS_LETTERS_TYPE;
+  buttonText?: string;
 }) => {
-  const url = process.env.MAILCHIMP_URL ?? '';
   return (
     <div
       className="scrollOver2 relative w-full bg-no-repeat bg-center flex items-center justify-center px-4 py-20"
@@ -19,7 +22,7 @@ export const Subscribe = ({
         backgroundSize: 'cover',
       }}
     >
-      <div className="w-full max-w-2xl text-center text-white space-y-6">
+      <div className="w-full max-w-5xl text-center text-white space-y-6">
         <div>
           <h2 className="text-3xl md:text-[40px] font-medium metallic-text">
             {title}
@@ -27,18 +30,10 @@ export const Subscribe = ({
           <p className="font-normal text-base mt-2">{subtitle}</p>
         </div>
         <div>
-          {
-            <MailchimpSubscribe
-              url={url}
-              render={({ subscribe, status, message }) => (
-                <SubscribeForm
-                  status={status}
-                  message={message}
-                  onValidated={(formData) => subscribe(formData)}
-                />
-              )}
-            />
-          }
+          <SubscribeForm
+            newsLetterType={newsLetterType}
+            buttonText={buttonText}
+          />
         </div>
         <div className="w-full flex justify-center">
           <p className="text-xs max-w-md">
@@ -58,23 +53,15 @@ export const Subscribe = ({
   );
 };
 
-export const SubscribeFormBlog = () => {
-  const url = process.env.MAILCHIMP_URL ?? '';
+export const SubscribeFormBlog = ({
+  newsLetterType = NEWS_LETTERS_TYPE.GENERAL,
+}: {
+  newsLetterType?: NEWS_LETTERS_TYPE;
+}) => {
   return (
     <div className="  z-10 text-left text-white ">
       <div>
-        {
-          <MailchimpSubscribe
-            url={url}
-            render={({ subscribe, status, message }) => (
-              <SubscribeBlog
-                status={status}
-                message={message}
-                onValidated={(formData) => subscribe(formData)}
-              />
-            )}
-          />
-        }
+        <SubscribeBlog newsLetterType={newsLetterType} />
       </div>
     </div>
   );

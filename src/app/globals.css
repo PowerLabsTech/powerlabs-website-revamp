@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities; */
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 :root {
   --background: #ffffff;
@@ -15,11 +16,16 @@
   --font-mono: var(--font-geist-mono); */
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
 }
 
 @layer components {
@@ -32,11 +38,15 @@
   }
 
   .btn-ghost {
-    @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
+    @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white  py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
   }
 
   .btn {
     @apply cursor-pointer hover:bg-white hover:text-black transition-all;
+  }
+
+  .btn-primary {
+    @apply items-center bg-blue-500  text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
   }
 
   .bg-primary {

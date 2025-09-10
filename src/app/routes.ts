@@ -13,6 +13,9 @@ export const pathsRoute = {
   events: '/community/events',
   ambassadors: '/community/ambassadors',
   company: '/company',
+  terms: '/terms',
+  privacyPolicy: '/privacy-policy',
+  cookies: '/cookies',
 };
 
 export const paths = [

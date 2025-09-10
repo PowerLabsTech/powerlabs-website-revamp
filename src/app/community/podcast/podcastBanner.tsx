@@ -1,3 +1,4 @@
+import { pathsRoute } from '@/app/routes';
 import Image from 'next/image';
 
 export default function PodcastBanner() {
@@ -18,34 +19,48 @@ export default function PodcastBanner() {
             </h2>
           </div>
           <div className="flex items-center justify-center gap-4 md:gap-6">
-            <Image
-              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/spotifyIcon.png"
-              width={80}
-              height={80}
-              alt="Spotify icon"
-              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
-            />
-            <Image
-              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/amazonIcon.png"
-              width={80}
-              height={80}
-              alt="Amazon Music icon"
-              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
-            />
-            <Image
-              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/audiomackIcon.png"
-              width={80}
-              height={80}
-              alt="Audiomack icon"
-              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
-            />
+            <a
+              href="https://open.spotify.com/show/3xNMUpryzRbHttHcVTXc2W?si=9fe06455d7794db9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/spotifyIcon.png"
+                width={80}
+                height={80}
+                alt="Spotify icon"
+                className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              />
+            </a>
+            <a href="http://" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/amazonIcon.png"
+                width={80}
+                height={80}
+                alt="Amazon Music icon"
+                className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              />
+            </a>
+            <a
+              href="https://audiomack.com/thebluecouchpodcast"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/audiomackIcon.png"
+                width={80}
+                height={80}
+                alt="Audiomack icon"
+                className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              />
+            </a>
           </div>
           <div className="w-full flex justify-center">
             <p className="text-xs max-w-md">
               *This information may be transcribed, used, and stored by third
               parties in accordance with our{' '}
               <a
-                href="/privacy"
+                href={pathsRoute.privacyPolicy}
                 className="underline decoration-solid text-blue-500 decoration-blue-500 italic"
               >
                 privacy policy

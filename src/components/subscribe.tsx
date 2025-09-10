@@ -1,66 +1,101 @@
 import React from 'react';
 import { Input } from '@material-tailwind/react';
+import { NEWS_LETTERS_TYPE } from '@/enums';
+import { subscribe } from '@/services/mailchimp';
 
-type SubscribeFormProps = {
-  status: string | null;
-  message: string | Error | null;
-  onValidated: (data: { EMAIL: string }) => void;
-};
+export default function Subscribe({
+  newsLetterType = NEWS_LETTERS_TYPE.GENERAL,
+  buttonText = 'Subscribe',
+}: {
+  newsLetterType?: NEWS_LETTERS_TYPE;
+  buttonText?: string;
+}) {
+  const [formData, setFormData] = React.useState({ EMAIL: '' });
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState<'success' | 'error' | null>(null);
+  const [message, setMessage] = React.useState<string | null>(null);
 
-export default function SubscribeForm({
-  status,
-  message,
-  onValidated,
-}: SubscribeFormProps) {
-  const [formData, setFormData] = React.useState({
-    EMAIL: '',
-  });
-
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log(formData);
-    onValidated(formData);
+
+    if (!formData.EMAIL) {
+      setStatus('error');
+      setMessage('Please enter a valid email.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await subscribe(formData.EMAIL, newsLetterType);
+
+      if (response?.ok && response.status === 200) {
+        setStatus('success');
+        setMessage('Thank you for subscribing! 🎉');
+        setFormData({ EMAIL: '' }); // clear field
+      } else {
+        setStatus('error');
+        setMessage('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setStatus('error');
+      setMessage('Unexpected error. Please try again.');
+      console.error('Subscribe error:', err);
+    } finally {
+      setLoading(false);
+    }
   }
+
+  // Auto-clear messages after 4s
+  React.useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage(null);
+        setStatus(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   return (
     <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="mt-8 mb-2 w-full max-w-[480px]  mx-auto text-default"
+      onSubmit={handleSubmit}
+      className="mt-8 mb-2 w-full max-w-[560px] mx-auto text-default"
     >
-      {status === 'error' && (
-        <div
-          className="m-5 text-red-500"
-          dangerouslySetInnerHTML={{ __html: message ?? '' }}
-        />
-      )}
-      <div className="lg:flex gap-2">
-        <div>
-          <Input
+      <div className="lg:flex ">
+        <div className="flex-1">
+          <input
             autoComplete="off"
             name="email"
             type="email"
-            label={status === 'success' ? 'Sent' : ''}
             value={formData.EMAIL}
-            success={status === 'success'}
-            required
             placeholder="John@example.com"
-            onChange={(e) =>
-              setFormData({ ...formData, EMAIL: e.target.value })
-            }
-            className="lg:mt-1.5 !border !border-default/[12%] px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-[32%] focus:!border-[#1570EF] text-base bg-[#1018280D] lg:w-[23rem] w-[100%] mt-[2rem]"
-            onResize={undefined}
-            onResizeCapture={undefined}
-            crossOrigin={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
+            onChange={(e) => setFormData({ EMAIL: e.target.value })}
+            className={`lg:mt-1.5 border px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#1018280D] lg:w-[23rem] w-full mt-[2rem] ${
+              status === 'success'
+                ? 'border-green-500'
+                : status === 'error'
+                ? 'border-red-500'
+                : 'border-default/20 focus:border-[#1570EF]'
+            }`}
           />
+          {message && (
+            <p
+              className={`mt-1 text-sm ${
+                status === 'success' ? 'text-green-600' : 'text-red-600'
+              }`}
+            >
+              {message}
+            </p>
+          )}
         </div>
         <div>
           <button
             type="submit"
-            className="bg-blue-500 rounded-sm font-medium text-white mx-auto px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-[100%]"
+            className="bg-blue-500 rounded-sm font-medium text-white px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60"
+            disabled={loading}
           >
-            Subscribe
+            {loading ? 'Submitting...' : buttonText}
           </button>
         </div>
       </div>
@@ -69,58 +104,96 @@ export default function SubscribeForm({
 }
 
 export function SubscribeBlog({
-  status,
-  message,
-  onValidated,
-}: SubscribeFormProps) {
-  const [formData, setFormData] = React.useState({
-    EMAIL: '',
-  });
+  newsLetterType = NEWS_LETTERS_TYPE.GENERAL,
+}: {
+  newsLetterType?: NEWS_LETTERS_TYPE;
+}) {
+  const [formData, setFormData] = React.useState({ EMAIL: '' });
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState<'success' | 'error' | null>(null);
+  const [message, setMessage] = React.useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    onValidated(formData);
+
+    if (!formData.EMAIL) {
+      setStatus('error');
+      setMessage('Please enter a valid email.');
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await subscribe(formData.EMAIL, newsLetterType);
+
+      if (response?.ok && response.status === 200) {
+        setStatus('success');
+        setMessage('Thank you for subscribing! 🎉');
+        setFormData({ EMAIL: '' }); // clear input
+      } else {
+        setStatus('error');
+        setMessage('Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      console.error('Subscribe error:', err);
+      setStatus('error');
+      setMessage('Unexpected error. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   }
+
+  // Auto-clear message after 4s
+  React.useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage(null);
+        setStatus(null);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   return (
     <form
-      onSubmit={(e) => handleSubmit(e)}
-      className="mt-8 mb-2 w-full max-w-[480px]  mx-auto text-default"
+      onSubmit={handleSubmit}
+      className="mt-8 mb-2 w-full max-w-[480px] mx-auto text-default"
     >
-      {status === 'error' && (
-        <div
-          className="m-5 text-red-500"
-          dangerouslySetInnerHTML={{ __html: message ?? '' }}
-        />
-      )}
       <div className="lg:flex gap-2">
-        <div>
-          <Input
+        <div className="flex-1">
+          <input
             autoComplete="off"
             name="email"
             type="email"
-            label={status === 'success' ? 'Sent' : ''}
             value={formData.EMAIL}
-            success={status === 'success'}
-            required
             placeholder="John@example.com"
-            onChange={(e) =>
-              setFormData({ ...formData, EMAIL: e.target.value })
-            }
-            className="lg:mt-1.5 !border !border-default/[12%] px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-[32%] focus:!border-[#1570EF] text-base bg-[#18191AED] lg:w-[23rem] w-[100%] mt-[2rem]"
-            onResize={undefined}
-            onResizeCapture={undefined}
-            crossOrigin={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}
+            onChange={(e) => setFormData({ EMAIL: e.target.value })}
+            className={`lg:mt-1.5 border px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#18191AED] lg:w-[23rem] w-full mt-[2rem] ${
+              status === 'success'
+                ? 'border-green-500'
+                : status === 'error'
+                ? 'border-red-500'
+                : 'border-default/20 focus:border-[#1570EF]'
+            }`}
           />
+          {message && (
+            <p
+              className={`mt-1 text-sm ${
+                status === 'success' ? 'text-green-500' : 'text-red-500'
+              }`}
+            >
+              {message}
+            </p>
+          )}
         </div>
         <div>
           <button
             type="submit"
-            className="bg-white rounded-sm font-medium text-blue-500 mx-auto px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-[100%]"
+            className="bg-white rounded-sm font-medium text-blue-500 px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60"
+            disabled={loading}
           >
-            Subscribe
+            {loading ? 'Submitting...' : 'Subscribe'}
           </button>
         </div>
       </div>

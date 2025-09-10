@@ -4,7 +4,7 @@ import FirstSection from './firstSection';
 import ApplyAmbassador from './apply';
 import BecomeAmbassador from './becomeAmbassador';
 import FaqAmbassadorAccordion from './faq';
-import WaitlistSection from './waitListSection';
+// import WaitlistSection from './waitListSection';
 import Footer from '@/components/footer';
 
 export default function Ambassadors() {

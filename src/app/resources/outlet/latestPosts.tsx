@@ -157,7 +157,7 @@ const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
               <span className="text-blue-500">{post.attributes.tag}</span>
             </div>
             <div>
-              <span>{post.attributes.createdAt.split('T')[0]}</span>
+              <span>{post.attributes.date}</span>
               <span className="mx-2">•</span>
               <span>{post.attributes.readingTime ?? ''} mins read</span>
             </div>

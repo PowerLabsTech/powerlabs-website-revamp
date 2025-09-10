@@ -1,5 +1,6 @@
 'use client';
 import { SubscribeFormBlog } from '@/app/subscribe';
+import { NEWS_LETTERS_TYPE } from '@/enums';
 import { IArticleData } from '@/interfaces';
 import { createRouteFromTitle } from '@/utils/stringUtils';
 import Image from 'next/image';
@@ -14,7 +15,7 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
         </h2>
         <p className="text-base font-light">Not the science. Just the story.</p>
       </div>
-      <SubscribeFormBlog />
+      <SubscribeFormBlog newsLetterType={NEWS_LETTERS_TYPE.GENERAL} />
       <FeaturedCard article={article} />
     </div>
   );
@@ -35,7 +36,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
       <div className="w-full lg:w-1/2 h-64 md:h-80 lg:h-full relative rounded-lg overflow-hidden">
         <Image
           src={article?.attributes.coverImage.data.attributes.url}
-          alt="Studio room"
+          alt="article image"
           layout="fill"
           objectFit="cover"
         />
@@ -48,7 +49,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
             {article?.attributes.title}
           </h3>
           <p className="font-extralight">
-            {article?.attributes.author ?? 'Tawhid Aderinto'}
+            {article?.attributes.author ?? 'PowerLabs Team'}
           </p>
           {/* handle dynamic author */}
           <div className="border-[0.5px] border-[#FAFAFA1F]"></div>
@@ -64,9 +65,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
             <div>
               <p className="font-extralight">{article.attributes.tag}</p>
               <div className="flex flex-wrap gap-x-2 items-center">
-                <p className="font-extralight">
-                  {article.attributes.createdAt.split('T')[0]}
-                </p>
+                <p className="font-extralight">{article.attributes.date}</p>
                 <div className="rounded-full h-1.5 bg-white w-1.5"></div>
                 <p className="font-extralight">
                   {article.attributes.readingTime ?? ''} mins read
