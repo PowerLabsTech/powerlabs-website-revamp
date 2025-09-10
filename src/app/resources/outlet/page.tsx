@@ -7,7 +7,7 @@ import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';
 import React, { useEffect } from 'react';
 import { IArticleData } from '@/interfaces';
-import { fetchArticles } from '@/utils/api';
+import { fetchArticles } from '@/services/cms';
 
 export default function Outlets() {
   const [articles, setArticles] = React.useState<IArticleData[]>([]);

@@ -3,9 +3,10 @@
 import React, { useEffect } from 'react';
 import HeroShop from './hero';
 import { IShop, IShopCategory } from '@/interfaces';
-import { fetchShopCategories, fetchShops } from '@/utils/api';
+import { fetchShopCategories, fetchShops } from '@/services/cms';
 import Footer from '@/components/footer';
 import Container from '@/components/container';
+import { Subscribe } from '@/app/subscribe';
 
 export default function ShopPage() {
   const [, setIsLoading] = React.useState<boolean>(false);
@@ -45,6 +46,10 @@ export default function ShopPage() {
   return (
     <>
       <HeroShop props={{ shops, shopCategories: shopsCategories }} />
+      <Subscribe
+        title="Learn more about PowerLabs"
+        subtitle="Get the latest PowerLabs news via email."
+      />
       <Container>
         <Footer />
       </Container>

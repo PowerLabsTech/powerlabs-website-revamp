@@ -1,5 +1,5 @@
 import { ICareers } from '@/interfaces';
-import { fetchCareers } from '@/utils/api';
+import { fetchCareers } from '@/services/cms';
 import React from 'react';
 
 export default function OpenRoles() {

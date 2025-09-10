@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { IEvents } from '@/interfaces';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { fetchEventsById } from '@/utils/api';
+import { fetchEventsById } from '@/services/cms';
 import { displayFriendlyDate } from '@/utils/stringUtils';
 import ReactMarkdown from 'react-markdown';
 

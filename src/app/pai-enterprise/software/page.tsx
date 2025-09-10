@@ -7,6 +7,7 @@ import Anomaly from './anomaly';
 import UseCases from './useCases';
 import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';
+import { NEWS_LETTERS_TYPE } from '@/enums';
 
 export default function Software() {
   return (
@@ -20,6 +21,7 @@ export default function Software() {
         <Subscribe
           title="Get updates and insights"
           subtitle="Stay up to date on Pai Enterprise Sensor, new products, expert advice, and more."
+          newsLetterType={NEWS_LETTERS_TYPE.TECHNICAL}
         />
         <Footer />
       </Container>
