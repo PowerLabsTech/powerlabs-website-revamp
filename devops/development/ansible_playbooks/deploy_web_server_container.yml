@@ -1,6 +1,5 @@
 - name: Ensure Docker is installed and deploy Docker Container
   hosts: all
-  remote_user: nextjs
   vars:
     ecr_registry: "{{ lookup('env', 'AWS_ECR_REGISTRY') }}" 
     ecr_repository: "{{ lookup('env', 'AWS_ECR_REPO') }}" 
