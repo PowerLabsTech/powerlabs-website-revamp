@@ -1,6 +1,6 @@
 #currently using same compute instance for both development and test
 
-name: Website CI/CD Pipeline development
+name: Website CI/CD Pipeline test
 
 on:
   push:

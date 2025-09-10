@@ -1,4 +1,4 @@
-name: Website CI/CD Pipeline development
+name: Website CI/CD Pipeline production
 
 on:
   push:
