@@ -1,7 +1,7 @@
 'use client';
 import Button from '@/components/button';
 import { IEvents } from '@/interfaces';
-import { fetchEvents } from '@/utils/api';
+import { fetchEvents } from '@/services/cms';
 import { createRouteFromTitle } from '@/utils/stringUtils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

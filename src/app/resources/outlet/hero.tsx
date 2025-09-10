@@ -1,5 +1,6 @@
 'use client';
 import { SubscribeFormBlog } from '@/app/subscribe';
+import { NEWS_LETTERS_TYPE } from '@/enums';
 import { IArticleData } from '@/interfaces';
 import { createRouteFromTitle } from '@/utils/stringUtils';
 import Image from 'next/image';
@@ -14,7 +15,7 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
         </h2>
         <p className="text-base font-light">Not the science. Just the story.</p>
       </div>
-      <SubscribeFormBlog />
+      <SubscribeFormBlog newsLetterType={NEWS_LETTERS_TYPE.GENERAL} />
       <FeaturedCard article={article} />
     </div>
   );

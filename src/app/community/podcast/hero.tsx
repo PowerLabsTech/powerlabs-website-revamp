@@ -1,6 +1,6 @@
 'use client';
 import { IPod } from '@/interfaces';
-import { fetchPodcasts } from '@/utils/api';
+import { fetchPodcasts } from '@/services/cms';
 import Image from 'next/image';
 import React from 'react';
 import { useEffect } from 'react';

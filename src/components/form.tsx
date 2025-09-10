@@ -138,7 +138,7 @@ export default function Form({
       {status === 'success' ? (
         <AfterSignup />
       ) : (
-        <div className="grid container  mx-auto grid-cols-1 md:grid-cols-2 justify-center !text-default px-4 mt-28 mb-32">
+        <div className="grid container  mx-auto grid-cols-1 md:grid-cols-2 justify-center !text-default px-4 mt-10 mb-32">
           <div>
             <h2
               className="text-left mb-5  text-3xl md:text-4xl metallic-text

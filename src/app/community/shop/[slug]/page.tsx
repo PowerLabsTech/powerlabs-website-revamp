@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { IShop } from '@/interfaces';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { fetchShopsById } from '@/utils/api';
+import { fetchShopsById } from '@/services/cms';
 import { displayFriendlyDate } from '@/utils/stringUtils';
 import ReactMarkdown from 'react-markdown';
 
