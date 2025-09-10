@@ -5,7 +5,7 @@ name: Website CI/CD Pipeline test
 on:
   push:
     branches:
-      - devops
+      - devopsss
 
 env: # All variables used in the action
     ECR_IMAGE_TAG_PREFIX: "websiteapp"
