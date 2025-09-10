@@ -10,10 +10,10 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">
-        <h2 className="font-medium metallic-text text-4xl md:text-6xl mb-2">
+        <h2 className="hero-text-heading mb-2 metallic-text-long">
           The Outlet
         </h2>
-        <p className="text-base font-light">Not the science. Just the story.</p>
+        <p className="text-secondary">Not the science. Just the story.</p>
       </div>
       <SubscribeFormBlog newsLetterType={NEWS_LETTERS_TYPE.GENERAL} />
       <FeaturedCard article={article} />
@@ -30,7 +30,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
   };
   return !!article?.attributes ? (
     <div
-      className="bg-[#1570EF14] w-full lg:w-7xl  mx-auto p-6 md:p-10 flex flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+      className="bg-[#1570EF14] w-full lg:w-7xl mx-auto p-6 md:p-10 flex min-h-[28rem] flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
       onClick={() => navigateToPost(article.attributes.title, article.id)}
     >
       <div className="w-full lg:w-1/2 h-64 md:h-80 lg:h-full relative rounded-lg overflow-hidden">

@@ -8,10 +8,10 @@ export default function Analytics() {
           <h3 className="text-[#1570EF] font-semibold text-lg mb-2">
             Analytics
           </h3>
-          <h2 className="metallic-text-long text-3xl md:text-5xl">
+          <h2 className="metallic-text-long text-subheading ">
             Take Control of Your Data
           </h2>
-          <p className="font-extralight max-w-2xl mx-auto mt-2">
+          <p className=" text-gray-300 text-secondary">
             Plan Ahead, Minimise Disruptions: Power Outage Insights at Your
             Fingertips.
           </p>

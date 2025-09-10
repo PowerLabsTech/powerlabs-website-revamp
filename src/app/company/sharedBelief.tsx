@@ -43,11 +43,11 @@ export default function SharedBelief() {
   return (
     <div className="space-y-8 md:space-y-12 p-4">
       <div className="text-center">
-        <h2 className="metallic-text-long text-3xl md:text-5xl">
+        <h2 className="metallic-text-long text-subheading">
           Our shared beliefs
         </h2>
 
-        <p className="font-extralight max-w-3xl mx-auto mt-2">
+        <p className="text-secondary text-gray-400 max-w-3xl mx-auto mt-2">
           At PowerLabs, our shared beliefs represent the foundation that brings
           our diverse team of experts together on a single mission.
         </p>

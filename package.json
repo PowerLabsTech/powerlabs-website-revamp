@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -13,6 +13,7 @@
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@material-tailwind/react": "^2.1.10",
     "axios": "^1.11.0",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
     "gsap": "^3.13.0",
     "lucide-react": "^0.542.0",

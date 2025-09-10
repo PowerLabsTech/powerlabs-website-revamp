@@ -1,7 +1,9 @@
-import Link from 'next/link';
 import { pathsRoute } from '../routes';
+import Button from '@/components/button';
+import { useRouter } from 'next/navigation';
 
 export default function BuildTogether() {
+  const router = useRouter();
   return (
     <>
       <section className="relative w-full">
@@ -18,17 +20,15 @@ export default function BuildTogether() {
 
           <div className="relative z-20 text-white p-8 md:p-16 lg:p-24 max-w-2xl">
             <div className="mb-4">
-              <h2 className="text-3xl md:text-[40px] font-medium">
-                Let’s build together
-              </h2>
+              <h2 className="text-subheading ">Let’s build together</h2>
             </div>
-            <Link
-              href={pathsRoute.careers}
-              className="mt-4 inline-flex items-center btn btn-ghost"
+            <Button
+              variant="outline"
+              onClick={() => router.push(pathsRoute.careers)}
+              icon={<span className="font-bold text-xl">&rarr;</span>}
             >
               View Careers
-              <span className="font-bold text-xl">&rarr;</span>
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

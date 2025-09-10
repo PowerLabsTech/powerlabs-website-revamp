@@ -8,7 +8,7 @@ export default function Hero() {
           <p className="text-lg md:text-xl text-[#E6F0FF] text-shadow-[0_5px_20px_#E6F0FF]">
             Introducing
           </p>
-          <h3 className="font-semibold text-4xl md:text-6xl">
+          <h3 className="text-5xl md:text-7xl  font-semibold">
             Pai Enterprise Sensor
           </h3>
         </div>

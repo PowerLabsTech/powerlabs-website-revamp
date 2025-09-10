@@ -24,10 +24,8 @@ export const Subscribe = ({
     >
       <div className="w-full max-w-5xl text-center text-white space-y-6">
         <div>
-          <h2 className="text-3xl md:text-[40px] font-medium metallic-text">
-            {title}
-          </h2>
-          <p className="font-normal text-base mt-2">{subtitle}</p>
+          <h2 className="text-subheading metallic-text-long">{title}</h2>
+          <p className="text-gray-300 text-secondary mt-2">{subtitle}</p>
         </div>
         <div>
           <SubscribeForm

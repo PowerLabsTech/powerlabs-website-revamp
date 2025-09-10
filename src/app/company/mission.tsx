@@ -20,9 +20,9 @@ export default function Mission() {
   return (
     <div className="space-y-8 md:space-y-12 p-4">
       <div className="text-center">
-        <h2 className="metallic-text-long text-3xl md:text-5xl">Our Mission</h2>
+        <h2 className="metallic-text-long text-subheading">Our Mission</h2>
 
-        <p className="font-extralight max-w-3xl mx-auto mt-2">
+        <p className="text-secondary text-gray-400 max-w-3xl mx-auto mt-2">
           At PowerLabs, we&apos;re on a mission to create a planet with
           limitless human productivity through intelligent energy. To achieve
           this, we strive to:

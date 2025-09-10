@@ -18,7 +18,7 @@ export default function Careers() {
         <FirstSection />
         <OpenRoles />
       </Container>
-      <ResidensidencyProgram />
+      {/* <ResidensidencyProgram /> */}
       <Subscribe
         title="Break Things. Responsibly"
         subtitle="Don’t see any role that interests you? Join the Blue List and be the first to know about open roles."

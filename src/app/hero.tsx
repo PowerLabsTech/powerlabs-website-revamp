@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/all';
 import Container, { HeroContainer } from '@/components/container';
 import { useRouter } from 'next/navigation';
 import { pathsRoute } from './routes';
+import Button from '@/components/button';
 
 export const Hero = () => {
   const main = useRef(null);
@@ -205,19 +206,12 @@ export const Hero = () => {
                   </h1>
                   {/* RESPONSIVE: Buttons stack on mobile and are side-by-side on larger screens */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link
-                      href="/get-started"
-                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
+                    <Button
+                      onClick={() => router.push(pathsRoute.contactSales)}
+                      variant="primary"
                     >
-                      Book a Demo
-                    </Link>
-                    <Link
-                      href="/get-started"
-                      className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
-                    >
-                      Get Started
-                      <span className="font-bold text-xl">&rarr;</span>
-                    </Link>
+                      Contact Sales
+                    </Button>
                   </div>
                 </div>
               </div>

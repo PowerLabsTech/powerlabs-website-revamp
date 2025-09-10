@@ -16,6 +16,7 @@ export const pathsRoute = {
   terms: '/terms',
   privacyPolicy: '/privacy-policy',
   cookies: '/cookies',
+  contactSales: '/contact-sales',
 };
 
 export const paths = [

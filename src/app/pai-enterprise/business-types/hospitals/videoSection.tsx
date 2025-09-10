@@ -26,10 +26,10 @@ export default function VideoSection() {
               </div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-white text-3xl md:text-4xl">
+              <h2 className="text-white text-subheading ">
                 The ICU Can’t Wait. Neither Should You.
               </h2>
-              <p className="text-sm font-light text-gray-200 max-w-3xl">
+              <p className="text-secondary max-w-3xl">
                 Get instant alerts when power shifts, voltage dips, or backup
                 systems kick in. The ICU, the labs, surgery suites; no
                 surprises. You know first. You act fast. Pai keeps every

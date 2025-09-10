@@ -17,7 +17,7 @@ export default function UseCases() {
     <div className="space-y-8 md:space-y-10 p-4">
       <div className="text-left">
         <h3 className="text-[#1570EF] font-semibold text-lg mb-2">Use Cases</h3>
-        <h2 className="metallic-text-long text-3xl md:text-5xl">
+        <h2 className="metallic-text-long text-subheading ">
           How Pai helps businesses stay productive
         </h2>
       </div>

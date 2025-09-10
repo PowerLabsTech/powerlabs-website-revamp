@@ -37,6 +37,18 @@
     @apply py-2;
   }
 
+  .text-secondary {
+    @apply text-base md:text-lg text-gray-300;
+  }
+
+  .hero-text-heading {
+    @apply text-5xl md:text-7xl  font-semibold;
+  }
+
+  .text-subheading {
+    @apply text-3xl md:text-5xl font-semibold;
+  }
+
   .btn-ghost {
     @apply items-center gap-2 border-white border-2 hover:bg-blue-700 text-white  py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
   }
@@ -46,7 +58,7 @@
   }
 
   .btn-primary {
-    @apply items-center bg-blue-500  text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer hover:border-none hover:bg-white hover:text-black;
+    @apply items-center py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded text-sm font-semibold transition-colors;
   }
 
   .bg-primary {
@@ -70,6 +82,13 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   background-size: contain;
+  color: var(--foreground);
+  font-family: var(--font-general-sans), Arial, Helvetica, sans-serif;
+}
+
+body.no-bg {
+  background: var(--background);
+  background-image: none !important;
   color: var(--foreground);
   font-family: var(--font-general-sans), Arial, Helvetica, sans-serif;
 }

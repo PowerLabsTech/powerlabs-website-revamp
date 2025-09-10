@@ -51,7 +51,7 @@ function CollectionDisplay({ prop }: { prop: IShop }) {
             <div className="absolute inset-0 bg-black/50 z-10"></div>
 
             {/* Content Container */}
-            <div className="relative z-20 flex flex-col items-center space-y-6 md:space-y-8 p-6 text-center">
+            <div className="absolute bottom-30 z-20 flex flex-col items-center space-y-6 md:space-y-8 p-6 text-center">
               {/* Announcement Banner */}
               {prop.attributes.announcement && (
                 <>
