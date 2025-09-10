@@ -18,14 +18,14 @@ env: # All variables used in the action
     DOCKERFILE_PATH_WEB_SERVER: "./devops/production/dockerfile.nginx"
     PLAYBOOKS_PATH: './devops/production/ansible_playbooks/install_packages.yml  ./devops/production/ansible_playbooks/deploy_app_server_container.yml ./devops/production/ansible_playbooks/deploy_web_server_container.yml'
     SLACK_BOT_TOKEN: ${{secrets.SLACK_BOT_TOKEN}}
-    AWS_ACCESS_KEY: ${{ secrets.ENTERPRISE_ACCESS_KEY_DEV }}
-    AWS_SECRET_KEY: ${{ secrets.ENTERPRISE_SECRET_KEY_DEV }}
-    AWS_EC2_REGION: ${{ secrets.ENTERPRISE_EC2_REGION_DEV }}
-    AWS_ECR_REPO: ${{ secrets.ENTERPRISE_ECR_REPO_DEV }}
-    AWS_ECR_REGISTRY: ${{ secrets.ENTERPRISE_ECR_REGISTRY_DEV }}
-    AWS_EC2_KEY: ${{ secrets.ENTERPRISE_EC2_KEY_DEV }}
-    ANSIBLE_INVENTORY: ${{ secrets.ENTERPRISE_ANSIBLE_INVENTORY_WEBSITE_DEV }}
-    AWS_EC2_USERNAME: ${{ secrets.ENTERPRISE_EC2_USERNAME_DEV }}
+    AWS_ACCESS_KEY: ${{ secrets.ENTERPRISE_ACCESS_KEY_PROD }}
+    AWS_SECRET_KEY: ${{ secrets.ENTERPRISE_SECRET_KEY_PROD }}
+    AWS_EC2_REGION: ${{ secrets.ENTERPRISE_EC2_REGION_PROD }}
+    AWS_ECR_REPO: ${{ secrets.ENTERPRISE_ECR_REPO_PROD }}
+    AWS_ECR_REGISTRY: ${{ secrets.ENTERPRISE_ECR_REGISTRY_PROD }}
+    AWS_EC2_KEY: ${{ secrets.ENTERPRISE_EC2_KEY_PROD }}
+    ANSIBLE_INVENTORY: ${{ secrets.ENTERPRISE_ANSIBLE_INVENTORY_WEBSITE_PROD }}
+    AWS_EC2_USERNAME: ${{ secrets.ENTERPRISE_EC2_USERNAME_PROD }}
     ENV_VARS: ${{ secrets.ENV_VARS_PROD }}
     ENV_LOCAL_VARS: ${{ secrets.ENV_VARS_LOCAL_PROD }}
     ENVIRONMENT: production
