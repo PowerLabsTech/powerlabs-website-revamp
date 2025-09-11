@@ -41,7 +41,7 @@ function InvestorsCards({ event }: { event: IEvents }) {
   };
   return (
     <>
-      <div className="relative w-full min-h-screen text-white rounded-xl overflow-hidden flex flex-col items-center justify-center">
+      <div className="relative w-full min-h-screen text-white  overflow-hidden flex flex-col items-center justify-center">
         {/* Background Image */}
         <Image
           src={event.attributes.coverImage.data.attributes.url}

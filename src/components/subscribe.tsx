@@ -59,7 +59,7 @@ export default function Subscribe({
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-8 mb-2 w-full max-w-[500px] mx-auto text-default"
+      className="mt-8 mb-2 w-full max-w-[540px] mx-auto text-default"
     >
       <div className="lg:flex ">
         <div className="flex-1">

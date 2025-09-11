@@ -21,7 +21,7 @@ export default function HeroGyms() {
         <div className="max-w-4xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
-            <h2 className=" metallic-text-long hero-text-heading mb-4">
+            <h2 className=" metallic-text-long text-subheading mb-4">
               Lights On. Gains On.
             </h2>
             <p className="text-secondary text-gray-300 max-w-3xl mx-auto lg:mx-0">

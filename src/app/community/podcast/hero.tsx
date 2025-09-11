@@ -38,7 +38,7 @@ export default function HeroPodcast() {
 function PodCards({ prop }: { prop: IPod }) {
   return (
     <>
-      <div className="relative w-full min-h-screen text-white rounded-xl overflow-hidden flex flex-col items-center justify-center">
+      <div className="relative w-full min-h-screen text-white  overflow-hidden flex flex-col items-center justify-center">
         <Image
           src={prop.attributes.coverImage.data.attributes.url}
           layout="fill"

@@ -84,7 +84,7 @@ export default function FeatureTabs({
                 src={activeTabData.imageUrl}
                 alt={activeTabData.title}
                 layout="fill"
-                objectFit="contain" // Consider changing to 'cover' or 'contain' depending on your image aspect ratio
+                objectFit="fit" // Consider changing to 'cover' or 'contain' depending on your image aspect ratio
                 className={`rounded-xl transition-opacity duration-150 ${
                   isFading ? 'opacity-0' : 'opacity-100'
                 }`}

@@ -24,7 +24,7 @@ export default function HeroHospitals() {
         <div className="max-w-5xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
-            <h2 className=" metallic-text-long hero-text-heading mb-4">
+            <h2 className=" metallic-text-long text-subheading mb-4">
               Smarter Energy for Hospitals
             </h2>
             <p className="text-gray-300 text-secondary max-w-3xl mx-auto lg:mx-0">
