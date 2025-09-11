@@ -5,7 +5,7 @@ import { Subscribe } from '@/app/subscribe';
 import Footer from '@/components/footer';
 import HeroGyms from './hero';
 import FirstSection from './firstSection';
-import VideoSection from './videoSection';
+// import VideoSection from './videoSection';
 
 export default function Hospitals() {
   return (
@@ -16,7 +16,7 @@ export default function Hospitals() {
       <Container>
         <FirstSection />
       </Container>
-      <VideoSection />
+      {/* <VideoSection /> */}
       <Container>
         {/* blogs */}
         <Subscribe

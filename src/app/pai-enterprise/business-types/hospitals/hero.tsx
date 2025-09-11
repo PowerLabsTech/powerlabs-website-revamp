@@ -29,8 +29,8 @@ export default function HeroHospitals() {
             </h2>
             <p className="text-gray-300 text-secondary max-w-3xl mx-auto lg:mx-0">
               Pai Enterprise helps hospitals reduce energy costs, prevent
-              downtime, and optimize power usage—so critical healthcare services
-              stay uninterrupted, efficient, and cost-effective.
+              downtime, and optimize power usage, so critical healthcare
+              services stay uninterrupted, efficient, and cost-effective.
             </p>
           </div>
 

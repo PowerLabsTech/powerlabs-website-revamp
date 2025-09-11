@@ -1,6 +1,7 @@
 'use client';
 import Button from '@/components/button';
 import { ambassadorApplicationLink } from '@/utils/constants';
+import Image from 'next/image';
 
 export default function HeroAmbassadors() {
   return (
@@ -36,13 +37,19 @@ export default function HeroAmbassadors() {
       </div>
 
       <div className="relative w-full max-w-4xl mx-auto aspect-video">
-        <iframe
+        <Image
+          src={`https://www.youtube.com/embed/SKzuF__cEpQ`}
+          alt={'Campus Ambassadors Program'}
+          layout="fill"
+          objectFit="cover"
+        />
+        {/* <iframe
           className="absolute top-0 left-0 w-full h-full rounded-lg"
           src={`https://www.youtube.com/embed/SKzuF__cEpQ`}
           title={'Campus Ambassadors Program'}
           allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe>
+        ></iframe> */}
       </div>
     </div>
   );
