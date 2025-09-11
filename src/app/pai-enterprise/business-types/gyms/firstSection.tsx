@@ -31,10 +31,10 @@ export default function FirstSection() {
   return (
     <div className="space-y-8 md:space-y-12 p-4">
       <div className="text-center">
-        <h2 className="metallic-text-long text-3xl md:text-5xl">
+        <h2 className="metallic-text-long text-subheading">
           Your Members Can&apos;t Flex if the Power Flops.
         </h2>
-        <p className="font-extralight max-w-4xl mx-auto mt-2">
+        <p className="text-secondary max-w-4xl mx-auto mt-2">
           From running treadmills to blasting beats, your gym runs on serious
           energy. Pai shows you where you&apos;re burning power, where
           you&apos;re wasting it, and how to keep your space lean, and

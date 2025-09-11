@@ -1,7 +1,10 @@
+import { pathsRoute } from '@/app/routes';
+import Button from '@/components/button';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function HeroFactories() {
+  const router = useRouter();
   return (
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}
@@ -22,10 +25,10 @@ export default function HeroFactories() {
         <div className="max-w-4xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
-            <h2 className="font-medium metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
-              Always On. <br /> Always Aware.
+            <h2 className="text-subheading metallic-text-long  mb-4">
+              Always On. Always Aware.
             </h2>
-            <p className="text-base md:text-lg font-light text-gray-200">
+            <p className="text-secondary text-gray-300 max-w-3xl mx-auto lg:mx-0">
               You control production. Pai controls what powers it. Together, you
               move faster, spend smarter, and stay ahead of unseen costs.
             </p>
@@ -33,18 +36,16 @@ export default function HeroFactories() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link
-              href="/get-started"
-              className="inline-block bg-white hover:bg-blue-700 text-[#1570EF] hover:text-white font-bold py-3 px-8 rounded-lg text-base lg:text-lg transition-colors text-center"
-            >
-              Book a Demo
-            </Link>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-white/10 text-white font-bold py-3 px-8 rounded-lg text-base lg:text-lg transition-colors"
+            <Button onClick={() => router.push(pathsRoute.contactSales)}>
+              Contact Sales
+            </Button>
+
+            <Button
+              onClick={() => router.push(pathsRoute.partnerHub)}
+              variant="outline"
             >
               Get Started
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

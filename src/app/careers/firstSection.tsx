@@ -25,19 +25,26 @@ export default function FirstSection() {
 
               <p className="font-extralight space-y-4">
                 <span>It&apos;s not a place to hide, coast, or clock in.</span>
+                <br />
+                <br />
                 <span>
-                  At PowerLabs, we build with urgency, think with clarity, and
-                  demand excellence, from ourselves and each other.
+                  At PowerLabs, we build with urgency, think with clarity,{' '}
+                  <br /> and demand excellence, from ourselves and each other.
                 </span>
+                <br />
+                <br />
                 <span>
-                  We hire people who take ownership, obsess over excellence, and
+                  We hire people who take ownership, obsess over excellence, and{' '}
+                  <br />
                   bring their full weight to the work. We move fast, we hold the
-                  bar high, and we don&apos;t apologise for expecting your best,
-                  every time. If you&apos;re looking for comfort, look
-                  elsewhere. Still reading? Good.
+                  bar high, and <br /> we don&apos;t apologise for expecting
+                  your best, every time. If you&apos;re looking for <br />{' '}
+                  comfort, look elsewhere. Still reading? Good.
                 </span>
                 <span>
-                  Maybe you&apos;re one of us. BREAK THINGS. RESPONSIBLY.
+                  Maybe you&apos;re one of us.
+                  <br />
+                  <br /> BREAK THINGS. RESPONSIBLY.
                 </span>
               </p>
             </div>

@@ -11,7 +11,13 @@ export interface TabData {
 }
 
 // --- MAIN COMPONENT ---
-export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
+export default function FeatureTabs({
+  tabsData,
+  titleColor = 'primary',
+}: {
+  tabsData: TabData[];
+  titleColor?: string;
+}) {
   const [activeTabId, setActiveTabId] = useState<number>(1);
   const [isFading, setIsFading] = useState<boolean>(false);
 
@@ -29,10 +35,11 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
   };
 
   return (
-    <div className="w-full  p-8 md:p-16 rounded-2xl text-white">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left Column: Tabs */}
-        <div className="space-y-8">
+    <div className="w-full p-8 md:p-16 rounded-2xl text-white">
+      {/* Changed from lg:grid-cols-2 to lg:grid-cols-5 */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+        {/* Left Column: Tabs - Spans 2 of 5 columns */}
+        <div className="space-y-8 lg:col-span-2">
           {tabsData.map((tab) => (
             <div
               key={tab.id}
@@ -46,13 +53,14 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
                 onClick={() => handleTabClick(tab.id)}
                 className={`w-full text-left text-base font-semibold transition-colors duration-200 ${
                   activeTabId === tab.id
-                    ? 'text-blue-500'
-                    : 'text-gray-600 hover:text-gray-400'
+                    ? titleColor === 'primary'
+                      ? 'text-blue-500'
+                      : 'text-green-500'
+                    : 'text-gray-300 hover:text-gray-400'
                 }`}
               >
                 {tab.title}
               </button>
-              {/* Active Tab Description */}
               <div
                 className={`transition-all duration-300 ease-in-out overflow-hidden ${
                   activeTabId === tab.id
@@ -68,15 +76,15 @@ export default function FeatureTabs({ tabsData }: { tabsData: TabData[] }) {
           ))}
         </div>
 
-        {/* Right Column: Image */}
-        <div className="w-full h-80 md:h-[450px] bg-gray-900/50 rounded-xl flex items-center justify-center">
+        {/* Right Column: Image - Spans 3 of 5 columns, making it wider */}
+        <div className="w-full h-80 md:h-[450px] bg-gray-900/50 rounded-xl flex items-center justify-center lg:col-span-3">
           {activeTabData && (
             <div className="relative w-full h-full">
               <Image
                 src={activeTabData.imageUrl}
                 alt={activeTabData.title}
                 layout="fill"
-                objectFit="cover"
+                objectFit="contain" // Consider changing to 'cover' or 'contain' depending on your image aspect ratio
                 className={`rounded-xl transition-opacity duration-150 ${
                   isFading ? 'opacity-0' : 'opacity-100'
                 }`}

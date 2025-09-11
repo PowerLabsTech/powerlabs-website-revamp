@@ -59,7 +59,7 @@ export default function Subscribe({
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-8 mb-2 w-full max-w-[560px] mx-auto text-default"
+      className="mt-8 mb-2 w-full max-w-[500px] mx-auto text-default"
     >
       <div className="lg:flex ">
         <div className="flex-1">
@@ -70,7 +70,7 @@ export default function Subscribe({
             value={formData.EMAIL}
             placeholder="John@example.com"
             onChange={(e) => setFormData({ EMAIL: e.target.value })}
-            className={`lg:mt-1.5 border px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#1018280D] lg:w-[23rem] w-full mt-[2rem] ${
+            className={`lg:mt-1.5 border border-[#FAFAFA]/20 px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#1018280D] lg:w-[23rem] w-full mt-[2rem] ${
               status === 'success'
                 ? 'border-green-500'
                 : status === 'error'
@@ -91,7 +91,7 @@ export default function Subscribe({
         <div>
           <button
             type="submit"
-            className="bg-blue-500 rounded-sm font-medium text-white px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60"
+            className="bg-blue-500 rounded-sm font-medium text-white px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60 cursor-pointer hover:bg-blue-600 transition-all"
             disabled={loading}
           >
             {loading ? 'Submitting...' : buttonText}
@@ -168,7 +168,7 @@ export function SubscribeBlog({
             value={formData.EMAIL}
             placeholder="John@example.com"
             onChange={(e) => setFormData({ EMAIL: e.target.value })}
-            className={`lg:mt-1.5 border px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#18191AED] lg:w-[23rem] w-full mt-[2rem] ${
+            className={`lg:mt-1.5 border border-[#FAFAFA]/20 px-[0.875rem] py-2.5 rounded-lg text-default placeholder:opacity-60 text-base bg-[#18191AED] lg:w-[23rem] w-full mt-[2rem] ${
               status === 'success'
                 ? 'border-green-500'
                 : status === 'error'
@@ -189,7 +189,7 @@ export function SubscribeBlog({
         <div>
           <button
             type="submit"
-            className="bg-white rounded-sm font-medium text-blue-500 px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60"
+            className="bg-white rounded-sm font-medium text-blue-500 px-4 py-2 text-[0.875rem] lg:mt-2 mt-[3rem] w-full disabled:opacity-60 cursor-pointer hover:bg-blue-50 transition-all"
             disabled={loading}
           >
             {loading ? 'Submitting...' : 'Subscribe'}

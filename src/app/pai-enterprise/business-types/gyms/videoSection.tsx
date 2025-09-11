@@ -26,10 +26,10 @@ export default function VideoSection() {
               </div>
             </div>
             <div className="space-y-2">
-              <h2 className="text-white text-3xl md:text-4xl">
+              <h2 className="text-white text-subheading ">
                 Treadmills, lights, sound system — all running, always.
               </h2>
-              <p className="text-sm font-light text-gray-200 max-w-3xl">
+              <p className="text-secondary max-w-3xl">
                 Pai sends live alerts if power drops anywhere in your gym. No
                 interruptions. No angry members. No refunds.
               </p>

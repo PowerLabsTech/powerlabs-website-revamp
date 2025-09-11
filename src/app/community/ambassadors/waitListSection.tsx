@@ -29,14 +29,14 @@ const WaitlistSection: NextPage = () => {
             </form>
           </div>
 
-          {/* Right Column: Image */}
+          {/* Right Column: Image
           <div className="hidden lg:block relative">
             <img
               src="https://placehold.co/800x800/1A202C/FFFFFF?text=Merch+Image"
               alt="Model wearing Raindrop merchandise"
               className="absolute inset-0 w-full h-full object-cover"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

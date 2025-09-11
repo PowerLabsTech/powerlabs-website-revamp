@@ -56,7 +56,7 @@ function InvestorsCards({ event }: { event: IEvents }) {
 
         {/* Content Container */}
 
-        <div className="relative z-20 flex flex-col items-center space-y-6 md:space-y-8 p-6 text-center">
+        <div className="absolute bottom-30 z-20 flex flex-col items-center space-y-6 md:space-y-8 p-6 text-center">
           <div>
             <h3 className="font-semibold text-3xl sm:text-4xl md:text-5xl max-w-3xl">
               {event.attributes.title}

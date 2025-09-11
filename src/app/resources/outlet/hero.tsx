@@ -10,10 +10,10 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">
-        <h2 className="font-medium metallic-text text-4xl md:text-6xl mb-2">
+        <h2 className="hero-text-heading mb-2 metallic-text-long">
           The Outlet
         </h2>
-        <p className="text-base font-light">Not the science. Just the story.</p>
+        <p className="text-secondary">Not the science. Just the story.</p>
       </div>
       <SubscribeFormBlog newsLetterType={NEWS_LETTERS_TYPE.GENERAL} />
       <FeaturedCard article={article} />
@@ -30,7 +30,7 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
   };
   return !!article?.attributes ? (
     <div
-      className="bg-[#1570EF14] w-full lg:w-7xl  mx-auto p-6 md:p-10 flex flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
+      className="bg-[#1570EF14] w-full lg:w-7xl mx-auto p-6 md:p-10 flex min-h-[28rem] flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
       onClick={() => navigateToPost(article.attributes.title, article.id)}
     >
       <div className="w-full lg:w-1/2 h-64 md:h-80 lg:h-full relative rounded-lg overflow-hidden">
@@ -42,34 +42,39 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
         />
       </div>
 
-      <div className="w-full lg:w-1/2 flex items-center justify-center">
-        <div className="w-full space-y-6">
-          <h3 className="text-[#1570EF]">Featured Blog</h3>
-          <h3 className="text-white font-semiBold text-2xl md:text-4xl">
-            {article?.attributes.title}
-          </h3>
-          <p className="font-extralight">
-            {article?.attributes.author ?? 'PowerLabs Team'}
-          </p>
-          {/* handle dynamic author */}
-          <div className="border-[0.5px] border-[#FAFAFA1F]"></div>
-          <div className="flex gap-5 items-center">
-            <div>
-              <Image
-                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pLogoIcon.png"
-                alt="logo"
-                width={25}
-                height={25}
-              />
-            </div>
-            <div>
-              <p className="font-extralight">{article.attributes.tag}</p>
-              <div className="flex flex-wrap gap-x-2 items-center">
-                <p className="font-extralight">{article.attributes.date}</p>
-                <div className="rounded-full h-1.5 bg-white w-1.5"></div>
-                <p className="font-extralight">
-                  {article.attributes.readingTime ?? ''} mins read
-                </p>
+      <div className="w-full lg:w-1/2 h-3/4">
+        {/* This container is now a vertical flexbox that will push its two children apart */}
+        <div className="w-full h-full flex flex-col justify-between">
+          {/* 1. Top Group */}
+          <div className="space-y-6">
+            {' '}
+            {/* Keep spacing within the top block */}
+            <h3 className="text-[#1570EF] font-semibold">Featured Blog</h3>
+            <h3 className="text-white font-semibold text-2xl md:text-4xl">
+              {article?.attributes.title}
+            </h3>
+            <p>{article?.attributes.author ?? 'PowerLabs Team'}</p>
+          </div>
+
+          {/* 2. Bottom Group */}
+          <div>
+            <div className="border-[0.5px] border-[#FAFAFA1F] mb-5"></div>
+            <div className="flex gap-5 items-center">
+              <div>
+                <Image
+                  src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pLogoIcon.png"
+                  alt="logo"
+                  width={25}
+                  height={25}
+                />
+              </div>
+              <div>
+                <p>{article.attributes.tag}</p>
+                <div className="flex flex-wrap gap-x-2 items-center">
+                  <p>{article.attributes.date}</p>
+                  <div className="rounded-full h-1.5 bg-white w-1.5"></div>
+                  <p>{article.attributes.readingTime ?? ''} mins read</p>
+                </div>
               </div>
             </div>
           </div>

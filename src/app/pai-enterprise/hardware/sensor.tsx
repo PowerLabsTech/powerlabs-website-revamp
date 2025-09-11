@@ -28,14 +28,14 @@ export default function Sensor() {
     <>
       <div className="grid gap-6 p-4">
         <div
-          className="p-1 w-full max-w-xs"
+          className="p-1 w-full max-w-50"
           style={{
             background: 'linear-gradient(to right, #031936, #1570EF)',
             borderRadius: '8px',
           }}
         >
           <div
-            className="bg-[#0F1114] w-full h-full p-3"
+            className="bg-[#0F1114] w-full h-full p-3 "
             style={{
               border: 'none',
               borderRadius: '4px',
@@ -46,10 +46,10 @@ export default function Sensor() {
         </div>
 
         <div className="grid gap-4">
-          <h2 className="metallic-text-long text-3xl md:text-5xl">
+          <h2 className="metallic-text-long text-3xl md:text-5xl font-semibold">
             Precision you can install. Intelligence you can trust
           </h2>
-          <p className="font-extralight text-gray-300">
+          <p className=" text-gray-300 text-secondary">
             Track and transmit your power usage with precision hardware built
             for modern factories, facilities, and enterprises
           </p>

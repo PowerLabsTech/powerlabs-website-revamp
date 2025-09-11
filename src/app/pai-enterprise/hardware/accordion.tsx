@@ -83,9 +83,7 @@ export default function FaqAccordion() {
       <h3 className="font-semibold text-base md:text-lg mb-2 text-blue-600">
         FAQs
       </h3>
-      <h3 className="font-medium mb-6 md:mb-8 text-3xl md:text-5xl metallic-text">
-        Still have questions?
-      </h3>
+      <h3 className="text-subheading metallic-text">Still have questions?</h3>
 
       {faqData.map(({ question, answer }, index) => (
         <Accordion

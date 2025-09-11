@@ -17,7 +17,7 @@ export default function UseCases() {
     <div className="space-y-8 md:space-y-10 p-4">
       <div className="text-left">
         <h3 className="text-[#1570EF] font-semibold text-lg mb-2">Use Cases</h3>
-        <h2 className="metallic-text-long text-3xl md:text-5xl">
+        <h2 className="metallic-text-long text-subheading ">
           How Pai helps businesses stay productive
         </h2>
       </div>
@@ -40,7 +40,7 @@ const carouselData = [
   {
     title: 'Pai for Hospitals',
     description:
-      'In healthcare, uninterrupted power is critical. Pai ensures that essential medical equipment, lighting, and climate control systems are always running reliably and efficiently, safeguarding patient care.',
+      'Pai Enterprise keeps your hospital powered, optimized, and cost-efficient, so the lights stay on, and critical systems never fail. ',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/hospitalsBackground.png',
     link: `${pathsRoute.hospital}`,
@@ -49,7 +49,7 @@ const carouselData = [
   {
     title: 'Pai for Factories',
     description:
-      'Maximize productivity and minimize operational costs in your manufacturing facility. Pai provides the insights to optimize heavy machinery usage and prevent costly downtime from power irregularities.',
+      'Pai Enterprise keeps your factory powered, optimized, and cost-efficient, so the lights stay on, , and no production line ever stops.',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
     link: `${pathsRoute.factory}`,
@@ -96,7 +96,9 @@ export function MultiItemCarousel() {
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-white opacity-80 mb-4">{item.description}</p>
+                <p className="text-white opacity-80 mb-4 line-clamp-3">
+                  {item.description}
+                </p>
                 <Link
                   href={item.link}
                   className="inline-flex items-center gap-2 text-white hover:text-[#1570EF] font-bold self-start"

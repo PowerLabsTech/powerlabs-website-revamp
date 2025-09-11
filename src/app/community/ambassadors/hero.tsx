@@ -1,13 +1,15 @@
+import Button from '@/components/button';
+
 export default function HeroAmbassadors() {
   return (
     <div className="w-full flex flex-col items-center justify-center space-y-8 md:space-y-12 p-4">
       <div className="text-center">
-        <h3 className="metallic-text text-4xl md:text-6xl font-semibold">
+        <h3 className="metallic-text hero-text-heading">
           Be the spark on your campus.
         </h3>
       </div>
 
-      <div className="w-full max-w-3xl">
+      <div className="text-secondary w-full max-w-3xl">
         <p className="text-center">
           The PowerLabs Campus Ambassadors Program is for students who want to
           lead real change — not just hold a title. You’ll drive on-campus
@@ -17,9 +19,7 @@ export default function HeroAmbassadors() {
         </p>
       </div>
       <div>
-        <button className="px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded-lg text-base transition-colors">
-          Apply Now
-        </button>
+        <Button variant="amber">Apply Now</Button>
       </div>
 
       <div className="relative w-full max-w-4xl mx-auto aspect-video">

@@ -2,7 +2,7 @@
 import Container, { HeroContainer } from '@/components/container';
 import Hero from './hero';
 import FirstSection from './firstSection';
-import ResidensidencyProgram from './residency';
+// import ResidensidencyProgram from './residency';
 import Footer from '@/components/footer';
 import OpenRoles from './openRoles';
 import { Subscribe } from '../subscribe';
@@ -18,7 +18,7 @@ export default function Careers() {
         <FirstSection />
         <OpenRoles />
       </Container>
-      <ResidensidencyProgram />
+      {/* <ResidensidencyProgram /> */}
       <Subscribe
         title="Break Things. Responsibly"
         subtitle="Don’t see any role that interests you? Join the Blue List and be the first to know about open roles."

@@ -2,13 +2,14 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import Link from 'next/link';
 import { useRef } from 'react';
 import Image from 'next/image';
 import { ScrollTrigger } from 'gsap/all';
 import Container, { HeroContainer } from '@/components/container';
 import { useRouter } from 'next/navigation';
 import { pathsRoute } from './routes';
+import Button from '@/components/button';
+import HeroButtons from '@/components/heroButtons';
 
 export const Hero = () => {
   const main = useRef(null);
@@ -205,19 +206,7 @@ export const Hero = () => {
                   </h1>
                   {/* RESPONSIVE: Buttons stack on mobile and are side-by-side on larger screens */}
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Link
-                      href="/get-started"
-                      className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
-                    >
-                      Book a Demo
-                    </Link>
-                    <Link
-                      href="/get-started"
-                      className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg text-base lg:text-lg transition-colors"
-                    >
-                      Get Started
-                      <span className="font-bold text-xl">&rarr;</span>
-                    </Link>
+                    <HeroButtons />
                   </div>
                 </div>
               </div>
@@ -235,19 +224,20 @@ export const Hero = () => {
                     {/*  */}
                     <div className="w-full lg:w-1/3 p-4 flex flex-col text-center lg:text-left paiInfo">
                       {/* This top section will grow to fill any extra vertical space */}
-                      <div className="flex-grow space-y-3">
-                        <h2 className="text-2xl lg:text-3xl metallic-text">
+                      <div className="flex-grow ">
+                        <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
                           Pai Enterprise Sensor
                         </h2>
-                        <p className="text-base font-normal">
+                        <p className="text-base font-normal mb-4">
                           All your power sources. One smart Sensor
                         </p>
-                        <button
-                          className="btn-ghost cursor-pointer hover:bg-white hover:text-black transition-all"
+                        <Button
+                          variant="outline"
+                          size="lg"
                           onClick={() => router.push(pathsRoute.hardware)}
                         >
                           Learn More
-                        </button>
+                        </Button>
                       </div>
 
                       {/* This bottom section will be pushed down, aligning with card */}
@@ -297,19 +287,20 @@ export const Hero = () => {
                     {/*  */}
                     <div className="w-full lg:w-1/3 p-4 flex flex-col text-center lg:text-left paiInfo2">
                       {/* This top section will grow to fill any extra vertical space */}
-                      <div className="flex-grow space-y-3">
-                        <h2 className="text-2xl lg:text-3xl metallic-text">
+                      <div className="flex-grow ">
+                        <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
                           Pai Enterprise Dashboard
                         </h2>
-                        <p className="text-base font-normal">
+                        <p className="text-base font-normal mb-4">
                           All energy insights, one view.
                         </p>
-                        <button
-                          className="btn-ghost cursor-pointer hover:bg-white hover:text-black transition-all"
+                        <Button
+                          variant="outline"
+                          size="lg"
                           onClick={() => router.push(pathsRoute.software)}
                         >
                           Learn More
-                        </button>
+                        </Button>
                       </div>
 
                       {/* This bottom section will be pushed down, aligning with card */}

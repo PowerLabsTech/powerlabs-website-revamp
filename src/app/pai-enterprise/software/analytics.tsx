@@ -1,4 +1,8 @@
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
+import React from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
 
 export default function Analytics() {
   return (
@@ -8,10 +12,10 @@ export default function Analytics() {
           <h3 className="text-[#1570EF] font-semibold text-lg mb-2">
             Analytics
           </h3>
-          <h2 className="metallic-text-long text-3xl md:text-5xl">
+          <h2 className="metallic-text-long text-subheading ">
             Take Control of Your Data
           </h2>
-          <p className="font-extralight max-w-2xl mx-auto mt-2">
+          <p className=" text-gray-300 text-secondary">
             Plan Ahead, Minimise Disruptions: Power Outage Insights at Your
             Fingertips.
           </p>
@@ -81,49 +85,110 @@ export const DonutChartPlaceholder = () => (
 );
 
 export function DashboardGrid() {
+  const analyticsAnimation = React.useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // BEST PRACTICE: Use matchMedia to create animations only for desktop screens
+      // This improves mobile performance by not running complex animations.
+      const mm = gsap.matchMedia();
+
+      // (min-width: 1024px) is for desktop
+      mm.add('(min-width: 1024px)', function () {
+        // --- ALL DESKTOP-ONLY ANIMATIONS GO HERE ---
+
+        // --- Animation for the scrolling mission text section ---
+        const scrollMission = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.trigger',
+            start: 'top bottom',
+            end: '+=800',
+            scrub: true,
+          },
+        });
+
+        scrollMission.from('.firstLeft', {
+          xPercent: -150,
+          ease: 'none',
+        });
+        scrollMission.from(
+          '.firstRight',
+          {
+            xPercent: 150,
+            ease: 'none',
+          },
+          '<'
+        );
+        scrollMission.from(
+          '.secondLeft',
+          {
+            xPercent: -150,
+            ease: 'none',
+          },
+          '>'
+        );
+        scrollMission.from(
+          '.secondRight',
+          {
+            xPercent: 150,
+            ease: 'none',
+          },
+          '<'
+        );
+
+        // --- END OF DESKTOP-ONLY ANIMATIONS ---
+      });
+    },
+    { scope: analyticsAnimation }
+  );
+
   return (
-    <section className=" p-4 md:p-8">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-1">
-          {/* Card 1: Monitor your CO2 Emissions */}
-          <DashboardCard
-            title="Monitor your CO2 Emissions"
-            description="Check the positive environmental impact of every kWh of solar power consumed over a time period."
-          >
-            <CO2Metric />
-          </DashboardCard>
-        </div>
+    <div ref={analyticsAnimation} className="overflow-x-hidden">
+      <section className=" p-4 md:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 trigger">
+          <div className="lg:col-span-1 firstLeft">
+            {/* Card 1: Monitor your CO2 Emissions */}
+            <DashboardCard
+              title="Monitor your CO2 Emissions"
+              description="Check the positive environmental impact of every kWh of solar power consumed over a time period."
+            >
+              <CO2Metric />
+            </DashboardCard>
+          </div>
 
-        <div className="lg:col-span-2 ">
-          {/* Card 2: Track Energy Usage (Taller Card) */}
-          <DashboardCard
-            title="Track Energy Usage and Availability Patterns"
-            description="Understand your historical power supply patterns, see them change in real-time, and proactively manage your energy consumption."
-            className="lg:row-span-2" // This makes the card taller on large screens
-          >
-            <LineChartPlaceholder />
-          </DashboardCard>
-        </div>
+          <div className="lg:col-span-2 firstRight">
+            {/* Card 2: Track Energy Usage (Taller Card) */}
+            <DashboardCard
+              title="Track Energy Usage and Availability Patterns"
+              description="Understand your historical power supply patterns, see them change in real-time, and proactively manage your energy consumption."
+              className="lg:row-span-2" // This makes the card taller on large screens
+            >
+              <LineChartPlaceholder />
+            </DashboardCard>
+          </div>
 
-        <div className="lg:col-span-2">
-          {/* Card 3: Understand your Load Distribution */}
-          <DashboardCard
-            title="Understand your Load Distribution"
-            description="View proportion of contribution of several energy consumption profiles to an overall total energy consumption profile over time."
-          >
-            <DonutChartPlaceholder />
-          </DashboardCard>
-        </div>
+          <div className="lg:col-span-2 secondLeft">
+            {/* Card 3: Understand your Load Distribution */}
+            <DashboardCard
+              title="Understand your Load Distribution"
+              description="View proportion of contribution of several energy consumption profiles to an overall total energy consumption profile over time."
+            >
+              <DonutChartPlaceholder />
+            </DashboardCard>
+          </div>
 
-        <div className="lg:col-span-1">
-          <DashboardCard
-            title="Monitor your CO2 Emissions"
-            description="Check the positive environmental impact of every kWh of solar power consumed over a time period."
-          >
-            <CO2Metric />
-          </DashboardCard>
+          <div className="lg:col-span-1 secondRight">
+            <DashboardCard
+              title="Monitor your CO2 Emissions"
+              description="Check the positive environmental impact of every kWh of solar power consumed over a time period."
+            >
+              <CO2Metric />
+            </DashboardCard>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

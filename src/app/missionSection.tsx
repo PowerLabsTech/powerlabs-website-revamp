@@ -82,7 +82,7 @@ export default function MissionSection() {
                 <span className="font-bold text-xl">&rarr;</span>
               </button>
             </div>
-            <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full">
+            <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full hidden md:block">
               <Image
                 src={chevronDown}
                 alt="Chevron down"
@@ -117,7 +117,7 @@ export default function MissionSection() {
                 <span className="font-bold text-xl">&rarr;</span>
               </button>
             </div>
-            <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full">
+            <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full hidden md:block">
               <Image
                 src={chevronDown}
                 alt="Chevron down"

@@ -12,7 +12,7 @@ export default function BecomeAmbassador() {
       <div className="w-full  p-8 md:p-16 lg:p-20 flex justify-center">
         <div className="w-full max-w-3xl space-y-10">
           <div className="text-center lg:text-left">
-            <h3 className="metallic-text text-3xl md:text-4xl">
+            <h3 className="metallic-text text-subheading">
               You Can Be An Ambassador If:
             </h3>
           </div>

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { paths } from '../app/routes';
+import { paths, pathsRoute } from '../app/routes';
 import { useEffect, useState } from 'react';
 import { ChevronDownIcon } from './ui';
 
@@ -45,15 +45,17 @@ export function Navigation() {
   );
 
   const isAmbassadorPath = pathname.startsWith('/community/ambassadors');
+  const isCareersPath = pathname.startsWith(pathsRoute.careers);
+  const isHome = pathname === pathsRoute.home;
 
   const handleNavPathColor = (path: string) => {
     if (path === '/community' && isAmbassadorPath) {
-      return 'border-b-2 border-b-amber-600';
+      return 'border-b-2 border-b-amber-600 text-white';
     } else if (
       pathname === path ||
       (pathname.startsWith(path) && path !== '/')
     ) {
-      return 'border-b-2 border-b-blue-500';
+      return 'border-b-2 border-b-blue-500 text-white';
     }
     return '';
   };
@@ -64,7 +66,11 @@ export function Navigation() {
 
   return (
     <div
-      className="relative hover:bg-[#0F1114] text-white z-50"
+      className={`relative bg-[#0F1114] ${
+        isCareersPath ? 'bg-black' : ''
+      } text-[#5F6368] z-50 ${
+        !isHome ? 'sticky top-0' : 'sticky top-0 md:relative'
+      }`}
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-20">
@@ -111,10 +117,10 @@ export function Navigation() {
             className={`py-2 px-4 ${
               isAmbassadorPath
                 ? 'bg-amber-600 hover:bg-amber-700'
-                : 'bg-blue-500 hover:bg-blue-600'
-            }   rounded text-sm font-semibold transition-colors`}
+                : 'bg-blue-600 hover:bg-blue-700'
+            }   rounded text-sm font-semibold transition-colors text-white`}
           >
-            Book a Demo
+            Contact Sales
           </button>
         </div>
 
@@ -182,7 +188,7 @@ export function Navigation() {
                   <Link
                     onMouseEnter={() => setActiveCategory(cat.category)}
                     className={`w-full text-left p-2 rounded-md text-2xl font-medium ${
-                      activeCategory === cat.category
+                      pathname.includes(cat.path || '')
                         ? 'text-white'
                         : 'text-gray-500 hover:text-white'
                     }`}

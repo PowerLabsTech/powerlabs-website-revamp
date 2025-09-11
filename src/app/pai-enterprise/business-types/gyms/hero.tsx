@@ -1,5 +1,5 @@
+import HeroButtons from '@/components/heroButtons';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function HeroGyms() {
   return (
@@ -21,10 +21,10 @@ export default function HeroGyms() {
         <div className="max-w-4xl space-y-8 text-center lg:text-left">
           {/* Text Content */}
           <div>
-            <h2 className="font-medium metallic-text-long text-4xl md:text-5xl lg:text-6xl mb-4">
-              Energy That Trains as Hard as You Do.
+            <h2 className=" metallic-text-long hero-text-heading mb-4">
+              Lights On. Gains On.
             </h2>
-            <p className="text-base md:text-lg font-light text-gray-200">
+            <p className="text-secondary text-gray-300 max-w-3xl mx-auto lg:mx-0">
               Pai Enterprise keeps your gym powered, optimized, and
               cost-efficient—so the lights stay on, the AC stays cool, and no
               treadmill ever stops mid-sprint.
@@ -32,20 +32,7 @@ export default function HeroGyms() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Link
-              href="/get-started"
-              className="inline-block bg-white hover:bg-blue-700 text-[#1570EF] hover:text-white font-bold py-3 px-8 rounded-lg text-base lg:text-lg transition-colors text-center"
-            >
-              Book a Demo
-            </Link>
-            <Link
-              href="/get-started"
-              className="inline-flex items-center justify-center gap-2 border-white border-2 hover:bg-white/10 text-white font-bold py-3 px-8 rounded-lg text-base lg:text-lg transition-colors"
-            >
-              Get Started
-            </Link>
-          </div>
+          <HeroButtons />
         </div>
       </div>
     </div>
