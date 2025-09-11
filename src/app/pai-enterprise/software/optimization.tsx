@@ -1,4 +1,29 @@
-import Image from 'next/image';
+import FeatureTabs, { TabData } from '@/components/featureTab';
+
+const tabsData: TabData[] = [
+  {
+    id: 1,
+    title: 'Overview',
+    description:
+      'Concise metrics outlining sources, load and cost implications we recommend for your facility upgrade',
+    imageUrl:
+      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optOverview.png',
+  },
+  {
+    id: 2,
+    title: 'Recommended sources',
+    description: '',
+    imageUrl:
+      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optRecommendedSources.png',
+  },
+  {
+    id: 3,
+    title: 'Economic Results',
+    description: '',
+    imageUrl:
+      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optEconomicResults.png',
+  },
+];
 
 export default function Optimization() {
   return (
@@ -17,14 +42,7 @@ export default function Optimization() {
             your energy demand per time.
           </p>
         </div>
-        <div className="relative w-full max-w-5xl mx-auto aspect-video">
-          <Image
-            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optimizationCards.png"
-            layout="fill"
-            objectFit="contain"
-            alt="pai-data-dashboard"
-          />
-        </div>
+        <FeatureTabs tabsData={tabsData} titleColor="green" />
       </div>
     </>
   );

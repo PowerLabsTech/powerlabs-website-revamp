@@ -4,7 +4,7 @@ import clsx from 'clsx';
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'amber';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode; // optional icon
   iconPosition?: 'left' | 'right';
@@ -35,6 +35,7 @@ export default function Button({
       'bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-400',
     outline:
       'border border-gray-300 text-white hover:text-gray-900 hover:bg-gray-100 focus:ring-gray-400',
+    amber: 'bg-amber-600 text-white hover:bg-amber-700 focus:ring-amber-500',
   };
 
   return (

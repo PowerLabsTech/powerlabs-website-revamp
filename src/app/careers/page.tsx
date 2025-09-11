@@ -2,7 +2,7 @@
 import Container, { HeroContainer } from '@/components/container';
 import Hero from './hero';
 import FirstSection from './firstSection';
-import ResidensidencyProgram from './residency';
+// import ResidensidencyProgram from './residency';
 import Footer from '@/components/footer';
 import OpenRoles from './openRoles';
 import { Subscribe } from '../subscribe';

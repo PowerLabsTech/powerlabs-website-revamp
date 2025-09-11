@@ -1,12 +1,8 @@
 'use client';
-import { pathsRoute } from '@/app/routes';
-import Button from '@/components/button';
 import HeroButtons from '@/components/heroButtons';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 export default function HeroHospitals() {
-  const router = useRouter();
   return (
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}

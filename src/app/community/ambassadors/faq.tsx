@@ -77,10 +77,10 @@ export default function FaqAmbassadorAccordion() {
   return (
     <div className="w-full p-8 md:p-16 lg:p-20 bg-primary text-white rounded-lg">
       <h3 className="font-semibold text-lg mb-2 text-amber-600">FAQs</h3>
-      <h3 className="font-medium mb-4 text-3xl md:text-5xl metallic-text">
+      <h3 className="text-subheading metallic-text mb-1">
         Still have questions?
       </h3>
-      <h4 className="font-medium mb-8 text-lg md:text-2xl metallic-text">
+      <h4 className="text-secondary metallic-text">
         Send us an email: hello@powerlabstech.com
       </h4>
 

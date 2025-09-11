@@ -68,7 +68,9 @@ export function Navigation() {
     <div
       className={`relative bg-[#0F1114] ${
         isCareersPath ? 'bg-black' : ''
-      } text-[#5F6368] z-50 ${!isHome ? 'sticky top-0' : ''}`}
+      } text-[#5F6368] z-50 ${
+        !isHome ? 'sticky top-0' : 'sticky top-0 md:relative'
+      }`}
       onMouseLeave={handleMouseLeave}
     >
       <div className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-20">
@@ -186,7 +188,7 @@ export function Navigation() {
                   <Link
                     onMouseEnter={() => setActiveCategory(cat.category)}
                     className={`w-full text-left p-2 rounded-md text-2xl font-medium ${
-                      activeCategory === cat.category
+                      pathname.includes(cat.path || '')
                         ? 'text-white'
                         : 'text-gray-500 hover:text-white'
                     }`}

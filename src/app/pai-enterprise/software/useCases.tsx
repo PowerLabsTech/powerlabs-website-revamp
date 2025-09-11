@@ -40,7 +40,7 @@ const carouselData = [
   {
     title: 'Pai for Hospitals',
     description:
-      'In healthcare, uninterrupted power is critical. Pai ensures that essential medical equipment, lighting, and climate control systems are always running reliably and efficiently, safeguarding patient care.',
+      'Pai Enterprise keeps your hospital powered, optimized, and cost-efficient, so the lights stay on, and critical systems never fail. ',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/hospitalsBackground.png',
     link: `${pathsRoute.hospital}`,
@@ -49,7 +49,7 @@ const carouselData = [
   {
     title: 'Pai for Factories',
     description:
-      'Maximize productivity and minimize operational costs in your manufacturing facility. Pai provides the insights to optimize heavy machinery usage and prevent costly downtime from power irregularities.',
+      'Pai Enterprise keeps your factory powered, optimized, and cost-efficient, so the lights stay on, , and no production line ever stops.',
     image:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
     link: `${pathsRoute.factory}`,
@@ -96,7 +96,9 @@ export function MultiItemCarousel() {
                 <h3 className="text-xl font-semibold text-white mb-2">
                   {item.title}
                 </h3>
-                <p className="text-white opacity-80 mb-4">{item.description}</p>
+                <p className="text-white opacity-80 mb-4 line-clamp-3">
+                  {item.description}
+                </p>
                 <Link
                   href={item.link}
                   className="inline-flex items-center gap-2 text-white hover:text-[#1570EF] font-bold self-start"

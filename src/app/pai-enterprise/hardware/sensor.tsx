@@ -28,7 +28,7 @@ export default function Sensor() {
     <>
       <div className="grid gap-6 p-4">
         <div
-          className="p-1 w-full max-w-2xs"
+          className="p-1 w-full max-w-50"
           style={{
             background: 'linear-gradient(to right, #031936, #1570EF)',
             borderRadius: '8px',
