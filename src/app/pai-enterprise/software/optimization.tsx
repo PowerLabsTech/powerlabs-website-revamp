@@ -5,21 +5,23 @@ const tabsData: TabData[] = [
     id: 1,
     title: 'Overview',
     description:
-      'Concise metrics outlining sources, load and cost implications we recommend for your facility upgrade',
+      'Sizing Optimisation analyses your load profile and existing energy capacity to recommend the best energy mix for optimal business output.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optOverview.png',
   },
   {
     id: 2,
     title: 'Recommended sources',
-    description: '',
+    description:
+      'Energy isn’t one-size-fits-all.  Pai Enterprise doesn’t just size your systems, it recommends the energy blend your business actually needs.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optRecommendedSources.png',
   },
   {
     id: 3,
     title: 'Economic Results',
-    description: '',
+    description:
+      'By right-sizing in real time, Pai turns operational excess into measurable savings, boosting efficiency while extending asset life.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optEconomicResults.png',
   },
