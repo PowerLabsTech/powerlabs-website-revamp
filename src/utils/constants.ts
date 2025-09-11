@@ -7,3 +7,5 @@ export const personalDomains = [
   'icloud.com',
   'aol.com',
 ];
+
+export const ambassadorApplicationLink = 'https://forms.gle/2KFViVL2DfgtWpB58';

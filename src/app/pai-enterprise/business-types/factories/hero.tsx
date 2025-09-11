@@ -17,7 +17,7 @@ export default function HeroFactories() {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10"></div>
+      <div className="absolute inset-0 bg-black/70 z-10"></div>
 
       {/* Content Container */}
 

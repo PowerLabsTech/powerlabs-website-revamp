@@ -1,3 +1,4 @@
+import { ambassadorApplicationLink } from '@/utils/constants';
 import Link from 'next/link';
 
 export default function ApplyAmbassador() {
@@ -29,8 +30,10 @@ export default function ApplyAmbassador() {
             </span>
           </p>
           <Link
-            href="#"
+            href={ambassadorApplicationLink}
             className="text-amber-500 cursor-pointer underline hover:text-amber-400 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Apply Now
           </Link>

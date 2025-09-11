@@ -51,7 +51,7 @@ const carouselData = [
     description:
       'Pai Enterprise keeps your factory powered, optimized, and cost-efficient, so the lights stay on, , and no production line ever stops.',
     image:
-      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.png',
+      'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg',
     link: `${pathsRoute.factory}`,
   },
 ];

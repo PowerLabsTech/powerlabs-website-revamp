@@ -1,4 +1,6 @@
+'use client';
 import Button from '@/components/button';
+import { ambassadorApplicationLink } from '@/utils/constants';
 
 export default function HeroAmbassadors() {
   return (
@@ -19,7 +21,18 @@ export default function HeroAmbassadors() {
         </p>
       </div>
       <div>
-        <Button variant="amber">Apply Now</Button>
+        <Button
+          variant="amber"
+          onClick={() =>
+            window.open(
+              ambassadorApplicationLink,
+              '_blank',
+              'noopener,noreferrer'
+            )
+          }
+        >
+          Apply Now
+        </Button>
       </div>
 
       <div className="relative w-full max-w-4xl mx-auto aspect-video">
