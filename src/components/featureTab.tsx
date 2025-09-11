@@ -77,14 +77,14 @@ export default function FeatureTabs({
         </div>
 
         {/* Right Column: Image - Spans 3 of 5 columns, making it wider */}
-        <div className="w-full h-80 md:h-[450px] bg-gray-900/50 rounded-xl flex items-center justify-center lg:col-span-3">
+        <div className="w-full h-80 md:h-[450px]  rounded-xl flex items-center justify-center lg:col-span-3">
           {activeTabData && (
             <div className="relative w-full h-full">
               <Image
                 src={activeTabData.imageUrl}
                 alt={activeTabData.title}
                 layout="fill"
-                objectFit="fit" // Consider changing to 'cover' or 'contain' depending on your image aspect ratio
+                objectFit="contain" // Consider changing to 'cover' or 'contain' depending on your image aspect ratio
                 className={`rounded-xl transition-opacity duration-150 ${
                   isFading ? 'opacity-0' : 'opacity-100'
                 }`}
