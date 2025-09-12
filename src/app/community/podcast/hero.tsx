@@ -92,6 +92,34 @@ function PodCards({ prop }: { prop: IPod }) {
               }
             />
             <Image
+              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/appleIcon.svg"
+              width={80}
+              height={80}
+              alt="Apple Music icon"
+              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              onClick={() =>
+                window.open(
+                  prop.attributes.applePod,
+                  '_blank',
+                  'noopener,noreferrer'
+                )
+              }
+            />
+            <Image
+              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/youtubeIcon.svg"
+              width={80}
+              height={80}
+              alt="YouTube icon"
+              className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              onClick={() =>
+                window.open(
+                  prop.attributes.youtube,
+                  '_blank',
+                  'noopener,noreferrer'
+                )
+              }
+            />
+            <Image
               src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/audiomackIcon.png"
               width={80}
               height={80}

@@ -38,7 +38,7 @@ export default function HeroAmbassadors() {
 
       <div className="relative w-full max-w-4xl mx-auto aspect-video">
         <Image
-          src={`https://www.youtube.com/embed/SKzuF__cEpQ`}
+          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/ambassadorImage.jpg`}
           alt={'Campus Ambassadors Program'}
           layout="fill"
           objectFit="cover"

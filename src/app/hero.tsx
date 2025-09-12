@@ -233,7 +233,6 @@ export const Hero = () => {
                         </p>
                         <Button
                           variant="outline"
-                          size="lg"
                           onClick={() => router.push(pathsRoute.hardware)}
                         >
                           Learn More
@@ -296,7 +295,6 @@ export const Hero = () => {
                         </p>
                         <Button
                           variant="outline"
-                          size="lg"
                           onClick={() => router.push(pathsRoute.software)}
                         >
                           Learn More

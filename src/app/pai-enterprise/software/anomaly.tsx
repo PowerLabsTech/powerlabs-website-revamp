@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { AnomalyDetectionTabs } from '@/components/featureTab';
+
 export default function Anomaly() {
   return (
     <>
@@ -16,13 +17,8 @@ export default function Anomaly() {
             your energy demand per time.
           </p>
         </div>
-        <div className="relative w-full max-w-5xl mx-auto aspect-video">
-          <Image
-            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/anomalyDetection.png"
-            layout="fill"
-            objectFit="contain"
-            alt="pai-data-dashboard"
-          />
+        <div>
+          <AnomalyDetectionTabs />
         </div>
       </div>
     </>

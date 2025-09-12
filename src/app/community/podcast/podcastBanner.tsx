@@ -32,12 +32,42 @@ export default function PodcastBanner() {
                 className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
               />
             </a>
-            <a href="http://" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://music.amazon.com/podcasts/34be269e-3433-4c6f-aabb-e93765cff874/the-blue-couch-podcast-by-powerlabs"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/amazonIcon.png"
                 width={80}
                 height={80}
                 alt="Amazon Music icon"
+                className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              />
+            </a>
+            <a
+              href="https://podcasts.apple.com/us/podcast/the-blue-couch-podcast-by-powerlabs/id1827465597"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/appleIcon.svg"
+                width={80}
+                height={80}
+                alt="Apple Music icon"
+                className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
+              />
+            </a>
+            <a
+              href="https://music.youtube.com/playlist?list=PLqZtFLpUM--EpmV6HrbhllpYyojgKNNjB&si=I1aogD25auTDRmZg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/youtubeIcon.svg"
+                width={80}
+                height={80}
+                alt="YouTube icon"
                 className="z-0 cursor-pointer w-16 h-16 md:w-20 md:h-20"
               />
             </a>
