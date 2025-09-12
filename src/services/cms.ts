@@ -7,13 +7,15 @@ import {
 } from '@/interfaces';
 import axios from 'axios';
 
-export const articleUrl = 'https://powerlabstech.com/blogger/api/publications';
-export const podcastsUrl = 'https://powerlabstech.com/blogger/api/podcasts';
-export const shopsUrl = 'https://powerlabstech.com/blogger/api/shops';
-export const shopCategoriesUrl =
-  'https://powerlabstech.com/blogger/api/shop-categories';
-export const eventsUrl = 'https://powerlabstech.com/blogger/api/events';
-export const careersUrl = 'https://powerlabstech.com/blogger/api/careers';
+const cmsURL =
+  'https://ews-blog-elb-prod-736343332.us-east-1.elb.amazonaws.com/blogger';
+
+export const articleUrl = `${cmsURL}/api/publications`;
+export const podcastsUrl = `${cmsURL}/api/podcasts`;
+export const shopsUrl = `${cmsURL}/api/shops`;
+export const shopCategoriesUrl = `${cmsURL}/api/shop-categories`;
+export const eventsUrl = `${cmsURL}/api/events`;
+export const careersUrl = `${cmsURL}/api/careers`;
 
 export async function fetchArticles(page: number) {
   const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&fields[4]=date&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;

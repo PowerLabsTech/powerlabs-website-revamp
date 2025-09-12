@@ -228,7 +228,7 @@ export const Hero = () => {
                         <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
                           Pai Enterprise Sensor
                         </h2>
-                        <p className="text-base font-normal mb-4">
+                        <p className="text-base font-normal mb-10">
                           All your power sources. One smart Sensor
                         </p>
                         <Button
@@ -290,7 +290,7 @@ export const Hero = () => {
                         <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
                           Pai Enterprise Dashboard
                         </h2>
-                        <p className="text-base font-normal mb-4">
+                        <p className="text-base font-normal mb-10">
                           All energy insights, one view.
                         </p>
                         <Button

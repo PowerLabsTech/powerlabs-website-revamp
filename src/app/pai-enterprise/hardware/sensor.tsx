@@ -49,7 +49,7 @@ export default function Sensor() {
           <h2 className="metallic-text-long text-3xl md:text-5xl font-semibold">
             Precision you can install. Intelligence you can trust
           </h2>
-          <p className=" text-gray-300 text-secondary">
+          <p className=" text-gray-300 text-secondary mb-10">
             Track and transmit your power usage with precision hardware built
             for modern factories, facilities, and enterprises
           </p>
