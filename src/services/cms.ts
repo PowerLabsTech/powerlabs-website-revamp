@@ -7,8 +7,7 @@ import {
 } from '@/interfaces';
 import axios from 'axios';
 
-const cmsURL =
-  'https://ews-blog-elb-prod-736343332.us-east-1.elb.amazonaws.com/blogger';
+const cmsURL = 'https://blog.powerlabstech.com/blogger';
 
 export const articleUrl = `${cmsURL}/api/publications`;
 export const podcastsUrl = `${cmsURL}/api/podcasts`;

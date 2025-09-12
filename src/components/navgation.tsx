@@ -2,10 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { paths, pathsRoute } from '../app/routes';
 import { useEffect, useState } from 'react';
 import { ChevronDownIcon } from './ui';
+import { ambassadorApplicationLink } from '@/utils/constants';
 
 export function Navigation() {
   const pathname = usePathname();
@@ -17,6 +18,8 @@ export function Navigation() {
   const [openMobileSubMenu, setOpenMobileSubMenu] = useState<string | null>(
     null
   );
+
+  const router = useRouter();
 
   useEffect(() => {
     setOpenDropdown(null);
@@ -113,15 +116,31 @@ export function Navigation() {
 
         {/* CTA Button */}
         <div className="hidden lg:block">
-          <button
-            className={`py-2 px-4 ${
-              isAmbassadorPath
-                ? 'bg-amber-600 hover:bg-amber-700'
-                : 'bg-blue-600 hover:bg-blue-700'
-            }   rounded text-sm font-semibold transition-colors text-white`}
-          >
-            Contact Sales
-          </button>
+          {isAmbassadorPath ? (
+            <button
+              className={`py-2 px-4 
+             
+                bg-amber-600 hover:bg-amber-700
+              
+              rounded text-sm font-semibold transition-colors text-white`}
+              onClick={() =>
+                window.open(
+                  ambassadorApplicationLink,
+                  '_blank',
+                  'noopener noreferrer'
+                )
+              }
+            >
+              Apply Now
+            </button>
+          ) : (
+            <button
+              className={`py-2 px-4  bg-blue-600 hover:bg-blue-700 rounded text-sm font-semibold transition-colors text-white`}
+              onClick={() => router.push(pathsRoute.contactSales)}
+            >
+              Contact Sales
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
