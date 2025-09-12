@@ -212,6 +212,7 @@ export function Navigation() {
                         : 'text-gray-500 hover:text-white'
                     }`}
                     href={cat?.path ? cat.path : '#'}
+                    prefetch
                   >
                     {cat.category}
                   </Link>
@@ -240,6 +241,7 @@ export function Navigation() {
                       <Link
                         href={link.path}
                         className="text-white hover:underline"
+                        prefetch
                       >
                         {link.name}
                       </Link>
@@ -288,6 +290,7 @@ export function Navigation() {
                               <Link
                                 href={category.path ?? ''}
                                 className="font-semibold text-gray-400 pt-2"
+                                prefetch
                               >
                                 {category.category}
                               </Link>
@@ -297,6 +300,7 @@ export function Navigation() {
                                     <Link
                                       href={subLink.path}
                                       className="block py-1 text-gray-300 hover:text-white"
+                                      prefetch
                                     >
                                       {subLink.name}
                                     </Link>
@@ -309,7 +313,11 @@ export function Navigation() {
                       </div>
                     </div>
                   ) : (
-                    <Link href={path.path} className="block py-2 text-lg">
+                    <Link
+                      href={path.path}
+                      className="block py-2 text-lg"
+                      prefetch
+                    >
                       {path.name}
                     </Link>
                   )}
