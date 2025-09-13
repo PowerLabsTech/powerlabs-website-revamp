@@ -346,8 +346,8 @@ export default function Form({
 
 function AfterSignup() {
   const router = useRouter();
-  const navigateHome = () => {
-    router.push('/');
+  const navigateBack = () => {
+    router.back();
   };
 
   return (
@@ -367,9 +367,9 @@ function AfterSignup() {
       <button
         type="button"
         className="btn text-white normal-case w-max mt-2 border-[0.5px] rounded p-2 border-[#D0D5DD] bg-[#0F1015]"
-        onClick={() => navigateHome()}
+        onClick={() => navigateBack()}
       >
-        Back to home
+        Go Back
       </button>
     </div>
   );

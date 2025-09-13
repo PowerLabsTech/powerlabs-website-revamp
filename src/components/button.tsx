@@ -21,7 +21,7 @@ export default function Button({
   className,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center rounded-md font-medium whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-semibold';
+    'inline-flex items-center justify-center rounded-md font-medium whitespace-nowrap transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed font-semibold cursor:pointer';
 
   const sizeStyles: Record<typeof size, string> = {
     sm: 'px-3 py-1.5 text-sm',
