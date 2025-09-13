@@ -89,10 +89,7 @@ export const ContactSalesBanner = () => {
           </p>
         </div>
         <div>
-          <Button
-            className="w-full"
-            onClick={() => router.push(pathsRoute.contactSales)}
-          >
+          <Button onClick={() => router.push(pathsRoute.contactSales)}>
             Contact Sales
           </Button>
         </div>
