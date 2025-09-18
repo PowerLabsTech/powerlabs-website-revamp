@@ -183,6 +183,7 @@ export const Hero = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
+                  poster="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/heroThumbnail.jpg"
                 >
                   <source src="/videos/hero_video.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -196,12 +197,12 @@ export const Hero = () => {
               <div className="relative z-10 text-center text-white px-4 content-wrapper">
                 <div className="floatingText">
                   {/* RESPONSIVE: Adjusted font size for mobile, tablet, and desktop */}
-                  <h1 className="text-5xl md:text-7xl lg:text-[80px] font-semibold leading-tight">
+                  <h1 className="text-4xl md:text-7xl lg:text-[80px] font-semibold leading-tight">
                     Minimize Cost.
                   </h1>
                 </div>
                 <div className="maximizeBox">
-                  <h1 className="text-5xl md:text-7xl lg:text-[80px] font-semibold leading-tight mb-6 metallic-text">
+                  <h1 className="text-4xl md:text-7xl lg:text-[80px] font-semibold leading-tight mb-6 metallic-text">
                     Maximize Uptime.
                   </h1>
                   {/* RESPONSIVE: Buttons stack on mobile and are side-by-side on larger screens */}

@@ -9,7 +9,7 @@ export default function HeroFactories() {
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}
       <Image
-        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoriesBackground.jpg"
+        src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/factoryHeader.jpg"
         layout="fill"
         objectFit="cover"
         alt="factory background"

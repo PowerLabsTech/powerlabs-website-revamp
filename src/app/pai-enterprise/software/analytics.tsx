@@ -60,6 +60,18 @@ export const CO2Metric = () => (
   </div>
 );
 
+export const CostMetric = () => (
+  <div className="absolute right-0 bottom-6  h-auto flex flex-col items-center">
+    <Image
+      src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/costMetricCard.png`}
+      alt="Avoided CO2 Emissions"
+      width={400} // Adjusted width for better fit, adjust as needed
+      height={180} // Adjusted height, adjust as needed
+      // objectFit="contain" // Use objectFit if you want to ensure the whole image is visible
+    />
+  </div>
+);
+
 export const LineChartPlaceholder = () => (
   <div className="absolute left-0 right-0 bottom-8 h-auto flex justify-center">
     <Image
@@ -181,10 +193,10 @@ export function DashboardGrid() {
 
           <div className="lg:col-span-1 secondRight">
             <DashboardCard
-              title="Monitor your CO2 Emissions"
-              description="Check the positive environmental impact of every kWh of solar power consumed over a time period."
+              title="Electricity Cost at a Glance"
+              description="Get full visibility into your electricity costs and uncover opportunities to save more, spend smarter."
             >
-              <CO2Metric />
+              <CostMetric />
             </DashboardCard>
           </div>
         </div>
