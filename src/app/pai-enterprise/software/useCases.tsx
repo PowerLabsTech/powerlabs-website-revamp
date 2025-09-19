@@ -60,7 +60,6 @@ export function MultiItemCarousel() {
   return (
     <div className="w-full px-4 py-8">
       <Swiper
-        // Install Swiper modules
         modules={[Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={1} // Default slides per view for mobile

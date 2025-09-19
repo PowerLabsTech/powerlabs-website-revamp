@@ -8,7 +8,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
 
 export const HeroContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex min-h-screen flex-col items-center ">
+    <div className="flex  flex-col items-center ">
       <div className="w-full p-4 pb-0 sm:pb-0 lg:pb-0 sm:p-10 lg:p-20 lg:pt-12 pt-12">
         {children}
       </div>

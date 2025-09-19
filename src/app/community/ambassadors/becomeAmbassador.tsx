@@ -1,6 +1,6 @@
 const ambassadorQualifications = [
   'You are above 16',
-  'You are a qualified student in any department of UNILAG, YABATECH, UI, Covenant University, UNN, UNILORIN, UNIBEN.',
+  'You are a qualified undergraduate from any department in an accredited Nigerian university.',
   'You maintain a strong, engaged social media presence.',
   'You are committed to active learning and personal development.',
   'Curious, focused, collaborative, and never afraid to test',

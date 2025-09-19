@@ -20,7 +20,7 @@ export default function Software() {
         <UseCases />
         <Subscribe
           title="Get updates and insights"
-          subtitle="Stay up to date on Pai Enterprise Sensor, new products, expert advice, and more."
+          subtitle="Subscribe for software updates, feature releases, and tips to get the most out of your energy data."
           newsLetterType={NEWS_LETTERS_TYPE.TECHNICAL}
         />
         <Footer />

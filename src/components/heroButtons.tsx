@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 export default function HeroButtons() {
   const router = useRouter();
   return (
-    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+    <div className="flex flex-row gap-4 justify-center lg:justify-start">
       <Button onClick={() => router.push(pathsRoute.contactSales)}>
         Contact Sales
       </Button>

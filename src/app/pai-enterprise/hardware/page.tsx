@@ -16,7 +16,7 @@ export default function Hardware() {
         <FaqAccordion />
         <Subscribe
           title="Get updates and insights"
-          subtitle="Stay up to date on Pai Enterprise Sensor, new products, expert advice, and more."
+          subtitle="Sign up to get updates on new product launches and feature updates."
           newsLetterType={NEWS_LETTERS_TYPE.TECHNICAL}
         />
         <Footer />

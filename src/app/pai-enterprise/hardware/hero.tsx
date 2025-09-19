@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Hero() {
   return (
     <>
-      <div className="w-full flex flex-col items-center justify-center space-y-6 md:space-y-10 p-4">
+      <div className="w-full flex flex-col items-center justify-center space-y-6 md:space-y-10 pt-10  md:pt-20">
         <div className="text-center">
           <p className="text-lg md:text-xl text-[#E6F0FF] text-shadow-[0_5px_20px_#E6F0FF]">
             Introducing

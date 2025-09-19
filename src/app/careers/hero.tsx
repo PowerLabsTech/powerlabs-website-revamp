@@ -5,14 +5,21 @@ export default function Hero() {
     <>
       <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
         {/* Background Image */}
-        <Image
-          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energy.gif"
-          alt="Energy animation"
-          layout="fill"
-          objectFit="cover"
-          unoptimized
-          className="z-0"
-        />
+
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          poster="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energyThumbnail.jpg"
+        >
+          <source
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energy.webm"
+            type="video/webm"
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
     </>
   );

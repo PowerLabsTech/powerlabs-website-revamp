@@ -58,17 +58,20 @@ function Card({
   return (
     <div
       className={`
-        w-full flex flex-col item-center justify-center 
+        w-full flex flex-col
         p-8 md:p-10
         border-b border-[#4C4C4C] 
         lg:border-b-0 lg:border-r
         ${index === totalItems - 1 ? 'lg:border-r-0 border-b-0' : ''}
       `}
     >
-      <h2 className="font-semiBold text-2xl md:text-3xl mb-6 md:mb-10">
+      <h2 className="font-semibold text-2xl md:text-3xl mb-6 md:mb-10 min-h-[3rem] md:min-h-[4rem] flex items-start">
         {title}
       </h2>
-      <p className="text-base text-gray-400">{subText}</p>
+
+      <p className="text-base text-gray-400 min-h-[4rem] flex items-start">
+        {subText}
+      </p>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function HeroAmbassadors() {
   return (
-    <div className="w-full flex flex-col items-center justify-center space-y-8 md:space-y-12 p-4">
+    <div className="w-full flex flex-col items-center justify-center space-y-8 md:space-y-12 pt-10  md:pt-20">
       <div className="text-center">
         <h3 className="metallic-text hero-text-heading">
           Be the spark on your campus.

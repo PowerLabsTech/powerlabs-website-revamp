@@ -2,12 +2,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/button';
 import { pathsRoute } from '@/app/routes';
+import HeroButtons from '@/components/heroButtons';
 
 export default function HeroSoftware() {
   const router = useRouter();
   return (
     <>
-      <div className="w-full flex flex-col items-center space-y-8 md:space-y-12 p-4 text-center">
+      <div className="w-full flex flex-col items-center space-y-8 md:space-y-12  text-center pt-10  md:pt-20">
         <div>
           {/* Responsive font size for the heading */}
           <h2 className=" metallic-text hero-text-heading mb-2">
@@ -15,22 +16,11 @@ export default function HeroSoftware() {
           </h2>
           {/* Added max-width for better readability on large screens */}
           <p className="text-secondary max-w-2xl mx-auto">
-            Plan Ahead, Minimise Disruptions: Power Outage Insights at Your
-            Fingertips.
+            Intelligent energy at your fingertips
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button onClick={() => router.push(pathsRoute.contactSales)}>
-            Contact Sales
-          </Button>
-          <Button
-            variant="outline"
-            onClick={() => router.push(pathsRoute.partnerHub)}
-          >
-            Get Started
-          </Button>
-        </div>
+        <HeroButtons />
 
         {/* Responsive container for the image */}
         <div className="relative w-full max-w-6xl aspect-video">

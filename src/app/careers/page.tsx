@@ -21,7 +21,7 @@ export default function Careers() {
       {/* <ResidensidencyProgram /> */}
       <Subscribe
         title="Break Things. Responsibly"
-        subtitle="Don’t see any role that interests you? Join the Blue List and be the first to know about open roles."
+        subtitle="Stay in the loop on career opportunities and company updates."
         newsLetterType={NEWS_LETTERS_TYPE.CAREERS}
         buttonText="Join the Blue List"
       />

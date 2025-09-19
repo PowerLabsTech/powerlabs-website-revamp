@@ -17,6 +17,10 @@ export const pathsRoute = {
   privacyPolicy: '/privacy-policy',
   cookies: '/cookies',
   contactSales: '/contact-sales',
+  limitlessProductivity:
+    '/resources/outlet/blog/posts/Unlocking-Limitless-Human-Productivity?id=13',
+  intelligentEnergy:
+    '/resources/outlet/blog/posts/Through-Intelligent-Energy?id=12',
 };
 
 export const paths = [

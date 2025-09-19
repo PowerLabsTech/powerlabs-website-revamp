@@ -29,17 +29,19 @@ export default function FirstSection() {
                 <br />
                 <span>
                   At PowerLabs, we build with urgency, think with clarity,{' '}
-                  <br /> and demand excellence, from ourselves and each other.
+                  <br className="hidden sm:block" /> and demand excellence, from
+                  ourselves and each other.
                 </span>
                 <br />
                 <br />
                 <span>
                   We hire people who take ownership, obsess over excellence, and{' '}
-                  <br />
+                  <br className="hidden sm:block" />
                   bring their full weight to the work. We move fast, we hold the
-                  bar high, and <br /> we don&apos;t apologise for expecting
-                  your best, every time. If you&apos;re looking for <br />{' '}
-                  comfort, look elsewhere. Still reading? Good.
+                  bar high, and <br className="hidden sm:block" /> we don&apos;t
+                  apologise for expecting your best, every time. If you&apos;re
+                  looking for <br /> comfort, look elsewhere. Still reading?
+                  Good.
                 </span>
                 <span>
                   Maybe you&apos;re one of us.
