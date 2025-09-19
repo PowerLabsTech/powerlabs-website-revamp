@@ -1,4 +1,4 @@
-import HeroAmbassadors from '@/app/community/ambassadors/hero';
+import HeroButtons from '@/components/heroButtons';
 import Image from 'next/image';
 
 export default function HeroFactories() {
@@ -32,7 +32,7 @@ export default function HeroFactories() {
           </div>
 
           {/* Buttons */}
-          <HeroAmbassadors />
+          <HeroButtons />
         </div>
       </div>
     </div>
