@@ -9,7 +9,9 @@ export interface IArticleData {
     author: string;
     readingTime: number;
     summary: string;
-    avatar: string;
+    avatar: {
+      data: { id: number; attributes: { url: string } };
+    };
     date: string;
     tag: string;
     coverImage: {

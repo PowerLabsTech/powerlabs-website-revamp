@@ -163,6 +163,39 @@ export const Hero = () => {
 
         // --- END OF DESKTOP-ONLY ANIMATIONS ---
       });
+
+      //  for mobile
+      mm.add('(max-width:1023px)', function () {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.hardware-mobile',
+            start: 'top 80%',
+            end: '+=600',
+            scrub: 1.2,
+          },
+        });
+
+        tl.from('.hardware', {
+          scale: 0.5,
+          opacity: 0,
+          ease: 'none',
+        });
+
+        const softtl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.software-mobile',
+            start: 'top 80%',
+            end: '+=600',
+            scrub: 1.2,
+          },
+        });
+
+        softtl.from('.laptop', {
+          scale: 0.5,
+          opacity: 0,
+          ease: 'none',
+        });
+      });
     },
     { scope: main }
   );
@@ -172,7 +205,7 @@ export const Hero = () => {
       {/* RESPONSIVE: Reduced vertical space on mobile (space-y-20) and increased on desktop (lg:space-y-40) */}
       <div className="w-full space-y-20 lg:space-y-40" ref={main}>
         {/* RESPONSIVE: Adjusted padding for different screen sizes */}
-        <div className=" space-y-20 lg:space-y-40">
+        <div className="space-y-20 lg:space-y-40">
           <HeroContainer>
             <section className="relative mx-auto h-[80vh] lg:h-[75vh] flex items-center justify-center overflow-hidden rounded-2xl z-10 ">
               {/* Video Background */}
@@ -216,7 +249,7 @@ export const Hero = () => {
 
           <Container>
             {/* RESPONSIVE: Height is auto on mobile (no pinning) and fixed on desktop for the animation */}
-            <div className="animation-container relative z-20 h-auto lg:h-[120vh]">
+            <div className="animation-container relative z-20 h-auto lg:h-[120vh] hidden lg:block">
               <div className="centered-content-for-desktop-animation relative lg:absolute top-1/4 left-0 w-full lg:h-screen lg:-translate-y-1/4 z-40">
                 {/* Section 1 */}
                 <section className="first-section relative lg:absolute top-1/2 lg:-translate-y-1/2 left-0 w-full py-16 lg:py-0">
@@ -323,6 +356,7 @@ export const Hero = () => {
                         width={420}
                         height={270}
                         alt="pai_laptop"
+                        loading="lazy"
                       />
                     </div>
 
@@ -340,6 +374,70 @@ export const Hero = () => {
                     </div>
                   </div>
                 </section>
+              </div>
+            </div>
+
+            {/* mobile */}
+            <div className="lg:hidden space-y-40 mb-30">
+              {/* hardware */}
+              <div>
+                <div className="hardware-mobile">
+                  <div className="flex flex-col items-center justify-center ">
+                    <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
+                      Pai Enterprise Sensor
+                    </h2>
+                    <p className="text-base font-normal mb-4 ">
+                      All your power sources. One smart Sensor
+                    </p>
+                    <Button
+                      variant="outline"
+                      onClick={() => router.push(pathsRoute.hardware)}
+                    >
+                      Learn More
+                    </Button>
+                  </div>
+
+                  <div className="flex justify-center mt-10 hardware">
+                    <Image
+                      src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pai_board.png"
+                      width={420}
+                      height={270}
+                      alt="pai_board"
+                      className="w-full max-w-md"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* software */}
+
+              <div className="software-mobile">
+                <div className="flex flex-col items-center justify-center ">
+                  <h2 className="text-2xl lg:text-3xl metallic-text mb-1">
+                    Pai Enterprise Dashboard
+                  </h2>
+                  <p className="text-base font-normal mb-4 ">
+                    All energy insights, one view.
+                  </p>
+                  <Button
+                    variant="outline"
+                    onClick={() => router.push(pathsRoute.software)}
+                  >
+                    Learn More
+                  </Button>
+                </div>
+
+                <div className="flex justify-center mt-10 laptop">
+                  <Image
+                    src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/paiLaptop.png"
+                    width={420}
+                    height={270}
+                    alt="pai_board"
+                    className="w-full max-w-md"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </Container>

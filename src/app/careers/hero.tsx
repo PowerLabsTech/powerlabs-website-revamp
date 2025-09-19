@@ -12,6 +12,7 @@ export default function Hero() {
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover z-0"
+          poster="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energyThumbnail.jpg"
         >
           <source
             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energy.webm"

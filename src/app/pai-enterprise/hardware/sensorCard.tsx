@@ -147,7 +147,7 @@ export function PaiCard() {
     <div
       className={`relative bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative space-y-4 overflow-hidden h-[500px]`}
     >
-      <div className="flex flex-col text-center items-center justify-center space-y-2 mb-18">
+      <div className="flex flex-col text-center items-center justify-center space-y-2 ">
         <h3 className="text-2xl font-bold text-gray-200">
           Real-Time Energy Monitoring
         </h3>
@@ -158,20 +158,12 @@ export function PaiCard() {
         </p>
       </div>
 
-      <div
-        className={`
-          absolute 
-          w-[350px] h-[350px] -bottom-[200px] -translate-x-1/2 left-1/2
-          md:w-[550px] md:h-[550px] md:-bottom-[300px] 
-          transition-transform duration-500 ease-in-out
-        
-        `}
-      >
+      <div className="">
         <Image
-          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pai_board.png`}
-          alt="sensor"
-          layout="fill"
-          objectFit="contain" // Use objectFit if you want to ensure the whole image is visible
+          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/realTimeEnergy.png`}
+          alt="real-time-energy"
+          width={150} // Adjusted width for better fit, adjust as needed
+          height={150} // Adjusted height, adjust as needed
         />
       </div>
     </div>

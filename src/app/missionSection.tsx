@@ -76,7 +76,7 @@ export default function MissionSection() {
               </div>
               <button
                 className="btn-ghost  cursor-pointer hover:bg-white hover:text-black transition-all inline-flex items-center"
-                onClick={() => router.push(pathsRoute.company)}
+                onClick={() => router.push(pathsRoute.limitlessProductivity)}
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>
@@ -111,7 +111,7 @@ export default function MissionSection() {
               </div>
               <button
                 className="btn-ghost  cursor-pointer hover:bg-white hover:text-black transition-all inline-flex items-center"
-                onClick={() => router.push(pathsRoute.company)}
+                onClick={() => router.push(pathsRoute.intelligentEnergy)}
               >
                 Learn More
                 <span className="font-bold text-xl">&rarr;</span>

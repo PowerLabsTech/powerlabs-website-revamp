@@ -48,7 +48,7 @@ export async function fetchLatestArticle() {
 }
 
 export async function fetchArticleById(id: string) {
-  const url = `${articleUrl}/${id}?populate=*`;
+  const url = `${articleUrl}/${id}?populate[avatar][fields]=url&populate[coverImage][fields]=url`;
   try {
     const response = await axios.get(url);
     return response.data as { data: IArticleData };

@@ -8,6 +8,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import CodeBlock from './codeBlock';
 import { displayFriendlyDate } from '@/utils/stringUtils';
+import ShareArticle from '@/components/shareArticles';
 
 export default function BlogPostPage() {
   const [article, setArticle] = React.useState<IArticleData>();
@@ -36,7 +37,6 @@ export default function BlogPostPage() {
           <ArrowLeft size={18} />
           <span className="cursor-pointer hover:text-white">Back</span>
         </div>
-
         {/* Header Section */}
         <div className="max-w-4xl mx-auto px-4">
           <p className="text-gray-400 text-sm">
@@ -45,8 +45,8 @@ export default function BlogPostPage() {
           <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
             <Image
               src={
-                article.attributes.avatar ??
-                article.attributes.coverImage.data.attributes.url
+                article?.attributes?.avatar?.data?.attributes?.url ||
+                'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerlabsIcon.png'
               }
               alt="User avatar"
               width={24}
@@ -65,43 +65,10 @@ export default function BlogPostPage() {
             {article.attributes.summary}
           </p>
         </div>
-
         {/* content*/}
-
         <CodeBlock content={article.attributes.text} />
-
         {/* Call to Action */}
-        <div className="max-w-4xl mx-auto px-4 mt-10 flex flex-col items-center">
-          {/* Share Section */}
-          <div>
-            <h2 className="text-lg font-semibold text-gray-200">
-              Share article
-            </h2>
-          </div>
-          <div className="flex gap-6 text-gray-400 mt-6">
-            <a
-              href="#"
-              className="hover:text-black w-9 h-9 flex items-center justify-center rounded-full text-neutral-400 bg-neutral-800 hover:bg-white hover:text-black transition-colors"
-            >
-              <Instagram size={18} />
-            </a>
-            <a
-              href="#"
-              className="hover:text-black w-9 h-9 flex items-center justify-center rounded-full text-neutral-400 bg-neutral-800 hover:bg-white hover:text-black transition-colors"
-            >
-              <Facebook size={18} />
-            </a>
-            <a
-              href="#"
-              className="hover:text-black w-9 h-9 flex items-center justify-center rounded-full text-neutral-400 bg-neutral-800 hover:bg-white hover:text-black transition-colors"
-            >
-              <Linkedin size={18} />
-            </a>
-            {/* <a href="#" className="hover:text-white">
-              <WhatsApp size={18} />
-            </a> */}
-          </div>
-        </div>
+        <ShareArticle article={article} />
       </div>
     </div>
   ) : (

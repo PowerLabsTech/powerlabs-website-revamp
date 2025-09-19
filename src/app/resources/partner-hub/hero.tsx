@@ -1,10 +1,10 @@
 export default function HeroPatnerHub() {
   return (
     <>
-      <div className="w-full flex flex-col items-center space-y-8 md:space-y-12  text-center pt-10  md:pt-20">
+      <div className="w-full flex flex-col items-center space-y-8 md:space-y-8  text-center pt-10  md:pt-20">
         <div>
           {/* Responsive font size for the heading */}
-          <h2 className=" metallic-text hero-text-heading mb-2">Partner Hub</h2>
+          <h2 className=" metallic-text hero-text-heading">Partner Hub</h2>
         </div>
 
         <div>
