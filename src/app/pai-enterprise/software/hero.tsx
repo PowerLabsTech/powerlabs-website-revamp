@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import Button from '@/components/button';
-import { pathsRoute } from '@/app/routes';
 import HeroButtons from '@/components/heroButtons';
 
 export default function HeroSoftware() {

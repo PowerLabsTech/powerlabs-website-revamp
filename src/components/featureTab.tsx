@@ -104,7 +104,7 @@ export default function FeatureTabs({
       {/* mobile */}
       <div className="space-y-6 lg:hidden">
         {tabsData.map((tab, index) => (
-          <div className="bg-[#161922]">
+          <div className="bg-[#161922]" key={index}>
             <div
               className={`w-full ${
                 titleColor === 'primary'
