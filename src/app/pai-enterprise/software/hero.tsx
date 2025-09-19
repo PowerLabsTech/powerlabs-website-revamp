@@ -1,9 +1,7 @@
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import HeroButtons from '@/components/heroButtons';
 
 export default function HeroSoftware() {
-  const router = useRouter();
   return (
     <>
       <div className="w-full flex flex-col items-center space-y-8 md:space-y-12  text-center pt-10  md:pt-20">
