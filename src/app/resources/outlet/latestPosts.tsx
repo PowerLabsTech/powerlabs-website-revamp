@@ -9,11 +9,10 @@ import { createRouteFromTitle } from '@/utils/stringUtils';
 
 const categories = [
   'All',
-  'Inside PowerLabs',
-  'Product Update',
-  'PowerLabs In The News',
-  'Business Spotlight',
-  'Employee Experience',
+  'Blog',
+  'Releases',
+  'Product Announcement',
+  'Research',
 ];
 
 export default function LatestPost({

@@ -49,56 +49,86 @@ export default function SensorCard({
 
 export function InstallCard() {
   return (
-    <div
-      className={`bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative space-y-6  h-[500px]`}
-    >
-      <div>
+    <div className="bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative h-[500px] overflow-hidden">
+      {/* Overlay */}
+      <div className="absolute inset-0 pointer-events-none">
         <Image
-          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/toolIcon.png`}
-          alt="tool"
-          width={64} // Adjusted width for better fit, adjust as needed
-          height={64} // Adjusted height, adjust as needed
-          // objectFit="contain" // Use objectFit if you want to ensure the whole image is visible
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/backgroundCard.png"
+          alt="Overlay"
+          fill
+          className="object-cover"
         />
       </div>
 
-      <div className="flex flex-col text-center items-center justify-center space-y-2">
-        <h3 className="text-2xl font-bold text-gray-200">
-          Easy to Install, Easy to Maintain
-        </h3>
-        <p className="text-sm text-gray-500 mt-1 mb-6 text-center max-w-md">
-          Tracks key power data—including voltage, current, energy use, and
-          power factor—with industry-grade accuracy. You get trusted insights to
-          manage energy smarter.
-        </p>
+      <div>
+        {/* Icon section (fixed height) */}
+        <div className="flex items-center justify-center h-[80px]">
+          <Image
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/toolIcon.png"
+            alt="tool"
+            width={64}
+            height={64}
+          />
+        </div>
+
+        {/* Title section (fixed height) */}
+        <div className="flex items-center justify-center text-center h-[60px]">
+          <h3 className="text-2xl font-bold text-gray-200">
+            Easy to Install, Easy to Maintain
+          </h3>
+        </div>
+
+        {/* Paragraph section (flexible but aligned) */}
+        <div className="flex items-center justify-center text-center flex-1">
+          <p className="text-sm text-white opacity-70 max-w-md">
+            Lightweight, under 500g, and compact enough for tight spaces—plus
+            designed for simple setup without specialist tools or complex
+            wiring.
+          </p>
+        </div>
       </div>
     </div>
   );
 }
+
 export function CommercialPurposeCard() {
   return (
-    <div
-      className={`bg-[#1570EF] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative space-y-6  h-[500px]`}
-    >
-      <div>
+    <div className="bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative h-[500px] overflow-hidden">
+      {/* Overlay */}
+      <div className="absolute inset-0 pointer-events-none">
         <Image
-          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/industryIcon.png`}
-          alt="Industry"
-          width={64} // Adjusted width for better fit, adjust as needed
-          height={64} // Adjusted height, adjust as needed
-          // objectFit="contain" // Use objectFit if you want to ensure the whole image is visible
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/backgroundCard.png"
+          alt="Overlay"
+          fill
+          className="object-cover"
         />
       </div>
+      <div>
+        {/* Icon section (fixed height) */}
+        <div className="flex items-center justify-center h-[80px]">
+          <Image
+            src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/industryIcon.png"
+            alt="Industry"
+            width={64}
+            height={64}
+          />
+        </div>
 
-      <div className="flex flex-col text-center items-center justify-center space-y-2">
-        <h3 className="text-2xl font-bold text-gray-200">
-          For Commercial and Industrial Environments
-        </h3>
-        <p className="text-sm text-white mt-1 mb-6 text-center max-w-md">
-          Built tough and compact, Pai Hardware fits into factories, office
-          buildings, and energy facilities without fuss—using DIN-rail or wall
-          mounting options.
-        </p>
+        {/* Title section (fixed height) */}
+        <div className="flex items-center justify-center text-center h-[60px]">
+          <h3 className="text-2xl font-bold text-gray-200">
+            For Commercial and Industrial Environments
+          </h3>
+        </div>
+
+        {/* Paragraph section (flexible but aligned) */}
+        <div className="flex items-center justify-center text-center flex-1">
+          <p className="text-sm text-white opacity-70 max-w-md">
+            Built tough and compact, Pai Hardware fits into factories, office
+            buildings, and energy facilities without fuss—using DIN-rail or wall
+            mounting options.
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -106,37 +136,37 @@ export function CommercialPurposeCard() {
 
 export function BatterySaverCard() {
   return (
-    <div
-      className={`bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative space-y-4  h-[500px]`}
-    >
-      <div className="">
-        <div className="">
-          <Image
-            src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/battery--charging.png`}
-            alt="Battery"
-            width={98} // Adjusted width for better fit, adjust as needed
-            height={98} // Adjusted height, adjust as needed
-            // objectFit="contain" // Use objectFit if you want to ensure the whole image is visible
-          />
-        </div>
+    <div className="relative bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center overflow-hidden h-[500px] pt-18">
+      {/* Background overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/backgroundCard.png"
+          alt="Overlay"
+          fill
+          className="object-cover"
+        />
       </div>
-      <div className="flex flex-col text-center items-center justify-center space-y-2">
-        <h3 className="text-7xl font-bold text-gray-200">
-          <span className="text-[#1570EF]">24</span> hours
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col text-center items-center space-y-2">
+        <h3 className="text-2xl font-bold text-gray-200">
+          Built-In Uptime Protection
         </h3>
-        <p className="text-sm text-gray-500 mt-1 mb-6 text-center">
-          Triple power input and 24-hour battery
+        <p className="text-sm text-white opacity-70 mt-1 mb-6 max-w-md">
+          No power? No problem. With triple power input and 24-hour battery
+          backup, Pai Enterprise Sensor keeps measuring and reporting, even
+          during outages.
         </p>
       </div>
 
-      <div className="flex flex-col text-center items-center justify-center space-y-2">
-        <h3 className="text-lg font-bold text-gray-200">
-          Built-In Uptime Protection
-        </h3>
-        <p className="text-sm text-gray-500 mt-1 mb-6 text-center max-w-xs">
-          No power? No problem, Pai Hardware keeps measuring and reporting, even
-          during outages.
-        </p>
+      {/* Bottom image */}
+      <div className="absolute -bottom-22 lg:-bottom-15 z-0 w-full h-[320px] mt-auto">
+        <Image
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/uptimeIllustration.png"
+          alt="real-time-energy"
+          fill
+          className="object-cover"
+        />
       </div>
     </div>
   );
@@ -144,26 +174,36 @@ export function BatterySaverCard() {
 
 export function PaiCard() {
   return (
-    <div
-      className={`relative bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative space-y-4 overflow-hidden h-[500px]`}
-    >
-      <div className="flex flex-col text-center items-center justify-center space-y-2 ">
+    <div className="relative bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center overflow-hidden h-[500px] pt-18">
+      {/* Background overlay */}
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/backgroundCard.png"
+          alt="Overlay"
+          fill
+          className="object-cover"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col text-center items-center space-y-2">
         <h3 className="text-2xl font-bold text-gray-200">
           Real-Time Energy Monitoring
         </h3>
-        <p className="text-sm text-gray-500 mt-1 mb-6 text-center max-w-md">
+        <p className="text-sm text-white opacity-70 mt-1 mb-6 max-w-md">
           Tracks key power data—including voltage, current, energy use, and
           power factor—with industry-grade accuracy. You get trusted insights to
           manage energy smarter.
         </p>
       </div>
 
-      <div className="">
+      {/* Bottom image */}
+      <div className="relative z-0 w-[300px] h-[320px] mt-auto">
         <Image
-          src={`https://ews-app-s3.s3.us-east-1.amazonaws.com/website/realTimeEnergy.png`}
+          src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/realTimeEnergy.png"
           alt="real-time-energy"
-          width={150} // Adjusted width for better fit, adjust as needed
-          height={150} // Adjusted height, adjust as needed
+          fill
+          className="object-cover"
         />
       </div>
     </div>
@@ -244,11 +284,10 @@ export function InstallationGrid() {
           </div>
 
           <div className="lg:col-span-2 secondLeft">
-            <BatterySaverCard />
-          </div>
-
-          <div className="lg:col-span-3 secondRight">
             <PaiCard />
+          </div>
+          <div className="lg:col-span-3 secondRight">
+            <BatterySaverCard />
           </div>
         </div>
       </section>

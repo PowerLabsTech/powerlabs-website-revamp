@@ -5,7 +5,7 @@ const tabsData: TabData[] = [
     id: 1,
     title: 'Grid. Gen. Solar. Battery. You See It All.',
     description:
-      'No more surprises. Track every source your hospital runs on—whether it’s grid, diesel generator, solar, or backup battery. Know which is powering your wards right now and switch smartly when needed.',
+      'No more surprises. Track every source your hospital runs on, whether it’s grid, diesel generator, solar, or backup battery. Know what is powering your wards right now and switch smartly when needed.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energySourceContribution.png',
   },
@@ -13,7 +13,7 @@ const tabsData: TabData[] = [
     id: 2,
     title: 'Stop Guessing. Pai is Watching.',
     description:
-      'Pai doesn’t throw data at you—it gives you clarity. Where’s the theatre’s HVAC wasting energy overnight? Which floor runs machines when no one’s around? You get simple, action-ready answers.',
+      'Pai doesn’t throw data at you, it gives you clarity. Where’s the theatre’s HVAC wasting energy overnight? Which floor runs machines when no one’s around? You get simple, action-ready answers.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerDeliverySource.png',
   },

@@ -1,7 +1,6 @@
 import Button from '@/components/button';
 import { IShopCategory } from '@/interfaces';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function Categories({
   shopCategories,
@@ -37,9 +36,11 @@ export function CategoryCard({
   altText: string;
 }) {
   return (
-    <Link
-      href={linkHref}
+    <a
       className="relative block h-[500px] md:h-[600px] overflow-hidden group"
+      href={linkHref}
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {/* Image */}
       <Image
@@ -81,6 +82,6 @@ export function CategoryCard({
           </Button>
         </div>
       </div>
-    </Link>
+    </a>
   );
 }

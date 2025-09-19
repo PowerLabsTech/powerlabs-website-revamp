@@ -5,7 +5,7 @@ const tabsData: TabData[] = [
     id: 1,
     title: 'Know Where Every Kilowatt Goes',
     description:
-      'From the welding bay to the final packing zone, you will see exactly what’s using energy, how much, and when. Grid, gen, solar—nothing slips by.',
+      'From the welding bay to the final packing zone, you will see exactly what’s using energy, how much, and when. Grid, gen, solar, nothing slips by.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energySourceContribution.png',
   },

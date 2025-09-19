@@ -33,7 +33,7 @@ export default function Optimization() {
       <div className="space-y-8 md:space-y-12 p-4">
         <div className="text-center">
           <h3 className="text-[#82C936] font-semibold text-lg mb-2">
-            Sizing Optimization
+            Sizing Optimisation
           </h3>
           <h2 className="metallic-text-long text-subheading ">
             Accurately size future energy sources

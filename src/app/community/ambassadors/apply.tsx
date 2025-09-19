@@ -5,8 +5,8 @@ export default function ApplyAmbassador() {
   return (
     <>
       <div className="w-full  p-8 md:p-16 lg:p-20 flex flex-col lg:flex-row justify-between items-start gap-12">
-        <div className="w-full lg:w-1/2 text-start lg:text-left">
-          <h3 className="text-subheading">
+        <div className="w-full lg:w-1/2 text-center lg:text-start lg:text-left">
+          <h3 className="text-subheading ">
             Why become a <br /> PowerLabs Ambassador?
           </h3>
         </div>

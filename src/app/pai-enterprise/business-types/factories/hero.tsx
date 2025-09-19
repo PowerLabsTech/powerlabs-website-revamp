@@ -1,10 +1,7 @@
-import { pathsRoute } from '@/app/routes';
-import Button from '@/components/button';
+import HeroAmbassadors from '@/app/community/ambassadors/hero';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 
 export default function HeroFactories() {
-  const router = useRouter();
   return (
     <div className="relative w-full h-[80vh] text-white rounded-xl overflow-hidden">
       {/* Background Image */}
@@ -35,18 +32,7 @@ export default function HeroFactories() {
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button onClick={() => router.push(pathsRoute.contactSales)}>
-              Contact Sales
-            </Button>
-
-            <Button
-              onClick={() => router.push(pathsRoute.partnerHub)}
-              variant="outline"
-            >
-              Get Started
-            </Button>
-          </div>
+          <HeroAmbassadors />
         </div>
       </div>
     </div>

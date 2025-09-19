@@ -3,32 +3,32 @@ import Image from 'next/image';
 const internshipInfos = [
   {
     title: 'Paid internship opportunities at PowerLabs',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'Step into PowerLabs as more than a student. Earn, learn, and contribute to real projects that sharpen your skills and create visible impact daily.',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/paidPartnership.png',
   },
   {
     title: 'Branded PowerLabs merch and collateral',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'Our ambassadors receive exclusive branded gear that reflects pride, belonging, and a shared vision of limitless human productivity. ',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/giftBox.png',
   },
   {
     title: 'Exclusive access to PowerLabs events ',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'From community gatherings to product launches, our ambassadors always get first-hand access to our community events. ',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/key.png',
   },
   {
     title: 'Exclusive networking with fellow ambassadors ',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'Across campuses and cities, other ambassadors are ready to connect, exchange stories, and grow with you into something bigger.',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/networking.png',
   },
   {
     title: 'Free access to PowerLabs University ',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'With free resources, and courses, ambassadors access opportunities designed to shape skills and prepare them for tomorrow.',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/graduation.png',
   },
   {
     title: 'Work on research projects, hackathons & More',
-    text: 'As a PowerLabs Ambassador, you’ll learn by doing—solving real problems, leading high-impact projects, and building your voice as a changemaker on campus. ',
+    text: 'Ambassadors collaborate on research projects, join hackathons, and help create innovative solutions that shape the future of energy.  ',
     url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/lightBulb.png',
   },
 ];

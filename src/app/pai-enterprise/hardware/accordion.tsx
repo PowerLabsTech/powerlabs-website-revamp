@@ -8,7 +8,7 @@ import {
 
 const faqData = [
   {
-    question: 'What does the Pai Hardware Device actually do?',
+    question: 'What does the Pai Enterprise Sensor actually do?',
     answer:
       'It helps you see how much energy your business is using in real time, so you can cut waste, save money, and make smarter energy choices.',
   },

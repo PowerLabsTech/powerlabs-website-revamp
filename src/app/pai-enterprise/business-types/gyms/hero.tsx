@@ -26,7 +26,7 @@ export default function HeroGyms() {
             </h2>
             <p className="text-secondary text-gray-300 max-w-3xl mx-auto lg:mx-0">
               Pai Enterprise keeps your gym powered, optimized, and
-              cost-efficient—so the lights stay on, the AC stays cool, and no
+              cost-efficient, so the lights stay on, the AC stays cool, and no
               treadmill ever stops mid-sprint.
             </p>
           </div>

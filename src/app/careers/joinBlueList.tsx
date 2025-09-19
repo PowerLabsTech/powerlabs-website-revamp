@@ -19,7 +19,7 @@ export const JoinBlueList = () => {
           </p>
         </div>
         <div>
-          <button className="btn-primary">Join the Blue List</button>
+          <button className="btn-primary">Subscribe</button>
         </div>
         <div className="w-full flex justify-center">
           <p className="text-xs max-w-md">
