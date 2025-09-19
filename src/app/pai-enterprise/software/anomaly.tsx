@@ -12,9 +12,10 @@ export default function Anomaly() {
             Set custom notifications for alerts that matter
           </h2>
           <p className="text-gray-300 text-secondary max-w-3xl mx-auto mt-2">
-            Determine the most optimal combination of power sources to reduce
-            your total power costs to their lowest levels possible, based on
-            your energy demand per time.
+            The Pai Enterprise Dashboard doesn’t just display numbers, it learns
+            patterns. When something shifts out of place, it detects it
+            instantly, giving you clarity before waste, downtime, or losses
+            creep in.
           </p>
         </div>
         <div>

@@ -49,7 +49,7 @@ export default function SensorCard({
 
 export function InstallCard() {
   return (
-    <div className="bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative h-[500px] overflow-hidden">
+    <div className="bg-[#161922] p-4 sm:p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative min-h-[500px] overflow-hidden">
       {/* Overlay */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
@@ -60,27 +60,28 @@ export function InstallCard() {
         />
       </div>
 
-      <div>
-        {/* Icon section (fixed height) */}
-        <div className="flex items-center justify-center h-[80px]">
+      <div className="flex flex-col items-center w-full h-full relative z-10">
+        {/* Icon */}
+        <div className="flex items-center justify-center h-[60px] sm:h-[80px]">
           <Image
             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/toolIcon.png"
             alt="tool"
-            width={64}
-            height={64}
+            width={56}
+            height={56}
+            className="sm:w-[64px] sm:h-[64px]"
           />
         </div>
 
-        {/* Title section (fixed height) */}
-        <div className="flex items-center justify-center text-center h-[60px]">
-          <h3 className="text-2xl font-bold text-gray-200">
+        {/* Title */}
+        <div className="flex items-center justify-center text-center px-2 sm:px-6 mt-4 sm:mt-6">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-200 leading-snug">
             Easy to Install, Easy to Maintain
           </h3>
         </div>
 
-        {/* Paragraph section (flexible but aligned) */}
-        <div className="flex items-center justify-center text-center flex-1">
-          <p className="text-sm text-white opacity-70 max-w-md">
+        {/* Paragraph */}
+        <div className="flex items-center justify-center text-center flex-1 mt-3 sm:mt-4 px-2 sm:px-6">
+          <p className="text-xs sm:text-sm lg:text-base text-white opacity-70 max-w-md leading-relaxed">
             Lightweight, under 500g, and compact enough for tight spaces—plus
             designed for simple setup without specialist tools or complex
             wiring.
@@ -93,7 +94,7 @@ export function InstallCard() {
 
 export function CommercialPurposeCard() {
   return (
-    <div className="bg-[#161922] p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative h-[500px] overflow-hidden">
+    <div className="bg-[#161922] p-4 sm:p-6 rounded-xl border border-gray-700/50 flex flex-col items-center justify-center relative min-h-[500px] overflow-hidden">
       {/* Overlay */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
@@ -103,27 +104,29 @@ export function CommercialPurposeCard() {
           className="object-cover"
         />
       </div>
-      <div>
-        {/* Icon section (fixed height) */}
-        <div className="flex items-center justify-center h-[80px]">
+
+      <div className="flex flex-col items-center w-full h-full relative z-10">
+        {/* Icon */}
+        <div className="flex items-center justify-center h-[60px] sm:h-[80px]">
           <Image
             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/industryIcon.png"
             alt="Industry"
-            width={64}
-            height={64}
+            width={56}
+            height={56}
+            className="sm:w-[64px] sm:h-[64px]"
           />
         </div>
 
-        {/* Title section (fixed height) */}
-        <div className="flex items-center justify-center text-center h-[60px]">
-          <h3 className="text-2xl font-bold text-gray-200">
+        {/* Title */}
+        <div className="flex items-center justify-center text-center px-2 sm:px-6 mt-4 sm:mt-6">
+          <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-200 leading-snug">
             For Commercial and Industrial Environments
           </h3>
         </div>
 
-        {/* Paragraph section (flexible but aligned) */}
-        <div className="flex items-center justify-center text-center flex-1">
-          <p className="text-sm text-white opacity-70 max-w-md">
+        {/* Paragraph */}
+        <div className="flex items-center justify-center text-center flex-1 mt-3 sm:mt-4 px-2 sm:px-6">
+          <p className="text-xs sm:text-sm lg:text-base text-white opacity-70 max-w-md leading-relaxed">
             Built tough and compact, Pai Hardware fits into factories, office
             buildings, and energy facilities without fuss—using DIN-rail or wall
             mounting options.
@@ -149,14 +152,16 @@ export function BatterySaverCard() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col text-center items-center space-y-2">
-        <h3 className="text-2xl font-bold text-gray-200">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-200 leading-snug">
           Built-In Uptime Protection
         </h3>
-        <p className="text-sm text-white opacity-70 mt-1 mb-6 max-w-md">
-          No power? No problem. With triple power input and 24-hour battery
-          backup, Pai Enterprise Sensor keeps measuring and reporting, even
-          during outages.
-        </p>
+        <div className="flex items-center justify-center text-center flex-1 mt-3 sm:mt-4 px-2 sm:px-6">
+          <p className="text-xs sm:text-sm lg:text-base text-white opacity-70 max-w-md leading-relaxed">
+            No power? No problem. With triple power input and 24-hour battery
+            backup, Pai Enterprise Sensor keeps measuring and reporting, even
+            during outages.
+          </p>
+        </div>
       </div>
 
       {/* Bottom image */}
@@ -187,14 +192,16 @@ export function PaiCard() {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col text-center items-center space-y-2">
-        <h3 className="text-2xl font-bold text-gray-200">
+        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-200 leading-snug">
           Real-Time Energy Monitoring
         </h3>
-        <p className="text-sm text-white opacity-70 mt-1 mb-6 max-w-md">
-          Tracks key power data—including voltage, current, energy use, and
-          power factor—with industry-grade accuracy. You get trusted insights to
-          manage energy smarter.
-        </p>
+        <div className="flex items-center justify-center text-center flex-1 mt-3 sm:mt-4 px-2 sm:px-6">
+          <p className="text-xs sm:text-sm lg:text-base text-white opacity-70 max-w-md leading-relaxed">
+            Tracks key power data—including voltage, current, energy use, and
+            power factor—with industry-grade accuracy. You get trusted insights
+            to manage energy smarter.
+          </p>
+        </div>
       </div>
 
       {/* Bottom image */}
