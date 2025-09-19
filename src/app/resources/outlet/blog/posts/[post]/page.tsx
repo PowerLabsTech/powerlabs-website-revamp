@@ -1,7 +1,7 @@
 'use client';
 import { IArticleData } from '@/interfaces';
 import { fetchArticleById } from '@/services/cms';
-import { ArrowLeft, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
