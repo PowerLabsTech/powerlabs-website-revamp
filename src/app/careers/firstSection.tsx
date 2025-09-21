@@ -40,8 +40,8 @@ export default function FirstSection() {
                   bring their full weight to the work. We move fast, we hold the
                   bar high, and <br className="hidden sm:block" /> we don&apos;t
                   apologise for expecting your best, every time. If you&apos;re
-                  looking for <br /> comfort, look elsewhere. Still reading?
-                  Good.
+                  looking for <br className="hidden sm:block" /> comfort, look
+                  elsewhere. Still reading? Good.
                 </span>
                 <span>
                   Maybe you&apos;re one of us.

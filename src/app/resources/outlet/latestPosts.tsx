@@ -1,11 +1,12 @@
 'use client';
 
 import { ArrowDownIcon } from '@/components/ui';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { IArticleData } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import { createRouteFromTitle } from '@/utils/stringUtils';
+import { fetchSearchedArticle } from '@/services/cms';
 
 const categories = [
   'All',
@@ -26,15 +27,42 @@ export default function LatestPost({
 }) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<IArticleData[]>([]);
+  const [debouncedTerm, setDebouncedTerm] = useState<string>(searchTerm);
+  const router = useRouter();
 
   const filteredPosts = articles?.filter((post) => {
     const matchesCategory =
-      activeCategory === 'All' || post.attributes.tag === activeCategory;
-    const matchesSearch = post.attributes.title
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
+      activeCategory === 'All' ||
+      post.attributes.tag.toLowerCase() === activeCategory.toLowerCase();
+
+    return matchesCategory;
   });
+
+  useEffect(() => {
+    const handler = setTimeout(() => setDebouncedTerm(searchTerm), 400);
+    return () => clearTimeout(handler);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    if (!debouncedTerm) {
+      setSearchResults([]);
+      return;
+    }
+
+    const fetchResults = async () => {
+      const response = await fetchSearchedArticle(debouncedTerm);
+      setSearchResults(response.data);
+    };
+
+    fetchResults();
+  }, [debouncedTerm]);
+
+  const navigateToPost = (title: string, postId: number) => {
+    router.push(
+      `outlet/blog/posts/${createRouteFromTitle(title)}?id=${postId}`
+    );
+  };
 
   return (
     <>
@@ -43,18 +71,44 @@ export default function LatestPost({
           <p className="metallic-text font-medium text-2xl md:text-[32px]">
             Latest Posts
           </p>
+          <div className="relative w-full md:w-auto">
+            {/* Input + Button Row */}
+            <div className="flex gap-4 items-center w-full md:w-auto">
+              <input
+                type="text"
+                placeholder="Search by Keywords"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="flex-grow bg-[#161B22] border border-gray-700 rounded-md py-2 pl-4 pr-10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              {/* <button
+                onClick={() => setDebouncedTerm(searchTerm)}
+                className="border-[0.5px] border-[#007AFF] w-[80px] h-[40px] p-[8px] rounded flex-shrink-0 hover:opacity-70 cursor-pointer"
+              >
+                Search
+              </button> */}
+            </div>
 
-          <div className="flex gap-4 items-center w-full md:w-auto">
-            <input
-              type="text"
-              placeholder="Search by Keywords"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="flex-grow bg-[#161B22] border border-gray-700 rounded-md py-2 pl-4 pr-10 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <button className="border-[0.5px] border-[#007AFF] w-[80px] h-[40px] p-[8px] rounded flex-shrink-0">
-              Search
-            </button>
+            {/* Results Dropdown */}
+            {searchResults.length > 0 && (
+              <div className="absolute left-0 top-full mt-2 w-full bg-[#1E222A] border border-gray-700 rounded-lg shadow-lg min-h-72 overflow-y-auto z-50">
+                {searchResults.map((article) => (
+                  <>
+                    <div
+                      key={article.id}
+                      className="flex items-center gap-3 p-3 hover:bg-gray-800 cursor-pointer"
+                      onClick={() =>
+                        navigateToPost(article.attributes.title, article.id)
+                      }
+                    >
+                      <span className="text-sm text-gray-200">
+                        {article.attributes.title}
+                      </span>
+                    </div>
+                  </>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 

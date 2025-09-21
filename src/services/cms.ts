@@ -17,7 +17,7 @@ export const eventsUrl = `${cmsURL}/api/events`;
 export const careersUrl = `${cmsURL}/api/careers`;
 
 export async function fetchArticles(page: number) {
-  const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&fields[4]=date&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;
+  const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&fields[4]=date&fields[5]=tag&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;
   try {
     const response = await fetch(url, {
       next: {
@@ -32,7 +32,22 @@ export async function fetchArticles(page: number) {
     return await response.json();
   } catch (err) {
     console.error('Error fetching data:', err);
-    throw err;
+  }
+}
+
+export async function fetchSearchedArticle(text: string) {
+  try {
+    const url = `${articleUrl}?filters[title][$containsi]=${encodeURIComponent(
+      text
+    )}&fields[0]=title&fields[1]=summary&pagination[pageSize]=5`;
+
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error('Failed to fetch searched article');
+    }
+    return await res.json();
+  } catch (err) {
+    console.error('Error fetching search data', err);
   }
 }
 

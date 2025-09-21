@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Hero() {
   return (
     <>
@@ -18,6 +20,19 @@ export default function Hero() {
           />
           Your browser does not support the video tag.
         </video>
+
+        <div className="relative z-20 h-full flex items-center px-8 md:px-16 lg:px-24 block sm:hidden">
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center z-20">
+            <Image
+              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/scrollDown.png"
+              width={20}
+              height={24}
+              alt="Scroll down icon"
+              className="animate-bounce"
+            />
+            <p className="mt-2 text-sm font-semibold">Scroll Down</p>
+          </div>
+        </div>
       </div>
     </>
   );
