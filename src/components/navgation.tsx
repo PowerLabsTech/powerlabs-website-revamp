@@ -78,7 +78,7 @@ export function Navigation() {
     >
       <div className="flex justify-between items-center py-4 px-6 md:px-12 lg:px-20">
         {/* Logo */}
-        <Link href="/">
+        <Link href="/" className="mr-2">
           <Image
             src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/PowerLogo.png"
             width={115}

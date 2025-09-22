@@ -76,9 +76,9 @@ export default function Footer() {
               <Link href={pathsRoute.podcast} prefetch>
                 <li>Podcast</li>
               </Link>
-              <Link href={pathsRoute.shop} prefetch>
+              {/* <Link href={pathsRoute.shop} prefetch>
                 <li>Shop</li>
-              </Link>
+              </Link> */}
               <Link href={pathsRoute.events} prefetch>
                 <li>Events</li>
               </Link>

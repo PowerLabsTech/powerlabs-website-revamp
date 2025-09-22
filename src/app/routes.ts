@@ -9,7 +9,7 @@ export const pathsRoute = {
   partnerHub: '/resources/partner-hub',
   careers: '/careers',
   podcast: '/community/podcast',
-  shop: '/community/shop',
+  // shop: '/community/shop',
   events: '/community/events',
   ambassadors: '/community/ambassadors',
   company: '/company',
@@ -67,7 +67,7 @@ export const paths = [
     path: '/community',
     dropdown: [
       { category: 'Podcast', path: '/community/podcast' },
-      { category: 'Shop', path: '/community/shop' },
+      // { category: 'Shop', path: '/community/shop' },
       { category: 'Events', path: '/community/events' },
       { category: 'Ambassadors', path: '/community/ambassadors' },
     ],
