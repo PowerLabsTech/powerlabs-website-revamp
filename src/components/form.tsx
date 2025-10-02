@@ -20,13 +20,12 @@ export default function Form({
   const [emailErrorStatus, setEmailErrorStatus] = React.useState(false);
 
   const [formData, setFormData] = React.useState<{ [key: string]: string }>({
-    EMAIL: '',
-    FNAME: '',
-    LNAME: '',
-    MMERGE3: '',
-    MMERGE4: '',
-    MMERGE9: '',
-    MMERGE10: '',
+    EMAIL: '', // Email Address
+    FNAME: '', // First Name
+    LNAME: '', // Last Name
+    MMERGE5: '', // Company Name
+    MMERGE11: '', // Company Role
+    MESSAGE: '', // Your Message
   });
 
   // function normalCase(str) {
@@ -154,18 +153,16 @@ export default function Form({
               fingertips. Ready to harness it?
             </p>
             <div className="mt-5">
-              {waitlistDetails.map((details) => (
-                <>
-                  <div className="flex mb-5">
-                    <div className="mr-5">{details.icon}</div>
-                    <div>
-                      <h2 className="mb-3 font-medium">
-                        <b> {details.title.toLocaleUpperCase()}</b>
-                      </h2>
-                      <h2 className="font-light">{details.description}</h2>
-                    </div>
+              {waitlistDetails.map((details, index) => (
+                <div className="flex mb-5" key={index}>
+                  <div className="mr-5">{details.icon}</div>
+                  <div>
+                    <h2 className="mb-3 font-medium">
+                      <b> {details.title.toLocaleUpperCase()}</b>
+                    </h2>
+                    <h2 className="font-light">{details.description}</h2>
                   </div>
-                </>
+                </div>
               ))}
             </div>
           </div>
@@ -292,6 +289,32 @@ export default function Form({
                       required
                       onChange={(e) =>
                         setFormData({ ...formData, MMERGE11: e.target.value })
+                      }
+                      onPointerEnterCapture={undefined}
+                      onPointerLeaveCapture={undefined}
+                      crossOrigin={undefined}
+                      onResize={undefined}
+                      onResizeCapture={undefined}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="message" className="text-base">
+                    Message
+                  </label>
+                  <div className="mb-5">
+                    <Input
+                      autoComplete="off"
+                      name="message"
+                      type="text"
+                      placeholder="Your message"
+                      className="mt-1.5 !border !border-default/[12%] px-[14px] py-2.5 rounded-lg text-default placeholder:opacity-[32%] focus:!border-[#1570EF] text-base bg-[#0F1015]"
+                      labelProps={{
+                        className: 'hidden',
+                      }}
+                      required
+                      onChange={(e) =>
+                        setFormData({ ...formData, MESSAGE: e.target.value })
                       }
                       onPointerEnterCapture={undefined}
                       onPointerLeaveCapture={undefined}
