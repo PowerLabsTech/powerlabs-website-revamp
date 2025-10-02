@@ -12,7 +12,7 @@ const categories = [
   'All',
   'Blog',
   'Releases',
-  'Product Announcement',
+  'Product Announcements',
   'Research',
 ];
 
