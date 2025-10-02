@@ -1,3 +1,5 @@
+'use client';
+
 import Button from '@/components/button';
 import SubscribeForm, { SubscribeBlog } from '@/components/subscribe';
 import { NEWS_LETTERS_TYPE } from '@/enums';
