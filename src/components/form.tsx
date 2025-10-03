@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from '../components/footer';
-import { Card, Input, Button } from '@material-tailwind/react';
+import { Card, Input, Button, Textarea } from '@material-tailwind/react';
 import Container from './container';
 import { useRouter } from 'next/navigation';
 import { personalDomains } from '@/utils/constants';
@@ -303,10 +303,10 @@ export default function Form({
                     Message
                   </label>
                   <div className="mb-5">
-                    <Input
+                    <Textarea
                       autoComplete="off"
+                      rows={6}
                       name="message"
-                      type="text"
                       placeholder="Your message"
                       className="mt-1.5 !border !border-default/[12%] px-[14px] py-2.5 rounded-lg text-default placeholder:opacity-[32%] focus:!border-[#1570EF] text-base bg-[#0F1015]"
                       labelProps={{
@@ -316,9 +316,9 @@ export default function Form({
                       onChange={(e) =>
                         setFormData({ ...formData, MESSAGE: e.target.value })
                       }
+                      size="lg"
                       onPointerEnterCapture={undefined}
                       onPointerLeaveCapture={undefined}
-                      crossOrigin={undefined}
                       onResize={undefined}
                       onResizeCapture={undefined}
                     />
