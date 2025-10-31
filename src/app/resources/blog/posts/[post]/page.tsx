@@ -15,10 +15,14 @@ export default function BlogPostPage() {
   const param = useSearchParams();
 
   const fetchPostData = async () => {
-    const id = param.get('id');
-    if (!!id) {
-      const response = await fetchArticleById(id);
-      setArticle(response.data as IArticleData);
+    try {
+      const id = param.get('id');
+      if (!!id) {
+        const response = await fetchArticleById(id);
+        setArticle(response.data as IArticleData);
+      }
+    } finally {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
