@@ -7,6 +7,7 @@ export interface IArticleData {
     updatedAt: string;
     publishedAt: string;
     author: string;
+    authorRole: string;
     readingTime: number;
     summary: string;
     avatar: {

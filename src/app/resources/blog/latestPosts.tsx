@@ -10,7 +10,7 @@ import { fetchSearchedArticle } from '@/services/cms';
 
 const categories = [
   'All',
-  'Blog',
+  'Stories',
   'Releases',
   'Product Announcements',
   'Research',
@@ -167,9 +167,7 @@ export default function LatestPost({
 const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
   const router = useRouter();
   const navigateToPost = (title: string, postId: number) => {
-    router.push(
-      `outlet/blog/posts/${createRouteFromTitle(title)}?id=${postId}`
-    );
+    router.push(`blog/posts/${createRouteFromTitle(title)}?id=${postId}`);
   };
 
   return (
@@ -192,7 +190,8 @@ const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
           {post.attributes.title}
         </h3>
         <p className="text-sm text-gray-400 mb-4">
-          {post.attributes.author ?? 'John Doe'}
+          {post.attributes.author ?? 'John Doe'}{' '}
+          {post.attributes.authorRole && ` - ${post.attributes.authorRole}`}
         </p>
         <div className="border-[0.5px] border-[#FAFAFA1F] mb-2"></div>
         <div className="flex items-center gap-4">

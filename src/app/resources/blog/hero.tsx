@@ -10,9 +10,7 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">
-        <h2 className="hero-text-heading mb-2 metallic-text-long">
-          The Outlet
-        </h2>
+        <h2 className="hero-text-heading mb-2 metallic-text-long">Blog</h2>
         <p className="text-secondary">Not the science. Just the story.</p>
       </div>
       <SubscribeFormBlog newsLetterType={NEWS_LETTERS_TYPE.GENERAL} />
@@ -24,9 +22,7 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
 function FeaturedCard({ article }: { article?: IArticleData }) {
   const router = useRouter();
   const navigateToPost = (title: string, postId: number) => {
-    router.push(
-      `outlet/blog/posts/${createRouteFromTitle(title)}?id=${postId}`
-    );
+    router.push(`blog/posts/${createRouteFromTitle(title)}?id=${postId}`);
   };
   return !!article?.attributes ? (
     <div
@@ -53,7 +49,11 @@ function FeaturedCard({ article }: { article?: IArticleData }) {
             <h3 className="text-white font-semibold text-2xl md:text-4xl">
               {article?.attributes.title}
             </h3>
-            <p>{article?.attributes.author ?? 'PowerLabs Team'}</p>
+            <p>
+              {article?.attributes.author ?? 'PowerLabs Team'}
+              {article?.attributes.authorRole &&
+                ` - ${article?.attributes.authorRole}`}
+            </p>
           </div>
 
           {/* 2. Bottom Group */}

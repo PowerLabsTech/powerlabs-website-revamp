@@ -53,8 +53,49 @@ export default function MissionSection() {
       {/* RESPONSIVE: This section is now naturally responsive without animations on mobile */}
       <div ref={scrollSection}>
         <section className="scrollOver h-auto lg:h-[100vh] relative overflow-hidden">
+          {/* mobile display */}
           <div
-            className="scrollOver1 relative lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
+            className="scrollOver1 relative block lg:hidden absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
+            style={{
+              backgroundImage:
+                "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImageMobile.jpg')",
+              height: '100vh',
+              backgroundSize: 'cover',
+              alignItems: 'flex-end',
+            }}
+          >
+            <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+            {/* RESPONSIVE: Drastically reduced padding on mobile */}
+            <div className="absolute bottom-0 z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
+              <div className="mb-4">
+                {/* RESPONSIVE: Adjusted font size */}
+                <h2 className="text-3xl md:text-[40px] font-medium">
+                  Unlocking Limitless
+                </h2>
+                <h2 className="text-3xl md:text-[40px] font-medium">
+                  Human Productivity
+                </h2>
+              </div>
+              <Button
+                variant="outline"
+                onClick={() => router.push(pathsRoute.limitlessProductivity)}
+                icon={<span className="font-bold text-xl">&rarr;</span>}
+              >
+                Learn More
+              </Button>
+            </div>
+            <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full hidden md:block">
+              <Image
+                src={chevronDown}
+                alt="Chevron down"
+                width={50}
+                height={50}
+              />
+            </div>
+          </div>
+          {/* desktop display */}
+          <div
+            className="scrollOver1 relative hidden lg:block lg:absolute top-0 w-full bg-no-repeat bg-center flex justify-start z-20"
             style={{
               backgroundImage:
                 "url('https://ews-app-s3.s3.us-east-1.amazonaws.com/website/missionImage1.jpg')",
@@ -65,7 +106,7 @@ export default function MissionSection() {
           >
             <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
             {/* RESPONSIVE: Drastically reduced padding on mobile */}
-            <div className="relative z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
+            <div className="absolute bottom-0 z-10 text-left text-white p-8 md:p-16 lg:p-[148px]">
               <div className="mb-4">
                 {/* RESPONSIVE: Adjusted font size */}
                 <h2 className="text-3xl md:text-[40px] font-medium">

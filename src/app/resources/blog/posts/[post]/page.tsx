@@ -54,6 +54,9 @@ export default function BlogPostPage() {
               className="rounded-full object-cover w-6 h-6"
             />
             <span>{article?.attributes.author ?? 'PowerLabs Team'}</span>
+            {article?.attributes.authorRole && (
+              <span>- {article?.attributes.authorRole ?? 'Author'}</span>
+            )}
             <span>|</span>
             <span>{article?.attributes.readingTime ?? ''} mins</span>
           </div>

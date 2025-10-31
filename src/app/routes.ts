@@ -5,7 +5,7 @@ export const pathsRoute = {
   gym: '/pai-enterprise/business-types/gyms',
   hardware: '/pai-enterprise/hardware',
   software: '/pai-enterprise/software',
-  outlet: '/resources/outlet',
+  blog: '/resources/blog',
   partnerHub: '/resources/partner-hub',
   careers: '/careers',
   podcast: '/community/podcast',
@@ -18,9 +18,8 @@ export const pathsRoute = {
   cookies: '/cookies',
   contactSales: '/contact-sales',
   limitlessProductivity:
-    '/resources/outlet/blog/posts/Unlocking-Limitless-Human-Productivity?id=13',
-  intelligentEnergy:
-    '/resources/outlet/blog/posts/Through-Intelligent-Energy?id=12',
+    '/resources/blog/posts/Unlocking-Limitless-Human-Productivity?id=13',
+  intelligentEnergy: '/resources/blog/posts/Through-Intelligent-Energy?id=12',
 };
 
 export const paths = [
@@ -53,7 +52,7 @@ export const paths = [
     path: '/resources',
     // This item will have a dropdown menu
     dropdown: [
-      { category: 'The Outlet', path: '/resources/outlet' },
+      { category: 'Blog', path: '/resources/blog' },
       // { category: 'Lab Notes', path: '/resources/lab-notes' },
       // { category: 'Webinars', path: '/resources/webinars' },
       // { category: 'Case Studies', path: '/resources/case-studies' },

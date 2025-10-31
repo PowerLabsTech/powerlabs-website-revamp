@@ -31,6 +31,11 @@ const brochures = [
     link: '/salesDocs/Pai_Enterprise_Data_Center.pdf',
     src: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/salesBrochureDataCenters.png',
   },
+  {
+    title: 'Tower Companies',
+    link: '/salesDocs/Pai_Enterprise_Tower_Companies.pdf',
+    src: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/salesBrochureTowerCompanies.png',
+  },
 ];
 
 export default function Brochure() {
