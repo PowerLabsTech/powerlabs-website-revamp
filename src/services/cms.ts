@@ -16,23 +16,17 @@ export const shopCategoriesUrl = `${cmsURL}/api/shop-categories`;
 export const eventsUrl = `${cmsURL}/api/events`;
 export const careersUrl = `${cmsURL}/api/careers`;
 
-export async function fetchArticles(page: number) {
-  const url = `${articleUrl}?fields[0]=title&fields[1]=createdAt&fields[2]=author&fields[3]=readingTime&fields[4]=date&fields[5]=tag&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=6`;
-  try {
-    const response = await fetch(url, {
-      next: {
-        revalidate: 3600, // Cache the result for 1 hour (3600 seconds)
-      },
-    });
+//  {
+//     next: { revalidate: 3600 }, // server-side caching
+//   }
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch articles');
-    }
+export async function fetchArticles(page: number, pageNumber: number = 6) {
+  const url = `${articleUrl}?fields[0]=title&fields[1]=slug&fields[2]=createdAt&fields[3]=author&fields[4]=readingTime&fields[5]=date&fields[6]=tag&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=${page}&pagination[pageSize]=${pageNumber}`;
 
-    return await response.json();
-  } catch (err) {
-    console.error('Error fetching data:', err);
-  }
+  const res = await fetch(url);
+
+  if (!res.ok) throw new Error('Failed to fetch articles');
+  return await res.json();
 }
 
 export async function fetchSearchedArticle(text: string) {
@@ -59,6 +53,26 @@ export async function fetchLatestArticle() {
   } catch (err) {
     console.error('Error fetching data:', err);
     throw err;
+  }
+}
+
+export async function fetchArticleBySlug(slug: string) {
+  console.log('slug name', slug);
+  const url = `${articleUrl}?filters[slug][$eq]=${slug}&populate=*`;
+
+  console.log('fetching slug article...');
+
+  try {
+    const response = await fetch(url);
+
+    console.log('slug response', response);
+    console.log('slug response status', response.status);
+    if (!response.ok) throw new Error('Failed to fetch article');
+    const data = await response.json();
+    return (data.data[0] as IArticleData) || null;
+  } catch (err) {
+    console.error(err);
+    return null;
   }
 }
 
@@ -97,7 +111,7 @@ export async function fetchPodcasts() {
 
 // shops
 export async function fetchShops() {
-  const url = `${shopsUrl}?fields[0]=collectionName&fields[1]=createdAt&fields[2]=summary&fields[3]=link&fields[4]=announcement&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=6`;
+  const url = `${shopsUrl}?fields[0]=collectionName&fields[1]=createdAt&fields[2]=summary&fields[3]=link&fields[4]=slug&fields[5]=announcement&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc&pagination[page]=1&pagination[pageSize]=6`;
   try {
     const response = await fetch(url, {
       next: {
@@ -123,6 +137,26 @@ export async function fetchShopsById(id: string) {
     return response.data as { data: IShop };
   } catch (err) {
     console.error('Error fetching data:', err);
+    throw err;
+  }
+}
+
+export async function fetchShopBySlug(slug: string): Promise<IShop | null> {
+  if (!slug) throw new Error('Shop slug is required');
+
+  const url = `${shopsUrl}?filters[slug][$eq]=${encodeURIComponent(
+    slug
+  )}&populate=*`;
+
+  try {
+    const response = await axios.get(url);
+
+    const data = response.data?.data;
+    if (!data || data.length === 0) return null;
+
+    return data[0] as IShop;
+  } catch (err) {
+    console.error(`Error fetching shop by slug (${slug}):`, err);
     throw err;
   }
 }

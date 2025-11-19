@@ -1,6 +1,7 @@
+'use client';
 import { IArticleData } from '@/interfaces';
 import { Copy } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FaXTwitter,
   FaFacebookF,
@@ -9,7 +10,12 @@ import {
 } from 'react-icons/fa6';
 
 export default function ShareArticle({ article }: { article: IArticleData }) {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  const [currentUrl, setCurrentUrl] = useState('');
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
+
   const title = article?.attributes?.title || 'Check this out';
 
   const [copied, setCopied] = React.useState(false);

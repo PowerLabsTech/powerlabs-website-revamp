@@ -1,64 +1,36 @@
-// 'use client';
+import { fetchShopCategories, fetchShops } from '@/services/cms';
+import HeroShop from './hero';
+import Footer from '@/components/footer';
+import Container from '@/components/container';
+import { Subscribe } from '@/app/subscribe';
 
-// import React, { useEffect } from 'react';
-// import HeroShop from './hero';
-// import { IShop, IShopCategory } from '@/interfaces';
-// import { fetchShopCategories, fetchShops } from '@/services/cms';
-// import Footer from '@/components/footer';
-// import Container from '@/components/container';
-// import { Subscribe } from '@/app/subscribe';
+export default async function ShopPage() {
+  const [shopsRes, categoriesRes] = await Promise.all([
+    fetchShops(),
+    fetchShopCategories(),
+  ]);
 
-// export default function ShopPage() {
-//   const [, setIsLoading] = React.useState<boolean>(false);
-//   const [shops, setShops] = React.useState<IShop[]>([]);
-//   const [shopsCategories, setShopsCategories] = React.useState<IShopCategory[]>(
-//     []
-//   );
+  const shops = shopsRes?.data ?? [];
+  const shopCategories = categoriesRes?.data ?? [];
 
-//   const init = async () => {
-//     try {
-//       setIsLoading(true);
+  return (
+    <>
+      <HeroShop props={{ shops, shopCategories }} />
 
-//       const [shopsRes, categoriesRes] = await Promise.all([
-//         fetchShops(),
-//         fetchShopCategories(),
-//       ]);
+      <Subscribe
+        title="Learn more about PowerLabs"
+        subtitle="Get the latest PowerLabs news via email."
+      />
 
-//       if (shopsRes?.data?.length) {
-//         setShops(shopsRes.data);
-//       }
-
-//       if (categoriesRes?.data?.length) {
-//         setShopsCategories(categoriesRes.data);
-//       }
-//     } catch (error) {
-//       console.error('Failed to load data:', error);
-//     } finally {
-//       window.scrollTo({ top: 0, behavior: 'smooth' });
-//       setIsLoading(false);
-//     }
-//   };
-
-//   useEffect(() => {
-//     init();
-//   }, []);
-
-//   return (
-//     <>
-//       <HeroShop props={{ shops, shopCategories: shopsCategories }} />
-//       <Subscribe
-//         title="Learn more about PowerLabs"
-//         subtitle="Get the latest PowerLabs news via email."
-//       />
-//       <Container>
-//         <Footer />
-//       </Container>
-//     </>
-//   );
-// }
-
-import { redirect } from 'next/navigation';
-
-export default function DisabledPage() {
-  redirect('/');
+      <Container>
+        <Footer />
+      </Container>
+    </>
+  );
 }
+
+// import { redirect } from 'next/navigation';
+
+// export default function DisabledPage() {
+//   redirect('/');
+// }

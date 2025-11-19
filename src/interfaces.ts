@@ -10,6 +10,7 @@ export interface IArticleData {
     authorRole: string;
     readingTime: number;
     summary: string;
+    slug: string;
     avatar: {
       data: { id: number; attributes: { url: string } };
     };
@@ -43,6 +44,7 @@ export interface IPod {
     announcement: string;
     createdAt: string;
     updatedAt: string;
+    slug: string;
     publishedAt: string;
     coverImage: {
       data: {
@@ -63,6 +65,7 @@ export interface IShop {
     summary: string;
     post: string;
     link: string;
+    slug: string;
     announcement: string;
     updatedAt: string;
     publishedAt: string;
@@ -84,6 +87,7 @@ export interface IShopCategory {
     createdAt: string;
     link: string;
     description: string;
+    slug: string;
     updatedAt: string;
     publishedAt: string;
     coverImage: {

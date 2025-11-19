@@ -1,47 +1,39 @@
-'use client';
-import { ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
-import React, { useEffect } from 'react';
-import { IShop } from '@/interfaces';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { fetchShopsById } from '@/services/cms';
+import { ArrowLeft } from 'lucide-react';
+import { fetchShopBySlug } from '@/services/cms';
 import { displayFriendlyDate } from '@/utils/stringUtils';
 import ReactMarkdown from 'react-markdown';
+import { notFound } from 'next/navigation';
+import Link from 'next/link';
+import { pathsRoute } from '@/app/routes';
 
-export default function Shop() {
-  const [article, setArticle] = React.useState<IShop>();
+interface Props {
+  params: { slug: string };
+}
 
-  const param = useSearchParams();
-  const router = useRouter();
-  const params = useParams();
+export default async function ShopPage({ params }: Props) {
+  const { slug } = params;
+  const shop = await fetchShopBySlug(slug);
 
-  const fetchPostData = async () => {
-    const id = param.get('id');
-    if (!!id) {
-      const response = await fetchShopsById(id);
-      setArticle(response.data as IShop);
-    }
-  };
+  if (!shop) return notFound();
 
-  useEffect(() => {
-    fetchPostData();
-  }, []);
+  const coverUrl = shop.attributes.coverImage.data.attributes.url ?? '';
 
   return (
     <>
       <div className="w-full p-10">
         <div className="min-h-screen  text-white">
           {/* Back Button */}
-          <div
-            className="max-w-4xl mx-auto px-4 py-6 flex items-center gap-2 text-gray-300"
-            onClick={() => router.back()}
+          <Link
+            href={pathsRoute.shop}
+            className="max-w-4xl mx-auto px-4 py-6 flex items-center gap-2 text-gray-300 hover:text-white"
           >
             <ArrowLeft size={18} />
-            <span className="cursor-pointer hover:text-white">Back</span>
-          </div>
+            <span>Back</span>
+          </Link>
 
           {/* Header Section */}
-          <div className="max-w-4xl mx-auto flex flex-col gap-10 items-center justify-center px-4">
+          <div className="w-full mx-auto flex items-center justify-center py-6">
             <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
               <Image
                 src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerlabsIcon.png"
@@ -49,22 +41,18 @@ export default function Shop() {
                 width={50}
                 height={50}
               />
-              <p className="text-gray-400 text-sm">
-                {displayFriendlyDate(article?.attributes.publishedAt ?? '') ??
-                  ''}
-              </p>
+              <p>{displayFriendlyDate(shop.attributes.publishedAt ?? '')}</p>
             </div>
-
-            <div>
-              <h3 className="text-3xl font-semibold metallic-text">
-                {params.slug?.toString().replace('-', ' ')}
-              </h3>
-            </div>
-            {/* content*/}
-            <article className="prose prose-invert lg:prose-xl mx-auto">
-              <ReactMarkdown>{article?.attributes.post}</ReactMarkdown>
-            </article>
           </div>
+
+          <h3 className="text-3xl font-semibold metallic-text text-center">
+            {shop.attributes.collectionName}
+          </h3>
+
+          {/* Content */}
+          <article className="prose prose-invert lg:prose-xl mx-auto">
+            <ReactMarkdown>{shop.attributes.post}</ReactMarkdown>
+          </article>
         </div>
       </div>
     </>

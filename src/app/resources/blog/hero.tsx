@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function HeroOutlet({ article }: { article?: IArticleData }) {
+  console.log('article', article);
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">
@@ -21,13 +22,13 @@ export default function HeroOutlet({ article }: { article?: IArticleData }) {
 
 function FeaturedCard({ article }: { article?: IArticleData }) {
   const router = useRouter();
-  const navigateToPost = (title: string, postId: number) => {
-    router.push(`blog/posts/${createRouteFromTitle(title)}?id=${postId}`);
+  const navigateToPost = (slug: string) => {
+    router.push(`blog/posts/${slug}`);
   };
   return !!article?.attributes ? (
     <div
       className="bg-[#1570EF14] w-full lg:w-7xl mx-auto p-6 md:p-10 flex min-h-[28rem] flex-col lg:flex-row rounded-lg items-center gap-8 cursor-pointer hover:shadow-lg transition-shadow duration-300"
-      onClick={() => navigateToPost(article.attributes.title, article.id)}
+      onClick={() => navigateToPost(article.attributes.slug)}
     >
       <div className="w-full lg:w-1/2 h-64 md:h-80 lg:h-full relative rounded-lg overflow-hidden">
         <Image

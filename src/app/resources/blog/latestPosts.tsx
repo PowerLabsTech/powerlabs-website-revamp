@@ -7,6 +7,7 @@ import { IArticleData } from '@/interfaces';
 import { useRouter } from 'next/navigation';
 import { createRouteFromTitle } from '@/utils/stringUtils';
 import { fetchSearchedArticle } from '@/services/cms';
+import Link from 'next/link';
 
 const categories = [
   'All',
@@ -166,56 +167,55 @@ export default function LatestPost({
 
 const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
   const router = useRouter();
-  const navigateToPost = (title: string, postId: number) => {
-    router.push(`blog/posts/${createRouteFromTitle(title)}?id=${postId}`);
+  const navigateToPost = (slug: string) => {
+    router.push(`/resources/blog/posts/${slug}`);
   };
 
   return (
-    <div
-      className="bg-[#0D1117] text-white rounded-lg overflow-hidden group cursor-pointer"
-      onClick={() => navigateToPost(post.attributes.title, post.id)}
-    >
-      <div className="relative w-full h-48 overflow-hidden">
-        <img
-          src={post.attributes.coverImage.data.attributes.url ?? ''}
-          alt={post.attributes.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          // In a real Next.js app, you'd use the Image component:
-          // import Image from 'next/image';
-          // <Image src={post.imageUrl} alt={post.title} layout="fill" objectFit="cover" ... />
-        />
-      </div>
-      <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2 h-14 line-clamp-2">
-          {post.attributes.title}
-        </h3>
-        <p className="text-sm text-gray-400 mb-4">
-          {post.attributes.author ?? 'John Doe'}{' '}
-          {post.attributes.authorRole && ` - ${post.attributes.authorRole}`}
-        </p>
-        <div className="border-[0.5px] border-[#FAFAFA1F] mb-2"></div>
-        <div className="flex items-center gap-4">
-          <div>
-            <Image
-              src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pLogoIcon.png"
-              alt="logo"
-              width={10}
-              height={10}
-            />
-          </div>
-
-          <div className="flex flex-col  text-xs text-gray-400">
+    <Link href={`/resources/blog/posts/${post.attributes.slug}`}>
+      <div className="bg-[#0D1117] text-white rounded-lg overflow-hidden group cursor-pointer">
+        <div className="relative w-full h-48 overflow-hidden">
+          <img
+            src={post.attributes.coverImage.data.attributes.url ?? ''}
+            alt={post.attributes.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            // In a real Next.js app, you'd use the Image component:
+            // import Image from 'next/image';
+            // <Image src={post.imageUrl} alt={post.title} layout="fill" objectFit="cover" ... />
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="text-lg font-semibold mb-2 h-14 line-clamp-2">
+            {post.attributes.title}
+          </h3>
+          <p className="text-sm text-gray-400 mb-4">
+            {post.attributes.author ?? 'John Doe'}{' '}
+            {post.attributes.authorRole && ` - ${post.attributes.authorRole}`}
+          </p>
+          <div className="border-[0.5px] border-[#FAFAFA1F] mb-2"></div>
+          <div className="flex items-center gap-4">
             <div>
-              <span className="text-blue-500">{post.attributes.tag}</span>
+              <Image
+                src="https://ews-app-s3.s3.us-east-1.amazonaws.com/website/pLogoIcon.png"
+                alt="logo"
+                width={10}
+                height={10}
+              />
             </div>
-            <div>
-              <span>{post.attributes.date}</span>
-              <span className="mx-2">•</span>
-              <span>{post.attributes.readingTime ?? ''} mins read</span>
+
+            <div className="flex flex-col  text-xs text-gray-400">
+              <div>
+                <span className="text-blue-500">{post.attributes.tag}</span>
+              </div>
+              <div>
+                <span>{post.attributes.date}</span>
+                <span className="mx-2">•</span>
+                <span>{post.attributes.readingTime ?? ''} mins read</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
