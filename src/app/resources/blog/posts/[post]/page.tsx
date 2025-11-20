@@ -8,11 +8,7 @@ import { IArticleData } from '@/interfaces';
 import BackButtonFallback from './backFallback';
 
 // auto-generate meta tags using Next.js API
-export async function generateMetadata({
-  params,
-}: {
-  params: { post: string };
-}) {
+export async function generateMetadata({ params }: any) {
   const { post } = params;
   const article: IArticleData | null = await fetchArticleBySlug(post);
 
@@ -45,11 +41,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { post: string };
-}) {
+export default async function BlogPostPage({ params }: any) {
   const article: IArticleData | null = await fetchArticleBySlug(params.post);
 
   if (!article) {

@@ -7,11 +7,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { pathsRoute } from '@/app/routes';
 
-interface Props {
-  params: { slug: string };
-}
-
-export default async function ShopPage({ params }: Props) {
+export default async function ShopPage({ params }: any) {
   const { slug } = params;
   const shop = await fetchShopBySlug(slug);
 

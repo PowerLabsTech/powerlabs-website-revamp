@@ -6,16 +6,11 @@ import { displayFriendlyDate } from '@/utils/stringUtils';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-interface Props {
-  params: { slug: string };
-}
+export default async function EventPage({ params }: any) {
+  const slug = params.slug;
 
-export default async function EventPage({ params }: Props) {
-  const { slug } = params;
-
-  // Fetch event by slug (server-side)
-  const response = await fetchEventsBySlug(slug);
-  const event = response;
+  // Fetch the event server-side by slug
+  const event = await fetchEventsBySlug(slug);
 
   if (!event) return notFound();
 
@@ -46,9 +41,9 @@ export default async function EventPage({ params }: Props) {
         </div>
 
         {/* Title */}
-        <h3 className="text-3xl font-semibold metallic-text capitalize">
+        <h1 className="text-3xl font-semibold metallic-text capitalize">
           {event.attributes.title}
-        </h3>
+        </h1>
 
         {/* Markdown Content */}
         <article className="prose prose-invert lg:prose-xl mx-auto">
