@@ -166,11 +166,6 @@ export default function LatestPost({
 }
 
 const BlogCard: React.FC<{ post: IArticleData }> = ({ post }) => {
-  const router = useRouter();
-  const navigateToPost = (slug: string) => {
-    router.push(`/resources/blog/posts/${slug}`);
-  };
-
   return (
     <Link href={`/resources/blog/posts/${post.attributes.slug}`}>
       <div className="bg-[#0D1117] text-white rounded-lg overflow-hidden group cursor-pointer">

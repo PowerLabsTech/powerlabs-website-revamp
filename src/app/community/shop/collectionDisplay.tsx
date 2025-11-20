@@ -3,12 +3,9 @@
 import Button from '@/components/button';
 import Image from 'next/image';
 import { IShop } from '@/interfaces';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function CollectionDisplayClient({ prop }: { prop: IShop }) {
-  const router = useRouter();
-
   if (!prop?.attributes) return null;
 
   return (
