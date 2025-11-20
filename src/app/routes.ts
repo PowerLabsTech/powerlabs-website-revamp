@@ -18,8 +18,8 @@ export const pathsRoute = {
   cookies: '/cookies',
   contactSales: '/contact-sales',
   limitlessProductivity:
-    '/resources/blog/posts/Unlocking-Limitless-Human-Productivity?id=13',
-  intelligentEnergy: '/resources/blog/posts/Through-Intelligent-Energy?id=12',
+    '/resources/blog/posts/unlocking-limitless-human-productivity',
+  intelligentEnergy: '/resources/blog/posts/through-intelligent-energy',
 };
 
 export const paths = [

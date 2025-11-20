@@ -22,8 +22,6 @@ export async function POST(req: Request) {
   try {
     const { email, newsLetterType } = await req.json();
 
-    console.log('body', { email, newsLetterType });
-
     if (!email) {
       return NextResponse.json(
         { success: 'failed', error: 'Invalid email. Email not provided' },

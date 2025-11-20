@@ -9,6 +9,7 @@ import { ScrollTrigger } from 'gsap/all';
 import { pathsRoute } from './routes';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/button';
+import Link from 'next/link';
 
 export default function MissionSection() {
   const scrollSection = useRef(null);
@@ -116,13 +117,14 @@ export default function MissionSection() {
                   Human Productivity
                 </h2>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => router.push(pathsRoute.limitlessProductivity)}
-                icon={<span className="font-bold text-xl">&rarr;</span>}
-              >
-                Learn More
-              </Button>
+              <Link href={pathsRoute.limitlessProductivity}>
+                <Button
+                  variant="outline"
+                  icon={<span className="font-bold text-xl">&rarr;</span>}
+                >
+                  Learn More
+                </Button>
+              </Link>
             </div>
             <div className="absolute bottom-10  translate-x-1/2 z-10 text-center w-full hidden md:block">
               <Image
@@ -151,13 +153,14 @@ export default function MissionSection() {
                   Intelligent Energy
                 </h2>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => router.push(pathsRoute.intelligentEnergy)}
-                icon={<span className="font-bold text-xl">&rarr;</span>}
-              >
-                Learn More
-              </Button>
+              <Link href={pathsRoute.intelligentEnergy}>
+                <Button
+                  variant="outline"
+                  icon={<span className="font-bold text-xl">&rarr;</span>}
+                >
+                  Learn More
+                </Button>
+              </Link>
             </div>
             <div className="absolute bottom-10 translate-x-1/2 z-10 text-center w-full hidden md:block">
               <Image

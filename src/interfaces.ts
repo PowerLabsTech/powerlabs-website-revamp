@@ -108,6 +108,7 @@ export interface IEvents {
     post: string;
     summary: string;
     updatedAt: string;
+    slug: string;
     publishedAt: string;
     coverImage: {
       data: {

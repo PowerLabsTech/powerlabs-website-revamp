@@ -2,12 +2,10 @@
 import { SubscribeFormBlog } from '@/app/subscribe';
 import { NEWS_LETTERS_TYPE } from '@/enums';
 import { IArticleData } from '@/interfaces';
-import { createRouteFromTitle } from '@/utils/stringUtils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function HeroOutlet({ article }: { article?: IArticleData }) {
-  console.log('article', article);
   return (
     <div className="space-y-10 grid place-content-center p-4">
       <div className="text-center">

@@ -17,8 +17,6 @@ export default async function ShopPage({ params }: Props) {
 
   if (!shop) return notFound();
 
-  const coverUrl = shop.attributes.coverImage.data.attributes.url ?? '';
-
   return (
     <>
       <div className="w-full p-10">

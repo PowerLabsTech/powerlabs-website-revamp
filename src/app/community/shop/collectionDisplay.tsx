@@ -4,15 +4,10 @@ import Button from '@/components/button';
 import Image from 'next/image';
 import { IShop } from '@/interfaces';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function CollectionDisplayClient({ prop }: { prop: IShop }) {
   const router = useRouter();
-
-  const navigateToPost = (slug: string) => {
-    router.push(`/community/shop/${slug}`);
-  };
-
-  console.log('announcement', prop.attributes);
 
   if (!prop?.attributes) return null;
 
@@ -42,9 +37,9 @@ export default function CollectionDisplayClient({ prop }: { prop: IShop }) {
         </h3>
 
         <div className="flex items-center justify-center gap-4 md:gap-6">
-          <Button onClick={() => navigateToPost(prop.attributes.slug)}>
-            View More
-          </Button>
+          <Link href={`/community/shop/${prop.attributes.slug}`}>
+            <Button>View More</Button>
+          </Link>
         </div>
       </div>
     </div>

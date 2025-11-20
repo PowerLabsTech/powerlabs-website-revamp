@@ -4,9 +4,8 @@ import ShareArticle from '@/components/shareArticles';
 import { fetchArticleBySlug } from '@/services/cms';
 import { displayFriendlyDate } from '@/utils/stringUtils';
 import Image from 'next/image';
-import Link from 'next/link';
 import { IArticleData } from '@/interfaces';
-import { pathsRoute } from '@/app/routes';
+import BackButtonFallback from './backFallback';
 
 // auto-generate meta tags using Next.js API
 export async function generateMetadata({
@@ -14,7 +13,8 @@ export async function generateMetadata({
 }: {
   params: { post: string };
 }) {
-  const article: IArticleData | null = await fetchArticleBySlug(params.post);
+  const { post } = params;
+  const article: IArticleData | null = await fetchArticleBySlug(post);
 
   if (!article) {
     return {
@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   const { title, summary, coverImage } = article.attributes;
 
-  const canonicalUrl = `https://powerlabstech.com/resources/blog/posts/${params.post}`;
+  const canonicalUrl = `https://powerlabstech.com/resources/blog/posts/${post}`;
 
   return {
     title,
@@ -64,12 +64,7 @@ export default async function BlogPostPage({
         <div className="min-h-screen text-white">
           {/* Back */}
           <div className="max-w-4xl mx-auto px-4 py-6 flex items-center gap-2 text-gray-300">
-            <Link
-              href={pathsRoute.blog}
-              className="flex items-center gap-2 hover:text-white"
-            >
-              ← Back
-            </Link>
+            <BackButtonFallback />
           </div>
 
           {/* Header */}

@@ -1,4 +1,3 @@
-'use client';
 import { Subscribe } from '@/app/subscribe';
 import HeroEvents from './hero';
 import Footer from '@/components/footer';
