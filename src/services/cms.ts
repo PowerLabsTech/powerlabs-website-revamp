@@ -33,7 +33,7 @@ export async function fetchSearchedArticle(text: string) {
   try {
     const url = `${articleUrl}?filters[title][$containsi]=${encodeURIComponent(
       text
-    )}&fields[0]=title&fields[1]=summary&pagination[pageSize]=5`;
+    )}&fields[0]=title&fields[1]=summary&fields[2]=slug&pagination[pageSize]=5`;
 
     const res = await fetch(url);
     if (!res.ok) {
@@ -43,6 +43,18 @@ export async function fetchSearchedArticle(text: string) {
   } catch (err) {
     console.error('Error fetching search data', err);
   }
+}
+
+export async function fetchArticlesByCategory(category: string) {
+  const res = await fetch(
+    `${articleUrl}?filters[tag][$eq]=${category}&fields[0]=title&fields[1]=slug&fields[2]=createdAt&fields[3]=author&fields[4]=readingTime&fields[5]=date&fields[6]=tag&populate[coverImage][fields][0]=url&populate[tag][fields][0]=name&sort[0]=publishedAt:desc`
+  );
+  if (!res.ok) {
+    console.error('Failed to fetch articles by category');
+    return [];
+  }
+  const data = await res.json();
+  return data.data as IArticleData[];
 }
 
 export async function fetchLatestArticle() {

@@ -13,7 +13,7 @@ const tabsData: TabData[] = [
     id: 2,
     title: 'Stop guessing. Spot the problem.',
     description:
-      'Idle machines pulling phantom power? Pai catches them all and turns silent energy drains into real savings you can reinvest in your factory.',
+      'Idle machines pulling phantom power? Pai Enterprise catches them all and turns silent energy drains into real savings you can reinvest in your factory.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerDeliverySource.png',
   },
@@ -21,7 +21,7 @@ const tabsData: TabData[] = [
     id: 3,
     title: 'Energy Mix, Made Personal',
     description:
-      'Whether it’s grid supply, solar, batteries, or generators, Pai measures your real energy needs and recommends the perfect mix and size.',
+      'Whether it’s grid supply, solar, batteries, or generators, Pai Enterprise measures your real energy needs and recommends the perfect mix and size.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/sourceCards.png',
   },

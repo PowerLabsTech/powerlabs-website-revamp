@@ -21,7 +21,7 @@ const tabsData: TabData[] = [
     id: 3,
     title: 'Economic Results',
     description:
-      'By right-sizing in real time, Pai turns operational excess into measurable savings, boosting efficiency while extending asset life.',
+      'By right-sizing in real time, Pai Enterprise turns operational excess into measurable savings, boosting efficiency while extending asset life.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/optEconomicResults.png',
   },

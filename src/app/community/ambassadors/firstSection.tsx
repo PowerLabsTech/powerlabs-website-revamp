@@ -9,7 +9,7 @@ const internshipInfos = [
   {
     title: 'Branded PowerLabs merch and collateral',
     text: 'Our ambassadors receive exclusive branded gear that reflects pride, belonging, and a shared vision of limitless human productivity. ',
-    url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/giftBox.png',
+    url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/brandShirt.png',
   },
   {
     title: 'Exclusive access to PowerLabs events ',
@@ -24,7 +24,7 @@ const internshipInfos = [
   {
     title: 'Free access to PowerLabs University ',
     text: 'With free resources, and courses, ambassadors access opportunities designed to shape skills and prepare them for tomorrow.',
-    url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/graduation.png',
+    url: 'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/book.png',
   },
   {
     title: 'Work on research projects, hackathons & More',

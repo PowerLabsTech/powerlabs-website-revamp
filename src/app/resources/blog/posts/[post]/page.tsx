@@ -60,29 +60,35 @@ export default async function BlogPostPage({ params }: any) {
           </div>
 
           {/* Header */}
-          <div className="max-w-4xl mx-auto px-4">
-            <p className="text-gray-400 text-sm">
-              {displayFriendlyDate(article.attributes.date)}
-            </p>
+          <div className="max-w-4xl mx-auto px-4 space-y-4">
+            {/* date and mins read */}
+            <div className="flex items-center gap-2 text-gray-400 text-sm">
+              <p className="text-gray-400 text-sm">
+                {displayFriendlyDate(article.attributes.date)}
+              </p>
+              <span>|</span>
+              <span>{article.attributes.readingTime} mins</span>
+            </div>
 
             {/* Author */}
-            <div className="flex items-center gap-2 text-gray-400 text-sm mt-1">
+            <div className="flex items-center gap-4 text-gray-400 text-sm mt-1">
               <Image
                 src={
                   article.attributes.avatar?.data?.attributes?.url ||
-                  'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerlabsIcon.png'
+                  'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerlabsIconWhite.png'
                 }
                 alt="User avatar"
-                width={24}
-                height={24}
-                className="rounded-full"
+                width={30}
+                height={30}
               />
-              <span>{article.attributes.author ?? 'PowerLabs Team'}</span>
-              {article.attributes.authorRole && (
-                <span>- {article.attributes.authorRole}</span>
-              )}
-              <span>|</span>
-              <span>{article.attributes.readingTime} mins</span>
+              <div>
+                <p className="text-white font-semibold">
+                  {article.attributes.author ?? 'PowerLabs Team'}
+                </p>
+                {article.attributes.authorRole && (
+                  <p>{article.attributes.authorRole}</p>
+                )}
+              </div>
             </div>
 
             {/* Title */}

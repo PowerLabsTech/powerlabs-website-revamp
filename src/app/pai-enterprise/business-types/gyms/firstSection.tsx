@@ -5,7 +5,7 @@ const tabsData: TabData[] = [
     id: 1,
     title: 'Grid? Generator? Solar? You Know.',
     description:
-      'No guessing where the power’s coming from or going. Pai tracks it all, so you control the costs, not the electric company.',
+      'No guessing where the power’s coming from or going. Pai Enterprise tracks it all, so you control the costs, not the electric company.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/energySourceContribution.png',
   },
@@ -21,7 +21,7 @@ const tabsData: TabData[] = [
     id: 3,
     title: 'Right-Sized. Right-Priced.',
     description:
-      'Overpaying for backup generators you don’t need or risking downtime when you do? Pai sizes your backup perfectly, no sweat.',
+      'Overpaying for backup generators you don’t need or risking downtime when you do? Pai Enterprise sizes your backup perfectly, no sweat.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/sourceCards.png',
   },

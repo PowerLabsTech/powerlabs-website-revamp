@@ -11,9 +11,9 @@ const tabsData: TabData[] = [
   },
   {
     id: 2,
-    title: 'Stop Guessing. Pai is Watching.',
+    title: 'Stop Guessing. Pai Enterprise is Watching.',
     description:
-      'Pai doesn’t throw data at you, it gives you clarity. Where’s the theatre’s HVAC wasting energy overnight? Which floor runs machines when no one’s around? You get simple, action-ready answers.',
+      'Pai Enterprise doesn’t throw data at you, it gives you clarity. Where’s the theatre’s HVAC wasting energy overnight? Which floor runs machines when no one’s around? You get simple, action-ready answers.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/powerDeliverySource.png',
   },
@@ -21,7 +21,7 @@ const tabsData: TabData[] = [
     id: 3,
     title: 'Not Too Big. Not Too Small. Just Right.',
     description:
-      'Oversized generators burn cash. Undersized ones risk blackout panic. Pai uses real hospital load data to right-size your power systems. Perfect balance. No drama.',
+      'Oversized generators burn cash. Undersized ones risk blackout panic. Pai Enterprise uses real hospital load data to right-size your power systems. Perfect balance. No drama.',
     imageUrl:
       'https://ews-app-s3.s3.us-east-1.amazonaws.com/website/sourceCards.png',
   },
